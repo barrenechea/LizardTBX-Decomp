@@ -1,0 +1,64 @@
+using System;
+using System.CodeDom.Compiler;
+using System.ComponentModel;
+using System.Configuration;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Threading;
+using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.CompilerServices;
+
+namespace Lzard_TBX_NET40.My
+{
+	[EditorBrowsable(EditorBrowsableState.Advanced)]
+	[CompilerGenerated]
+	[GeneratedCode("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0")]
+	internal sealed class MySettings : ApplicationSettingsBase
+	{
+		private static MySettings defaultInstance = (MySettings)SettingsBase.Synchronized(new MySettings());
+
+		private static bool addedHandler;
+
+		private static object addedHandlerLockObject = RuntimeHelpers.GetObjectValue(new object());
+
+		public static MySettings Default
+		{
+			get
+			{
+				if (!addedHandler)
+				{
+					object obj = addedHandlerLockObject;
+					ObjectFlowControl.CheckForSyncLockOnValueType(obj);
+					bool lockTaken = false;
+					try
+					{
+						Monitor.Enter(obj, ref lockTaken);
+						if (!addedHandler)
+						{
+							Class2.utmuBufTB.Shutdown += new ShutdownEventHandler(AutoSaveSettings);
+							addedHandler = true;
+						}
+					}
+					finally
+					{
+						if (lockTaken)
+						{
+							Monitor.Exit(obj);
+						}
+					}
+				}
+				return defaultInstance;
+			}
+		}
+
+		[EditorBrowsable(EditorBrowsableState.Advanced)]
+		[DebuggerNonUserCode]
+		private static void AutoSaveSettings(object sender, EventArgs e)
+		{
+			if (Class2.utmuBufTB.SaveMySettingsOnExit)
+			{
+				MySettingsProperty.Settings.Save();
+			}
+		}
+	}
+}
