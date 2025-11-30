@@ -268,12 +268,6 @@ namespace Lzard_TBX_NET40
 		[AccessedThroughProperty("Label22")]
 		private Label _Label22;
 
-		[AccessedThroughProperty("TabPage5")]
-		private TabPage _TabPage5;
-
-		[AccessedThroughProperty("WebBrowser2")]
-		private WebBrowser _WebBrowser2;
-
 		[AccessedThroughProperty("Button4")]
 		private Button CqEunbgPfj;
 
@@ -2339,32 +2333,6 @@ namespace Lzard_TBX_NET40
 					_Label22.MouseEnter += value4;
 					_Label22.Click += value5;
 				}
-			}
-		}
-
-		internal virtual TabPage TabPage5
-		{
-			get
-			{
-				return _TabPage5;
-			}
-			[MethodImpl(MethodImplOptions.Synchronized)]
-			set
-			{
-				_TabPage5 = value;
-			}
-		}
-
-		internal virtual WebBrowser WebBrowser2
-		{
-			get
-			{
-				return _WebBrowser2;
-			}
-			[MethodImpl(MethodImplOptions.Synchronized)]
-			set
-			{
-				_WebBrowser2 = value;
 			}
 		}
 
@@ -5812,8 +5780,6 @@ namespace Lzard_TBX_NET40
 			this.Label52 = new System.Windows.Forms.Label();
 			this.Button58 = new System.Windows.Forms.Button();
 			this.Label53 = new System.Windows.Forms.Label();
-			this.TabPage5 = new System.Windows.Forms.TabPage();
-			this.WebBrowser2 = new System.Windows.Forms.WebBrowser();
 			this.TabPage6 = new System.Windows.Forms.TabPage();
 			this.Label25 = new System.Windows.Forms.Label();
 			this.BtnHitRead = new System.Windows.Forms.Button();
@@ -5964,7 +5930,6 @@ namespace Lzard_TBX_NET40
 			this.TabControl5.SuspendLayout();
 			this.TabPage_7.SuspendLayout();
 			this.TabPage_8.SuspendLayout();
-			this.TabPage5.SuspendLayout();
 			this.TabPage6.SuspendLayout();
 			this.GroupBox6.SuspendLayout();
 			this.TabPage7.SuspendLayout();
@@ -5986,7 +5951,6 @@ namespace Lzard_TBX_NET40
 			this.TabControl4.SuspendLayout();
 			this.TabPage_3.SuspendLayout();
 			this.TabPage_4.SuspendLayout();
-			this.TabPage_5.SuspendLayout();
 			this.GroupBox_4.SuspendLayout();
 			this.GroupBox_5.SuspendLayout();
 			this.GroupBox_3.SuspendLayout();
@@ -6207,7 +6171,6 @@ namespace Lzard_TBX_NET40
 			this.TabControl1.Controls.Add(this.TabPage2);
 			this.TabControl1.Controls.Add(this.TabPage3);
 			this.TabControl1.Controls.Add(this.TabPage_6);
-			this.TabControl1.Controls.Add(this.TabPage5);
 			this.TabControl1.Controls.Add(this.TabPage6);
 			this.TabControl1.Controls.Add(this.TabPage7);
 			this.TabControl1.Controls.Add(this.TabPage8);
@@ -7522,30 +7485,6 @@ namespace Lzard_TBX_NET40
 			label90.Size = size;
 			this.Label53.TabIndex = 12;
 			this.Label53.Text = resources.GetString("Label53.Text");
-			this.TabPage5.Controls.Add(this.WebBrowser2);
-			System.Windows.Forms.TabPage tabPage21 = this.TabPage5;
-			location = new System.Drawing.Point(4, 25);
-			tabPage21.Location = location;
-			this.TabPage5.Name = "TabPage5";
-			System.Windows.Forms.TabPage tabPage22 = this.TabPage5;
-			size = new System.Drawing.Size(673, 416);
-			tabPage22.Size = size;
-			this.TabPage5.TabIndex = 3;
-			this.TabPage5.Text = "Chat";
-			this.TabPage5.UseVisualStyleBackColor = true;
-			this.WebBrowser2.Dock = System.Windows.Forms.DockStyle.Fill;
-			System.Windows.Forms.WebBrowser webBrowser = this.WebBrowser2;
-			location = new System.Drawing.Point(0, 0);
-			webBrowser.Location = location;
-			System.Windows.Forms.WebBrowser webBrowser2 = this.WebBrowser2;
-			size = new System.Drawing.Size(20, 20);
-			webBrowser2.MinimumSize = size;
-			this.WebBrowser2.Name = "WebBrowser2";
-			System.Windows.Forms.WebBrowser webBrowser3 = this.WebBrowser2;
-			size = new System.Drawing.Size(673, 416);
-			webBrowser3.Size = size;
-			this.WebBrowser2.TabIndex = 0;
-			this.WebBrowser2.Url = new System.Uri("http://360lizard.com/website/tbxapp/chatwide.php", System.UriKind.Absolute);
 			this.TabPage6.Controls.Add(this.Label25);
 			this.TabPage6.Controls.Add(this.BtnHitRead);
 			this.TabPage6.Controls.Add(this.txbhitread);
@@ -8984,7 +8923,6 @@ namespace Lzard_TBX_NET40
 			this.TabPage_7.PerformLayout();
 			this.TabPage_8.ResumeLayout(false);
 			this.TabPage_8.PerformLayout();
-			this.TabPage5.ResumeLayout(false);
 			this.TabPage6.ResumeLayout(false);
 			this.TabPage6.PerformLayout();
 			this.GroupBox6.ResumeLayout(false);
