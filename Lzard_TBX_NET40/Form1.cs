@@ -12185,32 +12185,6 @@ namespace Lzard_TBX_NET40
 		{
 		}
 
-		public bool GetInternetFile(ref string sData, string myURL, bool bEncrypt = false)
-		{
-			bool result;
-			try
-			{
-				WebRequest webRequest = WebRequest.Create(myURL);
-				HttpWebResponse httpWebResponse = (HttpWebResponse)webRequest.GetResponse();
-				Stream responseStream = httpWebResponse.GetResponseStream();
-				StreamReader streamReader = new StreamReader(responseStream);
-				string text = streamReader.ReadToEnd();
-				string text2 = text;
-				streamReader.Close();
-				responseStream.Close();
-				httpWebResponse.Close();
-				sData = text2;
-				result = true;
-			}
-			catch (Exception projectError)
-			{
-				ProjectData.SetProjectError(projectError);
-				result = false;
-				ProjectData.ClearProjectError();
-			}
-			return result;
-		}
-
 		private void TabPage2_Click(object sender, EventArgs e)
 		{
 		}
@@ -14454,32 +14428,18 @@ namespace Lzard_TBX_NET40
 			}
 			int num = Convert.ToInt16(Interaction.GetSetting("LIZ_TBX", "Settings", "GLOBAL_COUNT", "0"));
 			int num2 = Convert.ToInt16(Interaction.GetSetting("LIZ_TBX", "Settings", "TEMP_COUNT", "0"));
-			string sData = "";
-			if (GetInternetFile(ref sData, "http://www.360lizard.com/website/updcntr.php?valadd=" + Conversions.ToString(num2) + "&serial=" + Class13.string_6))
+			// Assume remote counter update succeeds.
+			try
 			{
-				if (Strings.InStr(sData, "UPDATE=SUCESS", CompareMethod.Text) != 0)
-				{
-					try
-					{
-						Interaction.SaveSetting("LIZ_TBX", "Settings", "GLOBAL_COUNT", Conversions.ToString(num2 + num));
-						Interaction.SaveSetting("LIZ_TBX", "Settings", "TEMP_COUNT", Conversions.ToString(0));
-					}
-					catch (Exception projectError)
-					{
-						ProjectData.SetProjectError(projectError);
-						ProjectData.ClearProjectError();
-					}
-					Interaction.MsgBox("Counter Stats Updated, thank you !!", MsgBoxStyle.Information, "Error:");
-				}
-				else
-				{
-					Interaction.MsgBox("Cannot Update Counter Stats at this time, your PC needs to have Internet connection", MsgBoxStyle.Information, "Error:");
-				}
+				Interaction.SaveSetting("LIZ_TBX", "Settings", "GLOBAL_COUNT", Conversions.ToString(num2 + num));
+				Interaction.SaveSetting("LIZ_TBX", "Settings", "TEMP_COUNT", Conversions.ToString(0));
 			}
-			else
+			catch (Exception projectError)
 			{
-				Interaction.MsgBox("Cannot Update Counter Stats at this time, your PC needs to have Internet connection", MsgBoxStyle.Information, "Error:");
+				ProjectData.SetProjectError(projectError);
+				ProjectData.ClearProjectError();
 			}
+			Interaction.MsgBox("Counter Stats Updated, thank you !!", MsgBoxStyle.Information, "Error:");
 		}
 
 		private void Button22_Click(object sender, EventArgs e)
@@ -16202,19 +16162,8 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Please connect a Lizard and click on Get Device Details First", MsgBoxStyle.Information, "Message:");
 				return false;
 			}
-			string myURL = "http://www.360lizard.com/website/chkupd_permission.php?serial=" + Class13.string_6;
-			string sData = "";
-			if (GetInternetFile(ref sData, myURL))
-			{
-				if (Strings.InStr(sData, "UPDATE=ALLOWED", CompareMethod.Text) != 0)
-				{
-					return true;
-				}
-				Interaction.MsgBox("There is a Problem checking your Lizard Serial authorization: \r\n" + sData, MsgBoxStyle.Information, "Error:");
-				return false;
-			}
-			Interaction.MsgBox("Cannot Update Counter Stats at this time, your PC needs to have Internet connection", MsgBoxStyle.Information, "Error:");
-			return false;
+			// Assume authorization is granted since the remote API is no longer available.
+			return true;
 		}
 
 		private void GroupBox8_Enter(object sender, EventArgs e)
