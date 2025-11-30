@@ -10,7 +10,6 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Lzard_TBX_NET40;
 using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.VisualBasic.CompilerServices;
 
 [HideModuleName]
@@ -125,61 +124,6 @@ internal sealed class Class2
 	}
 
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	[MyGroupCollection("System.Web.Services.Protocols.SoapHttpClientProtocol", "Create__Instance__", "Dispose__Instance__", "")]
-	internal sealed class Class4
-	{
-		[DebuggerHidden]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public override bool Equals(object obj)
-		{
-			return base.Equals(RuntimeHelpers.GetObjectValue(obj));
-		}
-
-		[DebuggerHidden]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public override int GetHashCode()
-		{
-			return base.GetHashCode();
-		}
-
-		[DebuggerHidden]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		internal Type method_0()
-		{
-			return typeof(Class4);
-		}
-
-		[DebuggerHidden]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public override string ToString()
-		{
-			return base.ToString();
-		}
-
-		[DebuggerHidden]
-		private static T smethod_0<T>(T instance) where T : new()
-		{
-			if (instance == null)
-			{
-				return new T();
-			}
-			return instance;
-		}
-
-		[DebuggerHidden]
-		private void method_1<T>(ref T gparam_0)
-		{
-			gparam_0 = default(T);
-		}
-
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DebuggerHidden]
-		public Class4()
-		{
-		}
-	}
-
-	[EditorBrowsable(EditorBrowsableState.Never)]
 	[ComVisible(false)]
 	internal sealed class Class5<T> where T : new()
 	{
@@ -209,11 +153,7 @@ internal sealed class Class2
 
 	private static readonly Class5<Form0> class5_1 = new Class5<Form0>();
 
-	private static readonly Class5<User> class5_2 = new Class5<User>();
-
 	private static Class5<Class3> class5_3 = new Class5<Class3>();
-
-	private static readonly Class5<Class4> class5_4 = new Class5<Class4>();
 
 	[HelpKeyword("My.Computer")]
 	internal static Class1 Class1_0
@@ -235,16 +175,6 @@ internal sealed class Class2
 		}
 	}
 
-	[HelpKeyword("My.User")]
-	internal static User User_0
-	{
-		[DebuggerHidden]
-		get
-		{
-			return class5_2.method_0();
-		}
-	}
-
 	[HelpKeyword("My.Forms")]
 	internal static Class3 Class3_0
 	{
@@ -252,16 +182,6 @@ internal sealed class Class2
 		get
 		{
 			return class5_3.method_0();
-		}
-	}
-
-	[HelpKeyword("My.WebServices")]
-	internal static Class4 Class4_0
-	{
-		[DebuggerHidden]
-		get
-		{
-			return class5_4.method_0();
 		}
 	}
 }
