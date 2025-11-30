@@ -23,7 +23,7 @@ internal class Form0 : WindowsFormsApplicationBase
 		finally
 		{
 		}
-		Class2.utmuBufTB.Run(args);
+		MyProject.Application.Run(args);
 	}
 
 	[DebuggerStepThrough]
@@ -39,6 +39,6 @@ internal class Form0 : WindowsFormsApplicationBase
 	[DebuggerStepThrough]
 	protected override void OnCreateMainForm()
 	{
-		MainForm = Class2.Class3_0.utmuBufTB();
+		MainForm = MyProject.Forms.Form1;
 	}
 }

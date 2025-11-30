@@ -35,7 +35,7 @@ namespace Lzard_TBX_NET40.My
 						Monitor.Enter(obj, ref lockTaken);
 						if (!addedHandler)
 						{
-							Class2.utmuBufTB.Shutdown += new ShutdownEventHandler(AutoSaveSettings);
+							MyProject.Application.Shutdown += new ShutdownEventHandler(AutoSaveSettings);
 							addedHandler = true;
 						}
 					}
@@ -55,7 +55,7 @@ namespace Lzard_TBX_NET40.My
 		[DebuggerNonUserCode]
 		private static void AutoSaveSettings(object sender, EventArgs e)
 		{
-			if (Class2.utmuBufTB.SaveMySettingsOnExit)
+			if (MyProject.Application.SaveMySettingsOnExit)
 			{
 				MySettingsProperty.Settings.Save();
 			}

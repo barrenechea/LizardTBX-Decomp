@@ -835,9 +835,9 @@ namespace Lzard_TBX_NET40
 
 		private int int_3;
 
-		private Class7.Struct0 struct0_0;
+		private BitmapHeaders.BitmapFileHeader struct0_0;
 
-		private Class7.Struct1 struct1_0;
+		private BitmapHeaders.BitmapInfoHeader struct1_0;
 
 		private bool bool_1;
 
@@ -847,13 +847,13 @@ namespace Lzard_TBX_NET40
 
 		private bool bool_2;
 
-		private Class13.Struct5[] struct5_0;
+		private ToolboxUtilities.Struct5[] struct5_0;
 
 		private bool bool_3;
 
-		private Class11.Struct3[] struct3_0;
+		private CfwTemplateParser.Struct3[] struct3_0;
 
-		private Class11.Struct4[] struct4_0;
+		private CfwTemplateParser.Struct4[] struct4_0;
 
 		private int int_4;
 
@@ -5584,7 +5584,7 @@ namespace Lzard_TBX_NET40
 			}
 			byte[] array = new byte[16];
 			byte b = 0;
-			array = Class13.cpoahSiso(txbEV_SrcKey.Text);
+			array = ToolboxUtilities.cpoahSiso(txbEV_SrcKey.Text);
 			bool bisvalid = false;
 			byte num = LIZ_PageCodeLog(pc, ref array, ref bPCLog, ref bisvalid);
 			b = (byte)(0u - (bisvalid ? 1u : 0u));
@@ -5605,7 +5605,7 @@ namespace Lzard_TBX_NET40
 		public Form1()
 		{
 			base.Load += new EventHandler(Form1_Load);
-			struct5_0 = new Class13.Struct5[16];
+			struct5_0 = new ToolboxUtilities.Struct5[16];
 			byte_0 = new byte[97];
 			byte_1 = new byte[181];
 			byte_2 = new byte[81];
@@ -8985,7 +8985,7 @@ namespace Lzard_TBX_NET40
 			{
 				Interaction.SaveSetting("LIZ_TBX", "Settings", "TEMP_COUNT", Conversions.ToString(0));
 			}
-			double_3 = Class13.smethod_27("1.60");
+			double_3 = ToolboxUtilities.smethod_27("1.60");
 			double_4 = 0.0;
 			method_0();
 			if (int_4 == 0 && Interaction.MsgBox("You want to download latest CFW Filesets Now?\r\nIf you choose not download now you can get them later on the Easy View tab of the CFW Generator Pane", MsgBoxStyle.YesNo | MsgBoxStyle.Question, "Question") == MsgBoxResult.Yes)
@@ -9064,7 +9064,7 @@ namespace Lzard_TBX_NET40
 			string pathName = Application.StartupPath + "\\CFW_Templates\\";
 			string text = FileSystem.Dir(pathName);
 			int_4 = 0;
-			Class11.Struct3 @struct = default(Class11.Struct3);
+			CfwTemplateParser.Struct3 @struct = default(CfwTemplateParser.Struct3);
 			@struct.string_0 = "";
 			@struct.string_1 = "";
 			@struct.string_2 = "";
@@ -9072,9 +9072,9 @@ namespace Lzard_TBX_NET40
 			while (Operators.CompareString(text, "", false) != 0)
 			{
 				string text2 = Application.StartupPath + "\\CFW_Templates\\" + text;
-				if (Class11.smethod_0(text2, ref @struct))
+				if (CfwTemplateParser.smethod_0(text2, ref @struct))
 				{
-					struct3_0 = (Class11.Struct3[])Utils.CopyArray(struct3_0, new Class11.Struct3[int_4 + 1]);
+					struct3_0 = (CfwTemplateParser.Struct3[])Utils.CopyArray(struct3_0, new CfwTemplateParser.Struct3[int_4 + 1]);
 					struct3_0[int_4] = @struct;
 					int_4++;
 				}
@@ -9178,13 +9178,13 @@ namespace Lzard_TBX_NET40
 			ValueType Value = struct0_0;
 			FileSystem.FileGet(1, ref Value);
 			ValueType valueType = Value;
-			Class7.Struct0 @struct = default(Class7.Struct0);
-			struct0_0 = ((valueType != null) ? ((Class7.Struct0)valueType) : @struct);
+			BitmapHeaders.BitmapFileHeader @struct = default(BitmapHeaders.BitmapFileHeader);
+			struct0_0 = ((valueType != null) ? ((BitmapHeaders.BitmapFileHeader)valueType) : @struct);
 			Value = struct1_0;
 			FileSystem.FileGet(1, ref Value);
 			ValueType valueType2 = Value;
-			Class7.Struct1 struct2 = default(Class7.Struct1);
-			struct1_0 = ((valueType2 != null) ? ((Class7.Struct1)valueType2) : struct2);
+			BitmapHeaders.BitmapInfoHeader struct2 = default(BitmapHeaders.BitmapInfoHeader);
+			struct1_0 = ((valueType2 != null) ? ((BitmapHeaders.BitmapInfoHeader)valueType2) : struct2);
 			FileSystem.FileClose(1);
 			if (struct0_0.short_0 != 19778)
 			{
@@ -9284,7 +9284,7 @@ namespace Lzard_TBX_NET40
 				int num14 = struct1_0.int_1 - 1;
 				for (int j = 0; j <= num14; j++)
 				{
-					text = text + Class13.smethod_2(array2[i, j]) + " ";
+					text = text + ToolboxUtilities.smethod_2(array2[i, j]) + " ";
 					buf[i * num7 + j] = array2[i, j];
 				}
 			}
@@ -9348,7 +9348,7 @@ namespace Lzard_TBX_NET40
 			{
 				if (buf[2] == 6)
 				{
-					Label1.Text = Class13.smethod_2(buf[0]) + Class13.smethod_2(buf[1]);
+					Label1.Text = ToolboxUtilities.smethod_2(buf[0]) + ToolboxUtilities.smethod_2(buf[1]);
 				}
 				else
 				{
@@ -9540,7 +9540,7 @@ namespace Lzard_TBX_NET40
 					array[3] = (byte)((iaddress / 16777216) & 0xFF);
 					array[4] = (byte)(isize & 0xFF);
 					array[5] = (byte)((isize / 256) & 0xFF);
-					array[6] = Class13.smethod_4(array, 6);
+					array[6] = ToolboxUtilities.smethod_4(array, 6);
 					try
 					{
 						SerialPort1.Write(array, 0, 7);
@@ -9557,7 +9557,7 @@ namespace Lzard_TBX_NET40
 						{
 							if (ReadUSARTw_to(ref buf, 513))
 							{
-								if (Class13.smethod_4(buf, 512) == buf[512])
+								if (ToolboxUtilities.smethod_4(buf, 512) == buf[512])
 								{
 									Interaction.MsgBox("Datos Recibido Exitosamente", MsgBoxStyle.Information, "Error:");
 								}
@@ -9645,7 +9645,7 @@ namespace Lzard_TBX_NET40
 				array[3] = (byte)((iaddress / 16777216) & 0xFF);
 				array[4] = (byte)(isize & 0xFF);
 				array[5] = (byte)((isize / 256) & 0xFF);
-				array[6] = Class13.smethod_4(array, 6);
+				array[6] = ToolboxUtilities.smethod_4(array, 6);
 				try
 				{
 					SerialPort1.Write(array, 0, 7);
@@ -9719,7 +9719,7 @@ namespace Lzard_TBX_NET40
 				buf[2] = (byte)((iaddress / 65536) & 0xFF);
 				buf[3] = (byte)((iaddress / 16777216) & 0xFF);
 				buf[4] = isize;
-				buf[5] = Class13.smethod_4(buf, 5);
+				buf[5] = ToolboxUtilities.smethod_4(buf, 5);
 				try
 				{
 					SerialPort1.Write(buf, 0, 6);
@@ -9748,7 +9748,7 @@ namespace Lzard_TBX_NET40
 		public byte SPIF_WRITEPAGE(int iaddress, int isize, ref byte[] buf, bool bContinuedRead = false)
 		{
 			byte[] buf2 = new byte[11];
-			buf[isize] = Class13.smethod_4(buf, isize);
+			buf[isize] = ToolboxUtilities.smethod_4(buf, isize);
 			int count;
 			if (!bContinuedRead)
 			{
@@ -9791,7 +9791,7 @@ namespace Lzard_TBX_NET40
 				buf2[3] = (byte)((iaddress / 16777216) & 0xFF);
 				buf2[4] = (byte)(isize & 0xFF);
 				buf2[5] = (byte)((isize / 256) & 0xFF);
-				buf2[6] = Class13.smethod_4(buf2, 6);
+				buf2[6] = ToolboxUtilities.smethod_4(buf2, 6);
 				try
 				{
 					SerialPort1.Write(buf2, 0, 7);
@@ -9873,7 +9873,7 @@ namespace Lzard_TBX_NET40
 		public byte liz_SERVEPAGE(int isize, ref byte[] buf)
 		{
 			byte[] buf2 = new byte[11];
-			buf[isize] = Class13.smethod_4(buf, isize);
+			buf[isize] = ToolboxUtilities.smethod_4(buf, isize);
 			if (ReadUSARTw_to(ref buf2, 1))
 			{
 				if (buf2[0] == 2)
@@ -9961,7 +9961,7 @@ namespace Lzard_TBX_NET40
 			if (method_2(ref buf2, ref bheight, ref bwidth, ref size, sfile, Invertbits))
 			{
 				buf2 = (byte[])Utils.CopyArray(buf2, new byte[size + 1]);
-				buf2[size] = Class13.smethod_4(buf2, size);
+				buf2[size] = ToolboxUtilities.smethod_4(buf2, size);
 				if (!method_11())
 				{
 					Interaction.MsgBox("Cannot Open COM Port, select a valid port", MsgBoxStyle.Exclamation, "Error:");
@@ -9991,7 +9991,7 @@ namespace Lzard_TBX_NET40
 						array[3] = bwidth;
 						array[4] = (byte)(size & 0xFF);
 						array[5] = (byte)((size / 256) & 0xFF);
-						array[6] = Class13.smethod_4(array, 6);
+						array[6] = ToolboxUtilities.smethod_4(array, 6);
 						try
 						{
 							SerialPort1.Write(array, 0, 7);
@@ -10191,7 +10191,7 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("You cannot flash files bigger than 256KB maybe u choose wrong file?", MsgBoxStyle.Exclamation, "Error");
 				return;
 			}
-			if (Class12.smethod_8(OpenFileDialog1.FileName))
+			if (FirmwareUtilities.smethod_8(OpenFileDialog1.FileName))
 			{
 				Interaction.MsgBox("You cannot send Snapshot/Dummy Files to be written\r\nUse the CFW Generator Pane to create a custom firmware with this snapshot/dummy ", MsgBoxStyle.Exclamation, "Error");
 				return;
@@ -10486,14 +10486,14 @@ namespace Lzard_TBX_NET40
 			byte[] array8 = new byte[32];
 			byte[] array9 = new byte[16];
 			byte[] array10 = new byte[2];
-			Class13.smethod_19(ref array, 0, 512, 0);
-			Class13.smethod_19(ref array2, 0, 116, 0);
-			Class13.smethod_19(ref array3, 0, 116, 0);
-			Class13.smethod_19(ref array5, 0, 16, 0);
-			Class13.smethod_19(ref array4, 0, 80, byte.MaxValue);
-			Class13.smethod_19(ref array6, 0, array6.Length, byte.MaxValue);
-			Class13.smethod_19(ref array7, 0, 48, 0);
-			Class13.smethod_19(ref array8, 0, 32, 0);
+			ToolboxUtilities.smethod_19(ref array, 0, 512, 0);
+			ToolboxUtilities.smethod_19(ref array2, 0, 116, 0);
+			ToolboxUtilities.smethod_19(ref array3, 0, 116, 0);
+			ToolboxUtilities.smethod_19(ref array5, 0, 16, 0);
+			ToolboxUtilities.smethod_19(ref array4, 0, 80, byte.MaxValue);
+			ToolboxUtilities.smethod_19(ref array6, 0, array6.Length, byte.MaxValue);
+			ToolboxUtilities.smethod_19(ref array7, 0, 48, 0);
+			ToolboxUtilities.smethod_19(ref array8, 0, 32, 0);
 			string pathName = text + "INQUIRY.BIN";
 			if (Operators.CompareString(FileSystem.Dir(pathName), "", false) != 0)
 			{
@@ -10501,7 +10501,7 @@ namespace Lzard_TBX_NET40
 				int int_;
 				if (num >= 116L)
 				{
-					array2 = Class12.smethod_35(pathName, 0L, 116);
+					array2 = FirmwareUtilities.smethod_35(pathName, 0L, 116);
 					int_ = 116;
 				}
 				else
@@ -10511,7 +10511,7 @@ namespace Lzard_TBX_NET40
 						Interaction.MsgBox("Inquiry file has wrong size", MsgBoxStyle.Information, "Error:");
 						return false;
 					}
-					array2 = Class12.smethod_35(pathName, 0L, 96);
+					array2 = FirmwareUtilities.smethod_35(pathName, 0L, 96);
 					int_ = 96;
 				}
 				pathName = text + "SECINQ.BIN";
@@ -10521,7 +10521,7 @@ namespace Lzard_TBX_NET40
 					num = FileSystem.FileLen(pathName);
 					if (num >= 116L)
 					{
-						array3 = Class12.smethod_35(pathName, 0L, 116);
+						array3 = FirmwareUtilities.smethod_35(pathName, 0L, 116);
 						int_2 = 116;
 					}
 					else
@@ -10531,7 +10531,7 @@ namespace Lzard_TBX_NET40
 							Interaction.MsgBox("Inquiry file has wrong size", MsgBoxStyle.Information, "Error:");
 							return false;
 						}
-						array3 = Class12.smethod_35(pathName, 0L, 96);
+						array3 = FirmwareUtilities.smethod_35(pathName, 0L, 96);
 						int_2 = 96;
 					}
 				}
@@ -10544,12 +10544,12 @@ namespace Lzard_TBX_NET40
 						Interaction.MsgBox("Identify file has wrong size", MsgBoxStyle.Information, "Error:");
 						return false;
 					}
-					array = Class12.smethod_35(pathName, 0L, 512);
-					string text2 = Class13.smethod_1(ref array2) + Class13.smethod_1(ref array3);
+					array = FirmwareUtilities.smethod_35(pathName, 0L, 512);
+					string text2 = ToolboxUtilities.smethod_1(ref array2) + ToolboxUtilities.smethod_1(ref array3);
 					string text3 = default(string);
-					string text4 = Class12.smethod_21(text2, ref text3);
-					string text5 = Class12.smethod_22(text2, text4, ref text3);
-					string text6 = Class12.smethod_24(text2, text4, text5, ref text3);
+					string text4 = FirmwareUtilities.smethod_21(text2, ref text3);
+					string text5 = FirmwareUtilities.smethod_22(text2, text4, ref text3);
+					string text6 = FirmwareUtilities.smethod_24(text2, text4, text5, ref text3);
 					pathName = text + "KEY.BIN";
 					if (Operators.CompareString(FileSystem.Dir(pathName), "", false) != 0)
 					{
@@ -10559,7 +10559,7 @@ namespace Lzard_TBX_NET40
 							Interaction.MsgBox("Key file has wrong size", MsgBoxStyle.Information, "Error:");
 							return false;
 						}
-						array5 = Class12.smethod_35(pathName, 0L, 16);
+						array5 = FirmwareUtilities.smethod_35(pathName, 0L, 16);
 						pathName = text + "SERIAL.BIN";
 						if (Operators.CompareString(FileSystem.Dir(pathName), "", false) != 0)
 						{
@@ -10569,14 +10569,14 @@ namespace Lzard_TBX_NET40
 								Interaction.MsgBox("Serial file has wrong size", MsgBoxStyle.Information, "Error:");
 								return false;
 							}
-							array4 = Class12.smethod_35(pathName, 0L, 80);
+							array4 = FirmwareUtilities.smethod_35(pathName, 0L, 80);
 						}
 						else
 						{
 							string text7 = "";
-							if (Class12.smethod_33(array, ref text7))
+							if (FirmwareUtilities.smethod_33(array, ref text7))
 							{
-								Class12.smethod_38(ref array2, ref array, ref array4, 80, text7);
+								FirmwareUtilities.smethod_38(ref array2, ref array, ref array4, 80, text7);
 							}
 						}
 						pathName = text + "SUBSER.BIN";
@@ -10589,21 +10589,21 @@ namespace Lzard_TBX_NET40
 								return false;
 							}
 							array4 = (byte[])Utils.CopyArray(array4, new byte[224]);
-							Class13.smethod_19(ref array4, 80, 144, byte.MaxValue);
-							byte[] array11 = Class12.smethod_35(pathName, 96L, 16);
-							byte[] array12 = Class12.smethod_35(pathName, 112L, 4);
-							byte[] array13 = Class12.smethod_35(pathName, 116L, 32);
-							byte[] array14 = Class12.smethod_35(pathName, 148L, 4);
-							byte[] array15 = Class12.smethod_35(pathName, 152L, 32);
-							byte[] array16 = Class12.smethod_35(pathName, 184L, 96);
-							Class12.smethod_35(pathName, 96L, 54);
-							array9 = Class12.smethod_35(pathName, 280L, 16);
-							Class13.smethod_13(ref array11, 0, 16, ref array4, 24);
-							Class13.smethod_13(ref array12, 0, 4, ref array4, 40);
-							Class13.smethod_13(ref array13, 0, 32, ref array4, 44);
-							Class13.smethod_13(ref array14, 0, 4, ref array4, 76);
-							Class13.smethod_13(ref array15, 0, 32, ref array4, 80);
-							Class13.smethod_13(ref array16, 0, 96, ref array4, 128);
+							ToolboxUtilities.smethod_19(ref array4, 80, 144, byte.MaxValue);
+							byte[] array11 = FirmwareUtilities.smethod_35(pathName, 96L, 16);
+							byte[] array12 = FirmwareUtilities.smethod_35(pathName, 112L, 4);
+							byte[] array13 = FirmwareUtilities.smethod_35(pathName, 116L, 32);
+							byte[] array14 = FirmwareUtilities.smethod_35(pathName, 148L, 4);
+							byte[] array15 = FirmwareUtilities.smethod_35(pathName, 152L, 32);
+							byte[] array16 = FirmwareUtilities.smethod_35(pathName, 184L, 96);
+							FirmwareUtilities.smethod_35(pathName, 96L, 54);
+							array9 = FirmwareUtilities.smethod_35(pathName, 280L, 16);
+							ToolboxUtilities.smethod_13(ref array11, 0, 16, ref array4, 24);
+							ToolboxUtilities.smethod_13(ref array12, 0, 4, ref array4, 40);
+							ToolboxUtilities.smethod_13(ref array13, 0, 32, ref array4, 44);
+							ToolboxUtilities.smethod_13(ref array14, 0, 4, ref array4, 76);
+							ToolboxUtilities.smethod_13(ref array15, 0, 32, ref array4, 80);
+							ToolboxUtilities.smethod_13(ref array16, 0, 96, ref array4, 128);
 						}
 						pathName = text + "FWH.BIN";
 						if (Operators.CompareString(FileSystem.Dir(pathName), "", false) != 0)
@@ -10614,16 +10614,16 @@ namespace Lzard_TBX_NET40
 								Interaction.MsgBox("FWH.bin file has wrong size", MsgBoxStyle.Information, "Error:");
 								return false;
 							}
-							byte[] array17 = Class12.smethod_35(pathName, 1L, 3);
-							array7 = Class12.smethod_35(pathName, 0L, 1);
-							if (Class13.smethod_10(ref array6, pathName, 4L, byte.MaxValue) == -1)
+							byte[] array17 = FirmwareUtilities.smethod_35(pathName, 1L, 3);
+							array7 = FirmwareUtilities.smethod_35(pathName, 0L, 1);
+							if (ToolboxUtilities.smethod_10(ref array6, pathName, 4L, byte.MaxValue) == -1)
 							{
 								Interaction.MsgBox("Error Loading fwh.bin bytes", MsgBoxStyle.Information, "Error:");
 								return false;
 							}
-							if (!Class13.smethod_17(ref array4, 0, 20, byte.MaxValue))
+							if (!ToolboxUtilities.smethod_17(ref array4, 0, 20, byte.MaxValue))
 							{
-								Class13.smethod_13(ref array17, 0, 3, ref array4, 17);
+								ToolboxUtilities.smethod_13(ref array17, 0, 3, ref array4, 17);
 							}
 						}
 						pathName = text + "RTC.BIN";
@@ -10635,7 +10635,7 @@ namespace Lzard_TBX_NET40
 								Interaction.MsgBox("RTC.bin file has wrong size", MsgBoxStyle.Information, "Error:");
 								return false;
 							}
-							array8 = Class12.smethod_35(pathName, 0L, 32);
+							array8 = FirmwareUtilities.smethod_35(pathName, 0L, 32);
 						}
 						pathName = text + "KEYAREA.BIN";
 						if (Operators.CompareString(FileSystem.Dir(pathName), "", false) != 0)
@@ -10647,25 +10647,25 @@ namespace Lzard_TBX_NET40
 								return false;
 							}
 							array10 = (byte[])Utils.CopyArray(array10, new byte[4096]);
-							array10 = Class12.smethod_35(pathName, 0L, 4096);
+							array10 = FirmwareUtilities.smethod_35(pathName, 0L, 4096);
 							byte[] array18 = new byte[16];
-							if (!Class13.smethod_16(ref array10, 4080, 16, ref array9, 0))
+							if (!ToolboxUtilities.smethod_16(ref array10, 4080, 16, ref array9, 0))
 							{
 								Interaction.MsgBox("The Key Area dont match Subserial.bin file", MsgBoxStyle.Information, "Error:");
 								return false;
 							}
-							if (!Class12.smethod_40(text4, text5, text6, ref text3, ref array10, ref array4, ref array18))
+							if (!FirmwareUtilities.smethod_40(text4, text5, text6, ref text3, ref array10, ref array4, ref array18))
 							{
 								Interaction.MsgBox("Cannot Get Key from the Keyarea file\r\nError: " + text3, MsgBoxStyle.Information, "Error:");
 								return false;
 							}
-							if (!Class13.smethod_16(ref array5, 0, 16, ref array18, 0))
+							if (!ToolboxUtilities.smethod_16(ref array5, 0, 16, ref array18, 0))
 							{
 								Interaction.MsgBox("The Key read on the KeyArea dont match the key on Key.bin", MsgBoxStyle.Critical, "Error:");
 								return false;
 							}
 						}
-						return Class12.smethod_30(string_22, array, array2, int_, array3, int_2, array5, array4, array10, array6, array7, array8);
+						return FirmwareUtilities.smethod_30(string_22, array, array2, int_, array3, int_2, array5, array4, array10, array6, array7, array8);
 					}
 					Interaction.MsgBox("Key file not found in snapshot", MsgBoxStyle.Information, "Error:");
 					return false;
@@ -10780,7 +10780,7 @@ namespace Lzard_TBX_NET40
 			lblFlashDevID.Text = "";
 			lblSerial.Text = "";
 			lblOSVer.Text = "";
-			Class13.string_6 = "";
+			ToolboxUtilities.string_6 = "";
 			string_1 = "";
 			SerialPort1.PortName = ToolStripStatusLabel_0.Text;
 			try
@@ -10828,14 +10828,14 @@ namespace Lzard_TBX_NET40
 			{
 				if (buf[2] == 6)
 				{
-					string_1 = Strings.Mid(Class13.smethod_5(ref buf), 1, 4);
-					long_0 = Class13.smethod_6(string_1);
+					string_1 = Strings.Mid(ToolboxUtilities.smethod_5(ref buf), 1, 4);
+					long_0 = ToolboxUtilities.smethod_6(string_1);
 					if (long_0 == 0L)
 					{
 						Interaction.MsgBox("Unknown Flash Type", MsgBoxStyle.Information, "Error:");
 						return;
 					}
-					lblFlashDevID.Text = Class13.smethod_2(buf[0]) + Class13.smethod_2(buf[1]) + "  Size: " + Conversions.ToString((double)long_0 / 1024.0 / 1024.0) + "MB";
+					lblFlashDevID.Text = ToolboxUtilities.smethod_2(buf[0]) + ToolboxUtilities.smethod_2(buf[1]) + "  Size: " + Conversions.ToString((double)long_0 / 1024.0 / 1024.0) + "MB";
 					Thread.Sleep(100);
 					array[0] = 64;
 					array[1] = 85;
@@ -10856,8 +10856,8 @@ namespace Lzard_TBX_NET40
 					{
 						if (buf[33] == 6)
 						{
-							Class13.string_6 = Strings.Mid(Class13.smethod_5(ref buf), 33, 32);
-							lblSerial.Text = Class13.smethod_1(ref buf, 16) + "-" + Class13.string_6;
+							ToolboxUtilities.string_6 = Strings.Mid(ToolboxUtilities.smethod_5(ref buf), 33, 32);
+							lblSerial.Text = ToolboxUtilities.smethod_1(ref buf, 16) + "-" + ToolboxUtilities.string_6;
 							Thread.Sleep(100);
 							array[0] = 64;
 							array[1] = 85;
@@ -10878,12 +10878,12 @@ namespace Lzard_TBX_NET40
 							{
 								if (buf[21] == 6)
 								{
-									lblOSVer.Text = Strings.Trim(Class13.smethod_1(ref buf, 20));
+									lblOSVer.Text = Strings.Trim(ToolboxUtilities.smethod_1(ref buf, 20));
 									byte[] buf2 = new byte[1025];
 									SPIF_READPAGE(131072, 1024, ref buf2);
 									send_ETX();
-									lblName.Text = Class13.smethod_1(ref buf2, 12, 2);
-									Class9.Sleep(100);
+									lblName.Text = ToolboxUtilities.smethod_1(ref buf2, 12, 2);
+									FtdiNativeMethods.Sleep(100);
 									method_48(Conversions.ToInteger(Interaction.IIf(chkTurbo.Checked, 1, 0)));
 									bool_1 = true;
 									PortClose();
@@ -10926,7 +10926,7 @@ namespace Lzard_TBX_NET40
 		private double method_25(string string_21)
 		{
 			string string_22 = Strings.Replace(string_21, "GECKO_OS", "", 1, -1, CompareMethod.Text);
-			return Class13.smethod_27(string_22);
+			return ToolboxUtilities.smethod_27(string_22);
 		}
 
 		private void Button1_Click(object sender, EventArgs e)
@@ -10983,7 +10983,7 @@ namespace Lzard_TBX_NET40
 			int int_ = default(int);
 			int int_2 = default(int);
 			int int_3 = default(int);
-			if (Class12.smethod_23(text4, ref text2, ref text, ref text3, ref array, ref int_, ref array2, ref int_2, ref array3, ref int_3))
+			if (FirmwareUtilities.smethod_23(text4, ref text2, ref text, ref text3, ref array, ref int_, ref array2, ref int_2, ref array3, ref int_3))
 			{
 				string_17 = text2;
 				string_18 = text;
@@ -11027,23 +11027,23 @@ namespace Lzard_TBX_NET40
 			if (int_13 != -1)
 			{
 				ref byte[] reference = ref byte_4;
-				byte[] array = Class13.cpoahSiso("000000000000000000000000");
-				bool num = Class13.smethod_16(ref reference, 0, 8, ref array, 0);
+				byte[] array = ToolboxUtilities.cpoahSiso("000000000000000000000000");
+				bool num = ToolboxUtilities.smethod_16(ref reference, 0, 8, ref array, 0);
 				ref byte[] reference2 = ref byte_4;
-				byte[] array2 = Class13.cpoahSiso("FFFFFFFFFFFFFFFFFFFF");
-				if (num | Class13.smethod_16(ref reference2, 0, 8, ref array2, 0))
+				byte[] array2 = ToolboxUtilities.cpoahSiso("FFFFFFFFFFFFFFFFFFFF");
+				if (num | ToolboxUtilities.smethod_16(ref reference2, 0, 8, ref array2, 0))
 				{
 					Interaction.MsgBox("The Key area on your source file is blank\r\nPlease update your Lizard to latest gecko and re-dump", MsgBoxStyle.Information, "Returns:");
 					return;
 				}
 				text = "";
 				byte[] array3 = new byte[16];
-				if (!Class12.smethod_40(string_6, string_7, string_8, ref text, ref byte_4, ref byte_2, ref array3))
+				if (!FirmwareUtilities.smethod_40(string_6, string_7, string_8, ref text, ref byte_4, ref byte_2, ref array3))
 				{
 					Interaction.MsgBox("Cannot Get the Key from Keyarea on the Source File\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 					return;
 				}
-				if (Operators.CompareString(string_12, Class13.smethod_5(ref array3, 16), false) != 0)
+				if (Operators.CompareString(string_12, ToolboxUtilities.smethod_5(ref array3, 16), false) != 0)
 				{
 					Interaction.MsgBox("The Key read from the Source File Key Area dont Match key read from key.bin\r\nPlease update your Lizard to latest gecko and re-dump", MsgBoxStyle.Information, "Returns:");
 					return;
@@ -11051,22 +11051,22 @@ namespace Lzard_TBX_NET40
 			}
 			if (kHmaKjHpik > 0 && int_10 > 0)
 			{
-				Class13.smethod_13(ref byte_2, 0, int_10, ref byte_9, 0);
+				ToolboxUtilities.smethod_13(ref byte_2, 0, int_10, ref byte_9, 0);
 			}
 			if (Operators.CompareString(Strings.Trim(string_14) + "-" + Strings.Trim(string_15) + "-" + Strings.Trim(string_16), "LITEON-DG16D2S-02510", false) == 0)
 			{
 				string str = "4436303843473733383830383030333438202020FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF4130FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF4130FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF576973656C79204C6F766573204C616EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF";
-				byte[] array2 = Class13.cpoahSiso(Strings.Mid(str, 1, int_10 * 2));
-				if (!Class13.smethod_16(ref array2, 0, kHmaKjHpik, ref byte_9, 0) && Interaction.MsgBox("Starting from Dashboard 13146 all Liteon 02510C seems were reflashed with the Same Fixed Serial Number\r\nSo its recommended you use that fixed Serial on the Generated File\r\nDo you want to use that Fixed value? (If you choose NO we will copy your Source Serial data)", MsgBoxStyle.YesNo | MsgBoxStyle.Question, "Important:") == MsgBoxResult.Yes)
+				byte[] array2 = ToolboxUtilities.cpoahSiso(Strings.Mid(str, 1, int_10 * 2));
+				if (!ToolboxUtilities.smethod_16(ref array2, 0, kHmaKjHpik, ref byte_9, 0) && Interaction.MsgBox("Starting from Dashboard 13146 all Liteon 02510C seems were reflashed with the Same Fixed Serial Number\r\nSo its recommended you use that fixed Serial on the Generated File\r\nDo you want to use that Fixed value? (If you choose NO we will copy your Source Serial data)", MsgBoxStyle.YesNo | MsgBoxStyle.Question, "Important:") == MsgBoxResult.Yes)
 				{
-					byte_9 = Class13.cpoahSiso(Strings.Mid(str, 1, int_10 * 2));
+					byte_9 = ToolboxUtilities.cpoahSiso(Strings.Mid(str, 1, int_10 * 2));
 				}
 				string_9 = string_14;
 				string_10 = string_15;
 				string_11 = string_16;
 			}
 			text = "";
-			byte[] array4 = Class12.smethod_29(string_6, string_7, string_8, string_9, string_10, string_11, byte_1, ref text);
+			byte[] array4 = FirmwareUtilities.smethod_29(string_6, string_7, string_8, string_9, string_10, string_11, byte_1, ref text);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Cannot fix Identify string while preparing spoofing\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
@@ -11108,8 +11108,8 @@ namespace Lzard_TBX_NET40
 			}
 			else
 			{
-				OpenFileDialog1.InitialDirectory = Class13.smethod_20(string_21);
-				SaveFileDialog1.InitialDirectory = Class13.smethod_20(string_21);
+				OpenFileDialog1.InitialDirectory = ToolboxUtilities.smethod_20(string_21);
+				SaveFileDialog1.InitialDirectory = ToolboxUtilities.smethod_20(string_21);
 				string_22 = string_21;
 			}
 			method_32();
@@ -11144,7 +11144,7 @@ namespace Lzard_TBX_NET40
 			bool flag;
 			long long_9 = default(long);
 			byte[] byte_8 = default(byte[]);
-			if (Class12.smethod_8(string_22))
+			if (FirmwareUtilities.smethod_8(string_22))
 			{
 				string string_29 = Conversions.ToString(obj);
 				bool num = method_30(ref string_22, ref string_23, ref string_24, ref string_25, ref string_29, ref long_, ref string_26, ref string_27, ref string_28, ref long_2, ref byte_, ref int_2, ref long_3, ref byte_2, ref int_3, ref long_4, ref byte_3, ref int_4, ref long_5, ref byte_4, ref int_5, ref byte_5, ref long_6, ref byte_6, ref long_7, ref byte_7, ref long_8, ref int_);
@@ -11221,7 +11221,7 @@ namespace Lzard_TBX_NET40
 			byte[] byte_21 = default(byte[]);
 			long long_9 = default(long);
 			int int_5 = default(int);
-			if (!((!Class12.smethod_8(string_21)) ? method_31(ref string_21, ref string_23, ref string_24, ref string_25, ref string_22, ref long_, ref string_26, ref string_27, ref string_28, ref long_2, ref byte_15, ref int_, ref long_3, ref byte_16, ref int_2, ref long_4, ref byte_17, ref int_3, ref long_5, ref byte_14, ref int_4, ref byte_18, ref long_6, ref byte_19, ref long_7, ref byte_20, ref long_8, ref byte_21, ref long_9) : method_30(ref string_21, ref string_23, ref string_24, ref string_25, ref string_22, ref long_, ref string_26, ref string_27, ref string_28, ref long_2, ref byte_15, ref int_, ref long_3, ref byte_16, ref int_2, ref long_4, ref byte_17, ref int_3, ref long_5, ref byte_14, ref int_4, ref byte_18, ref long_6, ref byte_19, ref long_7, ref byte_21, ref long_9, ref int_5)))
+			if (!((!FirmwareUtilities.smethod_8(string_21)) ? method_31(ref string_21, ref string_23, ref string_24, ref string_25, ref string_22, ref long_, ref string_26, ref string_27, ref string_28, ref long_2, ref byte_15, ref int_, ref long_3, ref byte_16, ref int_2, ref long_4, ref byte_17, ref int_3, ref long_5, ref byte_14, ref int_4, ref byte_18, ref long_6, ref byte_19, ref long_7, ref byte_20, ref long_8, ref byte_21, ref long_9) : method_30(ref string_21, ref string_23, ref string_24, ref string_25, ref string_22, ref long_, ref string_26, ref string_27, ref string_28, ref long_2, ref byte_15, ref int_, ref long_3, ref byte_16, ref int_2, ref long_4, ref byte_17, ref int_3, ref long_5, ref byte_14, ref int_4, ref byte_18, ref long_6, ref byte_19, ref long_7, ref byte_21, ref long_9, ref int_5)))
 			{
 				return false;
 			}
@@ -11266,7 +11266,7 @@ namespace Lzard_TBX_NET40
 				long long_8 = default(long);
 				byte[] byte_8 = default(byte[]);
 				long long_9 = default(long);
-				if (Class12.smethod_8(string_))
+				if (FirmwareUtilities.smethod_8(string_))
 				{
 					Interaction.MsgBox("On this section you need to open a full firmware, not snapshots-dummy files", MsgBoxStyle.Information, "Error");
 					flag = false;
@@ -11318,7 +11318,7 @@ namespace Lzard_TBX_NET40
 		{
 			byte[] array = new byte[16];
 			string text = "";
-			if (!Class12.smethod_28(string_21, ref text, ref string_26, ref string_27, ref string_28, ref long_12, ref byte_14, ref int_15, ref long_13, ref byte_15, ref int_16, ref long_14, ref byte_16, ref int_17))
+			if (!FirmwareUtilities.smethod_28(string_21, ref text, ref string_26, ref string_27, ref string_28, ref long_12, ref byte_14, ref int_15, ref long_13, ref byte_15, ref int_16, ref long_14, ref byte_16, ref int_17))
 			{
 				Interaction.MsgBox("Error retrieving drive type from snapshot file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
@@ -11327,44 +11327,44 @@ namespace Lzard_TBX_NET40
 			string_23 = string_27;
 			string_24 = string_28;
 			long_11 = 0L;
-			string_25 = Class12.smethod_10(string_21, ref text, ref long_11);
+			string_25 = FirmwareUtilities.smethod_10(string_21, ref text, ref long_11);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Unable to extract key from snapshot file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
 			}
-			if (!Class12.smethod_16(string_22, string_23, string_24, string_21, ref text, ref long_15, ref int_18, ref byte_17))
+			if (!FirmwareUtilities.smethod_16(string_22, string_23, string_24, string_21, ref text, ref long_15, ref int_18, ref byte_17))
 			{
 				Interaction.MsgBox("Cannot extract serial Data\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
 			}
-			Class12.smethod_38(ref byte_14, ref byte_16, ref byte_17, int_18, string_23);
-			if (!Class12.smethod_12(string_26, string_27, string_28, string_21, ref text, ref byte_20, ref long_18, ref int_19))
+			FirmwareUtilities.smethod_38(ref byte_14, ref byte_16, ref byte_17, int_18, string_23);
+			if (!FirmwareUtilities.smethod_12(string_26, string_27, string_28, string_21, ref text, ref byte_20, ref long_18, ref int_19))
 			{
 				Interaction.MsgBox("Unable to extract Bytes from snapshot file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
 			}
-			if (!Class12.smethod_11(string_26, string_27, string_28, string_21, ref text, ref byte_18, ref long_16, ref byte_19, ref long_17))
+			if (!FirmwareUtilities.smethod_11(string_26, string_27, string_28, string_21, ref text, ref byte_18, ref long_16, ref byte_19, ref long_17))
 			{
 				Interaction.MsgBox("Unable to extract Key Area from snapshot file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
 			}
 			if (long_17 != -1L)
 			{
-				byte[] array2 = Class13.cpoahSiso("000000000000000000000000");
-				bool num = Class13.smethod_16(ref byte_19, 0, 8, ref array2, 0);
-				byte[] array3 = Class13.cpoahSiso("FFFFFFFFFFFFFFFFFFFF");
-				if (num | Class13.smethod_16(ref byte_19, 0, 8, ref array3, 0))
+				byte[] array2 = ToolboxUtilities.cpoahSiso("000000000000000000000000");
+				bool num = ToolboxUtilities.smethod_16(ref byte_19, 0, 8, ref array2, 0);
+				byte[] array3 = ToolboxUtilities.cpoahSiso("FFFFFFFFFFFFFFFFFFFF");
+				if (num | ToolboxUtilities.smethod_16(ref byte_19, 0, 8, ref array3, 0))
 				{
 					Interaction.MsgBox("The Key area on your source file is blank\r\nPlease update your Lizard to latest gecko and re-dump", MsgBoxStyle.Information, "Returns:");
 					return false;
 				}
-				if (!Class12.smethod_40(string_22, string_23, string_24, ref text, ref byte_19, ref byte_17, ref array))
+				if (!FirmwareUtilities.smethod_40(string_22, string_23, string_24, ref text, ref byte_19, ref byte_17, ref array))
 				{
 					Interaction.MsgBox("Cannot Get the Key from Keyarea\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 					return false;
 				}
-				if (Operators.CompareString(string_25, Class13.smethod_5(ref array, 16), false) != 0)
+				if (Operators.CompareString(string_25, ToolboxUtilities.smethod_5(ref array, 16), false) != 0)
 				{
 					Interaction.MsgBox("The Key read from the Key Area dont Match key read from key.bin\r\nPlease update your Lizard to latest gecko and re-dump", MsgBoxStyle.Information, "Returns:");
 					return false;
@@ -11377,66 +11377,66 @@ namespace Lzard_TBX_NET40
 		{
 			string text = "";
 			byte[] array = new byte[16];
-			string_22 = Class12.smethod_3(string_21, ref text);
+			string_22 = FirmwareUtilities.smethod_3(string_21, ref text);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Vendor: " + string_22 + "\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
 			}
-			string_23 = Class12.smethod_4(string_22, string_21, ref text);
+			string_23 = FirmwareUtilities.smethod_4(string_22, string_21, ref text);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Vendor: " + string_22 + "\r\nModel: " + string_23 + "Error: " + text, MsgBoxStyle.Information, "Returns:");
 				return true;
 			}
-			string_24 = Class12.smethod_9(string_22, string_23, string_21, ref text);
+			string_24 = FirmwareUtilities.smethod_9(string_22, string_23, string_21, ref text);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Vendor: " + string_22 + "\r\nModel: " + string_23 + "\r\nROM:" + string_24 + "Error: " + text, MsgBoxStyle.Information, "Returns:");
 				return true;
 			}
 			long_11 = 0L;
-			string_25 = Class12.smethod_15(string_22, string_23, string_24, string_21, ref text, ref long_11);
+			string_25 = FirmwareUtilities.smethod_15(string_22, string_23, string_24, string_21, ref text, ref long_11);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Vendor: " + string_22 + "\r\nModel: " + string_23 + "\r\nROM:" + string_24 + "\r\nKey:" + string_25 + "\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
 			}
-			if (!Class12.smethod_17(string_22, string_23, string_24, string_21, ref text, ref long_15, ref int_18, ref byte_17))
+			if (!FirmwareUtilities.smethod_17(string_22, string_23, string_24, string_21, ref text, ref long_15, ref int_18, ref byte_17))
 			{
 				Interaction.MsgBox("Cannot extract serial Data\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
 			}
-			if (!Class12.smethod_14(string_22, string_23, string_24, string_21, ref text, ref byte_20, ref long_18))
+			if (!FirmwareUtilities.smethod_14(string_22, string_23, string_24, string_21, ref text, ref byte_20, ref long_18))
 			{
 				Interaction.MsgBox("Unable to extract Serial Area from Firmware\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
 			}
 			int int_19 = default(int);
-			if (!Class12.smethod_12(string_22, string_23, string_24, string_21, ref text, ref byte_21, ref long_19, ref int_19))
+			if (!FirmwareUtilities.smethod_12(string_22, string_23, string_24, string_21, ref text, ref byte_21, ref long_19, ref int_19))
 			{
 				Interaction.MsgBox("Unable to extract Bytes from snapshot file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
 			}
-			if (!Class12.smethod_13(string_22, string_23, string_24, string_21, ref text, ref byte_18, ref long_16, ref byte_19, ref long_17))
+			if (!FirmwareUtilities.smethod_13(string_22, string_23, string_24, string_21, ref text, ref byte_18, ref long_16, ref byte_19, ref long_17))
 			{
 				Interaction.MsgBox("Unable to extract Key Area from Firmware\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
 			}
 			if (long_17 != -1L)
 			{
-				if (!Class12.smethod_40(string_22, string_23, string_24, ref text, ref byte_19, ref byte_17, ref array))
+				if (!FirmwareUtilities.smethod_40(string_22, string_23, string_24, ref text, ref byte_19, ref byte_17, ref array))
 				{
 					Interaction.MsgBox("Cannot Get the Key from Keyarea\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 					return false;
 				}
-				if (Operators.CompareString(string_25, Class13.smethod_5(ref array, 16), false) != 0)
+				if (Operators.CompareString(string_25, ToolboxUtilities.smethod_5(ref array, 16), false) != 0)
 				{
 					Interaction.MsgBox("The Key read from the Key Area dont Match key read from key.bin\r\nPlease update your Lizard to latest gecko and re-dump", MsgBoxStyle.Information, "Returns:");
 					return false;
 				}
 			}
-			if (!Class12.smethod_25(string_22, string_23, string_24, string_21, ref text, ref string_26, ref string_27, ref string_28, ref long_12, ref long_13, ref long_14, ref byte_14, ref int_15, ref byte_15, ref int_16, ref byte_16, ref int_17))
+			if (!FirmwareUtilities.smethod_25(string_22, string_23, string_24, string_21, ref text, ref string_26, ref string_27, ref string_28, ref long_12, ref long_13, ref long_14, ref byte_14, ref int_15, ref byte_15, ref int_16, ref byte_16, ref int_17))
 			{
 				Interaction.MsgBox("Cannot determine Logical Drive Data\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return false;
@@ -11469,12 +11469,12 @@ namespace Lzard_TBX_NET40
 			string left = "";
 			if (Operators.CompareString(string_8, "", false) != 0)
 			{
-				left = Strings.Trim(string_6) + "-" + Strings.Trim(string_7) + "-" + Strings.Trim(Class12.smethod_34(string_8));
+				left = Strings.Trim(string_6) + "-" + Strings.Trim(string_7) + "-" + Strings.Trim(FirmwareUtilities.smethod_34(string_8));
 			}
 			string text = "";
 			if (Operators.CompareString(string_11, "", false) != 0)
 			{
-				text = Strings.Trim(string_9) + "-" + Strings.Trim(string_10) + "-" + Strings.Trim(Class12.smethod_34(string_11));
+				text = Strings.Trim(string_9) + "-" + Strings.Trim(string_10) + "-" + Strings.Trim(FirmwareUtilities.smethod_34(string_11));
 			}
 			txbEV_SrcFwInfo.Text = left;
 			if (Operators.CompareString(left, text, false) != 0)
@@ -11488,7 +11488,7 @@ namespace Lzard_TBX_NET40
 			txbAV_SrcKey.Text = string_12;
 			if (kHmaKjHpik != 0)
 			{
-				txbAV_SrcDVDSer.Text = Class13.smethod_1(ref byte_2, 20);
+				txbAV_SrcDVDSer.Text = ToolboxUtilities.smethod_1(ref byte_2, 20);
 			}
 			else
 			{
@@ -11501,12 +11501,12 @@ namespace Lzard_TBX_NET40
 		{
 			if (Operators.CompareString(string_16, "", false) != 0)
 			{
-				string text2 = Strings.Trim(string_14) + "-" + Strings.Trim(string_15) + "-" + Strings.Trim(Class12.smethod_34(string_16));
+				string text2 = Strings.Trim(string_14) + "-" + Strings.Trim(string_15) + "-" + Strings.Trim(FirmwareUtilities.smethod_34(string_16));
 			}
 			string text = "";
 			if (Operators.CompareString(string_19, "", false) != 0)
 			{
-				text = Strings.Trim(string_17) + "-" + Strings.Trim(string_18) + "-" + Strings.Trim(Class12.smethod_34(string_19));
+				text = Strings.Trim(string_17) + "-" + Strings.Trim(string_18) + "-" + Strings.Trim(FirmwareUtilities.smethod_34(string_19));
 			}
 			txbAV_DstFile.Text = string_13;
 			txbAV_DstPhyDrive.Text = Strings.Trim(string_14) + "-" + Strings.Trim(string_15) + "-" + Strings.Trim(string_16);
@@ -11515,7 +11515,7 @@ namespace Lzard_TBX_NET40
 			if (int_10 != 0)
 			{
 				btn_editDstSer.Enabled = true;
-				txbAV_DstDVDSer.Text = Class13.smethod_1(ref byte_9, 20);
+				txbAV_DstDVDSer.Text = ToolboxUtilities.smethod_1(ref byte_9, 20);
 			}
 			else
 			{
@@ -11576,20 +11576,20 @@ namespace Lzard_TBX_NET40
 				return;
 			}
 			int num = cmbEV_DstCFWTemplate.SelectedIndex - 1;
-			Class11.smethod_1(struct3_0[num].string_3, ref struct4_0, ref int_5);
+			CfwTemplateParser.smethod_1(struct3_0[num].string_3, ref struct4_0, ref int_5);
 			if (int_5 == 0)
 			{
 				Interaction.MsgBox("No TOC Entries found on the Fileset " + struct3_0[num].string_3, MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			Class12.bool_0 = false;
+			FirmwareUtilities.bool_0 = false;
 			if ((Strings.InStr(Strings.UCase(struct3_0[num].string_0), "LTPLUS", CompareMethod.Text) != 0) & (decimal.Compare(Convert.ToDecimal(struct3_0[num].string_2), 115m) >= 0))
 			{
-				Class12.bool_0 = true;
+				FirmwareUtilities.bool_0 = true;
 			}
 			if (Strings.InStr(struct3_0[num].string_0, "ORIGINAL", CompareMethod.Text) != 0)
 			{
-				Class12.bool_0 = true;
+				FirmwareUtilities.bool_0 = true;
 			}
 			if (((Operators.CompareString(Strings.Trim(this.string_6) + "-" + Strings.Trim(this.string_7) + "-" + Strings.Trim(this.string_8), "LITEON-DG16D2S-74850", false) == 0) | (Operators.CompareString(Strings.Trim(this.string_6) + "-" + Strings.Trim(this.string_7) + "-" + Strings.Trim(this.string_8), "LITEON-DG16D2S-83850", false) == 0) | (Operators.CompareString(Strings.Trim(this.string_6) + "-" + Strings.Trim(this.string_7) + "-" + Strings.Trim(this.string_8), "LITEON-DG16D2S-83850V2", false) == 0) | (Operators.CompareString(Strings.Trim(this.string_6) + "-" + Strings.Trim(this.string_7) + "-" + Strings.Trim(this.string_8), "LITEON-DG16D2S-93450", false) == 0)) && Interaction.MsgBox("Starting from Dashboard 13146 all Phat Liteon are being updated to 02510CDo you want to generate the file for 02510C ? (choose yes if you have updated your console to Dash 13146 or above)", MsgBoxStyle.YesNo | MsgBoxStyle.Question, "Important:") == MsgBoxResult.Yes)
 			{
@@ -11604,7 +11604,7 @@ namespace Lzard_TBX_NET40
 				this.string_8 = "0272      ";
 			}
 			string str = this.string_8;
-			if (Operators.CompareString(Strings.Trim(this.string_6) + "-" + Strings.Trim(this.string_7) + "-" + Strings.Trim(this.string_8), "LITEON-DG16D4S-0225", false) == 0 && Class12.smethod_8(this.string_5) && int_9 == 2)
+			if (Operators.CompareString(Strings.Trim(this.string_6) + "-" + Strings.Trim(this.string_7) + "-" + Strings.Trim(this.string_8), "LITEON-DG16D4S-0225", false) == 0 && FirmwareUtilities.smethod_8(this.string_5) && int_9 == 2)
 			{
 				str = "0225-U";
 			}
@@ -11627,7 +11627,7 @@ namespace Lzard_TBX_NET40
 				return;
 			}
 			string string_ = Application.StartupPath + "\\temp.tmp";
-			if (!Class13.smethod_8(struct3_0[num].string_3, string_, 33792L + struct4_0[i].long_1, struct4_0[i].long_0))
+			if (!ToolboxUtilities.smethod_8(struct3_0[num].string_3, string_, 33792L + struct4_0[i].long_1, struct4_0[i].long_0))
 			{
 				Interaction.MsgBox("The temporary file cannot be created, check the application is on folder with write privileges\r\nIf problem persist make sure you use latest Fileset Templates", MsgBoxStyle.Exclamation, "Error:");
 				return;
@@ -11696,27 +11696,27 @@ namespace Lzard_TBX_NET40
 			long_10 = long_9;
 			if (Operators.CompareString(Strings.Trim(string_14) + "-" + Strings.Trim(string_15) + "-" + Strings.Trim(string_16), "LITEON-DG16D2S-02510", false) == 0)
 			{
-				if (!Class13.smethod_16(ref this.byte_2, 0, kHmaKjHpik, ref byte_9, 0) && Interaction.MsgBox("Starting from Dashboard 13146 all Liteon 02510C seems were reflashed with the Same Fixed Serial Number\r\nSo its recommended you use that fixed Serial on the Generated File\r\nDo you want to use that Fixed value? (If you choose NO we will copy your Source Serial data)", MsgBoxStyle.YesNo | MsgBoxStyle.Question, "Important:") == MsgBoxResult.Yes)
+				if (!ToolboxUtilities.smethod_16(ref this.byte_2, 0, kHmaKjHpik, ref byte_9, 0) && Interaction.MsgBox("Starting from Dashboard 13146 all Liteon 02510C seems were reflashed with the Same Fixed Serial Number\r\nSo its recommended you use that fixed Serial on the Generated File\r\nDo you want to use that Fixed value? (If you choose NO we will copy your Source Serial data)", MsgBoxStyle.YesNo | MsgBoxStyle.Question, "Important:") == MsgBoxResult.Yes)
 				{
 					string str2 = "4436303843473733383830383030333438202020FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF4130FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF4130FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF576973656C79204C6F766573204C616EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF";
-					this.byte_2 = Class13.cpoahSiso(Strings.Mid(str2, 1, int_10 * 2));
+					this.byte_2 = ToolboxUtilities.cpoahSiso(Strings.Mid(str2, 1, int_10 * 2));
 				}
 				string_9 = string_14;
 				string_10 = string_15;
 				string_11 = string_16;
 			}
-			if (!Class12.smethod_18(string_14, string_15, string_16, string_13, ref text, this.long_6, string_12))
+			if (!FirmwareUtilities.smethod_18(string_14, string_15, string_16, string_13, ref text, this.long_6, string_12))
 			{
 				Interaction.MsgBox("Cannot patch keys on temporal file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return;
 			}
-			byte[] array = Class12.smethod_29(string_9, string_10, string_11, string_14, string_15, string_16, byte_1, ref text, true);
+			byte[] array = FirmwareUtilities.smethod_29(string_9, string_10, string_11, string_14, string_15, string_16, byte_1, ref text, true);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Cannot fix Identify string while preparing temporal file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return;
 			}
-			if (Class12.smethod_44(string_14, string_15, string_16, ref text) && Operators.CompareString(Strings.Trim(string_17) + Strings.Trim(string_18) + Strings.Trim(string_19), Strings.Trim(string_14) + Strings.Trim(string_15) + Strings.Trim(string_16), false) != 0 && !Class12.smethod_19(this.string_6, this.string_7, this.string_8, string_13, ref text, this.long_8, byte_0, TmcaFaJkxr, this.long_7, array, Conversions.ToString(int_6)))
+			if (FirmwareUtilities.smethod_44(string_14, string_15, string_16, ref text) && Operators.CompareString(Strings.Trim(string_17) + Strings.Trim(string_18) + Strings.Trim(string_19), Strings.Trim(string_14) + Strings.Trim(string_15) + Strings.Trim(string_16), false) != 0 && !FirmwareUtilities.smethod_19(this.string_6, this.string_7, this.string_8, string_13, ref text, this.long_8, byte_0, TmcaFaJkxr, this.long_7, array, Conversions.ToString(int_6)))
 			{
 				Interaction.MsgBox("Cannot patch Identify/Inquiry on temporal file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return;
@@ -11726,7 +11726,7 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Problem checking if Drive support Spoofing\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return;
 			}
-			if (!Class12.smethod_20(this.string_6, this.string_7, this.string_8, string_13, ref text, IKFQOTWSJJ, this.byte_2, kHmaKjHpik))
+			if (!FirmwareUtilities.smethod_20(this.string_6, this.string_7, this.string_8, string_13, ref text, IKFQOTWSJJ, this.byte_2, kHmaKjHpik))
 			{
 				Interaction.MsgBox("Cannot patch Serial Data on temporal file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return;
@@ -11738,7 +11738,7 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The Phisical Drive must have Keyarea but your source File dont have one to supply it\r\nMake sure you are not trying to Spoof a drive with another unsupported\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 					return;
 				}
-				Class12.smethod_36(string_13, int_14, 4096, this.byte_4);
+				FirmwareUtilities.smethod_36(string_13, int_14, 4096, this.byte_4);
 			}
 			if (int_13 != -1)
 			{
@@ -11747,7 +11747,7 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The Phisical Drive must have Secret Key but your source File dont have one to supply it\r\nMake sure you are not trying to Spoof a drive with another unsupported\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 					return;
 				}
-				Class12.smethod_36(string_13, int_13, 16, this.byte_3);
+				FirmwareUtilities.smethod_36(string_13, int_13, 16, this.byte_3);
 			}
 			if (this.long_4 != -1L)
 			{
@@ -11756,7 +11756,7 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The Phisical Drive must have 1F Sector but your Destination File dont support it\r\nMake sure you are not trying to Spoof a drive with another unsupported\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 					return;
 				}
-				Class12.smethod_36(string_13, 126976L, (int)this.long_4, this.byte_5);
+				FirmwareUtilities.smethod_36(string_13, 126976L, (int)this.long_4, this.byte_5);
 			}
 			if (this.long_5 != -1L)
 			{
@@ -11765,18 +11765,18 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The Phisical Drive must have 3F bytes but your Destination File dont support it\r\nMake sure you are not trying to Spoof a drive with another unsupported\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 					return;
 				}
-				Class12.smethod_36(string_13, 258048L, 4, Class13.cpoahSiso("FFFFFFFF"));
-				if (Class12.bool_0)
+				FirmwareUtilities.smethod_36(string_13, 258048L, 4, ToolboxUtilities.cpoahSiso("FFFFFFFF"));
+				if (FirmwareUtilities.bool_0)
 				{
-					Class12.smethod_36(string_13, 258048L, (int)this.long_5, this.byte_6);
+					FirmwareUtilities.smethod_36(string_13, 258048L, (int)this.long_5, this.byte_6);
 				}
 				else if (this.long_5 > 4L)
 				{
-					Class12.smethod_36(string_13, 258048L, 4, this.byte_6);
+					FirmwareUtilities.smethod_36(string_13, 258048L, 4, this.byte_6);
 				}
 				else
 				{
-					Class12.smethod_36(string_13, 258048L, (int)this.long_5, this.byte_6);
+					FirmwareUtilities.smethod_36(string_13, 258048L, (int)this.long_5, this.byte_6);
 				}
 			}
 			SaveFileDialog1.CreatePrompt = false;
@@ -11796,9 +11796,9 @@ namespace Lzard_TBX_NET40
 			{
 				bool flag2 = default(bool);
 				uint uint_ = default(uint);
-				if (((Operators.CompareString(Strings.Trim(string_14), "HITACHI", false) == 0) & (Operators.CompareString(Strings.Trim(string_15), "GDR3120L", false) == 0)) && !Class12.smethod_6(string_13, ref flag2, ref uint_))
+				if (((Operators.CompareString(Strings.Trim(string_14), "HITACHI", false) == 0) & (Operators.CompareString(Strings.Trim(string_15), "GDR3120L", false) == 0)) && !FirmwareUtilities.smethod_6(string_13, ref flag2, ref uint_))
 				{
-					Class12.smethod_7(string_13, 0u);
+					FirmwareUtilities.smethod_7(string_13, 0u);
 				}
 				FileSystem.FileCopy(string_13, SaveFileDialog1.FileName);
 			}
@@ -11825,7 +11825,7 @@ namespace Lzard_TBX_NET40
 				ProjectData.ClearProjectError();
 				return;
 			}
-			byte[] array = Class12.smethod_35(text2, 258048L, 16);
+			byte[] array = FirmwareUtilities.smethod_35(text2, 258048L, 16);
 			int num = 4;
 			int num2 = 4;
 			while (array[num2] != byte.MaxValue)
@@ -11837,48 +11837,48 @@ namespace Lzard_TBX_NET40
 					break;
 				}
 			}
-			if (!Class12.smethod_18(string_14, string_15, string_16, text2, ref text, long_6, string_20))
+			if (!FirmwareUtilities.smethod_18(string_14, string_15, string_16, text2, ref text, long_6, string_20))
 			{
 				Interaction.MsgBox("Cannot patch keys on temporal file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return;
 			}
-			byte[] array2 = Class12.smethod_29(string_17, string_18, string_19, string_14, string_15, string_16, byte_8, ref text, true);
+			byte[] array2 = FirmwareUtilities.smethod_29(string_17, string_18, string_19, string_14, string_15, string_16, byte_8, ref text, true);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Cannot fix Identify string while preparing temporal file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return;
 			}
-			if (Class12.smethod_44(string_14, string_15, string_16, ref text) && Operators.CompareString(Strings.Trim(string_17) + Strings.Trim(string_18) + Strings.Trim(string_19), Strings.Trim(string_14) + Strings.Trim(string_15) + Strings.Trim(string_16), false) != 0 && !Class12.smethod_19(string_14, string_15, string_16, text2, ref text, long_8, byte_7, int_12, long_7, array2, Conversions.ToString(int_11)))
+			if (FirmwareUtilities.smethod_44(string_14, string_15, string_16, ref text) && Operators.CompareString(Strings.Trim(string_17) + Strings.Trim(string_18) + Strings.Trim(string_19), Strings.Trim(string_14) + Strings.Trim(string_15) + Strings.Trim(string_16), false) != 0 && !FirmwareUtilities.smethod_19(string_14, string_15, string_16, text2, ref text, long_8, byte_7, int_12, long_7, array2, Conversions.ToString(int_11)))
 			{
 				Interaction.MsgBox("Cannot patch Identify/Inquiry on temporal file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return;
 			}
-			if (!Class12.smethod_20(string_14, string_15, string_16, text2, ref text, IKFQOTWSJJ, byte_9, int_10))
+			if (!FirmwareUtilities.smethod_20(string_14, string_15, string_16, text2, ref text, IKFQOTWSJJ, byte_9, int_10))
 			{
 				Interaction.MsgBox("Cannot patch Serial Data on temporal file\r\nError: " + text, MsgBoxStyle.Information, "Returns:");
 				return;
 			}
 			if (int_14 != -1)
 			{
-				Class12.smethod_36(text2, int_14, 4096, byte_11);
+				FirmwareUtilities.smethod_36(text2, int_14, 4096, byte_11);
 			}
 			if (int_13 != -1)
 			{
-				Class12.smethod_36(text2, int_13, 16, byte_10);
+				FirmwareUtilities.smethod_36(text2, int_13, 16, byte_10);
 			}
 			if (long_9 != -1L)
 			{
-				Class12.smethod_36(text2, 126976L, (int)long_9, byte_12);
+				FirmwareUtilities.smethod_36(text2, 126976L, (int)long_9, byte_12);
 			}
 			if (long_10 != -1L)
 			{
 				if (long_10 > num)
 				{
-					Class12.smethod_36(text2, 258048L, num, byte_13);
+					FirmwareUtilities.smethod_36(text2, 258048L, num, byte_13);
 				}
 				else
 				{
-					Class12.smethod_36(text2, 258048L, (int)long_10, byte_13);
+					FirmwareUtilities.smethod_36(text2, 258048L, (int)long_10, byte_13);
 				}
 			}
 			SaveFileDialog1.CreatePrompt = false;
@@ -11891,9 +11891,9 @@ namespace Lzard_TBX_NET40
 			{
 				bool flag = default(bool);
 				uint uint_ = default(uint);
-				if (((Operators.CompareString(Strings.Trim(string_14), "HITACHI", false) == 0) & (Operators.CompareString(Strings.Trim(string_15), "GDR3120L", false) == 0)) && !Class12.smethod_6(text2, ref flag, ref uint_))
+				if (((Operators.CompareString(Strings.Trim(string_14), "HITACHI", false) == 0) & (Operators.CompareString(Strings.Trim(string_15), "GDR3120L", false) == 0)) && !FirmwareUtilities.smethod_6(text2, ref flag, ref uint_))
 				{
-					Class12.smethod_7(text2, 0u);
+					FirmwareUtilities.smethod_7(text2, 0u);
 				}
 				FileSystem.FileCopy(text2, SaveFileDialog1.FileName);
 				Interaction.MsgBox("The file has been generated", MsgBoxStyle.Information, "Success");
@@ -11956,15 +11956,15 @@ namespace Lzard_TBX_NET40
 				return;
 			}
 			string text = "";
-			if (!Class12.smethod_26(txbAV_DstKey.Text, ref text))
+			if (!FirmwareUtilities.smethod_26(txbAV_DstKey.Text, ref text))
 			{
 				Interaction.MsgBox(text, MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
 			if (!txbAV_DstDVDSer.ReadOnly && int_10 > 0)
 			{
-				byte[] array = (byte[])Class13.smethod_7(Strings.Mid(txbAV_DstDVDSer.Text + Strings.Space(20), 1, 20));
-				Class13.smethod_13(ref array, 0, 20, ref byte_9, 0);
+				byte[] array = (byte[])ToolboxUtilities.smethod_7(Strings.Mid(txbAV_DstDVDSer.Text + Strings.Space(20), 1, 20));
+				ToolboxUtilities.smethod_13(ref array, 0, 20, ref byte_9, 0);
 			}
 			if (!txbAV_DstKey.ReadOnly)
 			{
@@ -11973,20 +11973,20 @@ namespace Lzard_TBX_NET40
 			if (int_14 != -1)
 			{
 				byte[] array2 = new byte[16];
-				if (!Class12.smethod_40(string_14, string_15, string_16, ref text, ref byte_11, ref byte_9, ref array2))
+				if (!FirmwareUtilities.smethod_40(string_14, string_15, string_16, ref text, ref byte_11, ref byte_9, ref array2))
 				{
 					Interaction.MsgBox("Cannot Get Key from Destination Key Area\r\nError: " + text, MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				if (Operators.CompareString(string_20, Class13.smethod_5(ref array2), false) != 0 && Interaction.MsgBox("If you continue we will re-generate a keyarea for this firmware but due to Console checks it might not work\r\nIt is recommended you stop now and Load a source Firmware with a valid Keyarea\r\nIf you continue there is possibility the games not boot and your console being flagged for ban\r\nDo you want to continue?", MsgBoxStyle.Exclamation | MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2, "Warning!") == MsgBoxResult.Yes && Interaction.MsgBox("It is recommended you stop now and Load a source Firmware with a valid Keyarea\r\nIf you continue there is possibility the games not boot and your console being flagged for ban\r\nReally Sure?", MsgBoxStyle.Exclamation | MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2, "Warning!") == MsgBoxResult.Yes)
+				if (Operators.CompareString(string_20, ToolboxUtilities.smethod_5(ref array2), false) != 0 && Interaction.MsgBox("If you continue we will re-generate a keyarea for this firmware but due to Console checks it might not work\r\nIt is recommended you stop now and Load a source Firmware with a valid Keyarea\r\nIf you continue there is possibility the games not boot and your console being flagged for ban\r\nDo you want to continue?", MsgBoxStyle.Exclamation | MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2, "Warning!") == MsgBoxResult.Yes && Interaction.MsgBox("It is recommended you stop now and Load a source Firmware with a valid Keyarea\r\nIf you continue there is possibility the games not boot and your console being flagged for ban\r\nReally Sure?", MsgBoxStyle.Exclamation | MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2, "Warning!") == MsgBoxResult.Yes)
 				{
 					string obj = string_14;
 					string obj2 = string_15;
 					string obj3 = string_16;
 					ref byte[] reference = ref byte_9;
 					ref byte[] reference2 = ref byte_11;
-					byte[] array = Class13.cpoahSiso(string_20);
-					if (!Class12.smethod_42(obj, obj2, obj3, ref reference, ref text, ref reference2, ref array))
+					byte[] array = ToolboxUtilities.cpoahSiso(string_20);
+					if (!FirmwareUtilities.smethod_42(obj, obj2, obj3, ref reference, ref text, ref reference2, ref array))
 					{
 						Interaction.MsgBox("Cannot Regenerate Keyarea on the Destination File\r\nError: " + text, MsgBoxStyle.Exclamation, "Error:");
 						return;
@@ -12009,7 +12009,7 @@ namespace Lzard_TBX_NET40
 			}
 			string left2 = Strings.Trim(string_14) + "-" + Strings.Trim(string_15) + "-" + Strings.Trim(string_16);
 			right = Strings.Trim(string_17) + "-" + Strings.Trim(string_18) + "-" + Strings.Trim(string_19);
-			if (Operators.CompareString(left2, right, false) != 0 && !Class12.smethod_44(string_14, string_15, string_16, ref text))
+			if (Operators.CompareString(left2, right, false) != 0 && !FirmwareUtilities.smethod_44(string_14, string_15, string_16, ref text))
 			{
 				if (Operators.CompareString(text, "", false) != 0)
 				{
@@ -12020,7 +12020,7 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The Destination File does not Support Spoofing", MsgBoxStyle.Exclamation, "Error:");
 				}
 			}
-			else if (Class12.smethod_27(string_20, ref text) || Interaction.MsgBox("The Key used on the Generated file has the following issue:\r\n" + text + "\r\nDo you want to continue?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2, "Warning") != MsgBoxResult.No)
+			else if (FirmwareUtilities.smethod_27(string_20, ref text) || Interaction.MsgBox("The Key used on the Generated file has the following issue:\r\n" + text + "\r\nDo you want to continue?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2, "Warning") != MsgBoxResult.No)
 			{
 				genCFW_FromFile();
 			}
@@ -12056,7 +12056,7 @@ namespace Lzard_TBX_NET40
 			if (dialogResult == DialogResult.OK)
 			{
 				string text = Strings.Mid(SaveFileDialog1.FileName, 1, Strings.InStrRev(SaveFileDialog1.FileName, "\\", -1, CompareMethod.Text));
-				Class11.smethod_2(struct3_0[num].string_3, text);
+				CfwTemplateParser.smethod_2(struct3_0[num].string_3, text);
 			}
 		}
 
@@ -12107,8 +12107,8 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("Please choose a valid 16 byte Key file", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				byte[] array = Class12.smethod_35(fileName, 0L, 16);
-				string text = Class13.smethod_5(ref array);
+				byte[] array = FirmwareUtilities.smethod_35(fileName, 0L, 16);
+				string text = ToolboxUtilities.smethod_5(ref array);
 				txbAV_DstKey.ReadOnly = false;
 				txbAV_DstKey.Text = text;
 			}
@@ -12128,8 +12128,8 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("Please choose a valid 80 byte Serial file", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				byte[] array = Class12.smethod_35(fileName, 0L, 20);
-				string text2 = Strings.Trim(Class13.smethod_1(ref array));
+				byte[] array = FirmwareUtilities.smethod_35(fileName, 0L, 20);
+				string text2 = Strings.Trim(ToolboxUtilities.smethod_1(ref array));
 				txbAV_DstDVDSer.ReadOnly = false;
 				txbAV_DstDVDSer.Text = text2;
 			}
@@ -12164,7 +12164,7 @@ namespace Lzard_TBX_NET40
 			txbAV_DstDVDSer.ReadOnly = false;
 			try
 			{
-				txbAV_DstDVDSer.Text = Strings.Trim(Class13.smethod_1(ref byte_, 20));
+				txbAV_DstDVDSer.Text = Strings.Trim(ToolboxUtilities.smethod_1(ref byte_, 20));
 			}
 			catch (Exception projectError)
 			{
@@ -12358,7 +12358,7 @@ namespace Lzard_TBX_NET40
 		private void Button7_Click(object sender, EventArgs e)
 		{
 			int num = Convert.ToInt32(txbAddrSect.Text, 16) & 0x3FFFF;
-			byte[] array = Class12.smethod_35(Application.StartupPath + "\\fc.bin", 0L, 8192);
+			byte[] array = FirmwareUtilities.smethod_35(Application.StartupPath + "\\fc.bin", 0L, 8192);
 			array[11] = 144;
 			array[10] = (byte)((num >> 16) & 0xFF);
 			array[9] = (byte)((num >> 8) & 0xFF);
@@ -12371,12 +12371,12 @@ namespace Lzard_TBX_NET40
 			array[50] = 0;
 			array[49] = 16;
 			array[48] = 0;
-			byte[] array2 = Class12.smethod_35(string_5, num, 4096);
+			byte[] array2 = FirmwareUtilities.smethod_35(string_5, num, 4096);
 			string path = Application.StartupPath + "\\fco.bin";
 			FileStream fileStream = new FileStream(path, FileMode.Create);
 			fileStream.Write(array, 0, 8192);
 			fileStream.Close();
-			Class10.smethod_8(path, 2208L, 4096, true, array2);
+			HitachiKeyScrambler.smethod_8(path, 2208L, 4096, true, array2);
 			PortClose();
 			SerialPort1.PortName = ToolStripStatusLabel_0.Text;
 			SerialPort1.BaudRate = 115200;
@@ -12402,7 +12402,7 @@ namespace Lzard_TBX_NET40
 				return;
 			}
 			while (num2 <= 1);
-			Class13.smethod_22(1);
+			ToolboxUtilities.smethod_22(1);
 			FileStream fileStream2 = new FileStream(path, FileMode.Open);
 			byte[] buf = new byte[1025];
 			num2 = 0;
@@ -12422,7 +12422,7 @@ namespace Lzard_TBX_NET40
 			}
 			while (num2 <= 7);
 			fileStream2.Close();
-			Class13.smethod_22(1);
+			ToolboxUtilities.smethod_22(1);
 			path = Application.StartupPath + "\\fco_rb.bin";
 			FileStream fileStream3 = new FileStream(path, FileMode.Create);
 			num2 = 0;
@@ -12482,7 +12482,7 @@ namespace Lzard_TBX_NET40
 				return;
 			}
 			string text = "";
-			string str = Class12.smethod_3(txbhitsrc.Text, ref text);
+			string str = FirmwareUtilities.smethod_3(txbhitsrc.Text, ref text);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Error Ocurred: " + text, MsgBoxStyle.Exclamation, "Error:");
@@ -12493,7 +12493,7 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("The file " + txbhitsrc.Text + " is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			string str2 = Class12.smethod_4(str, txbhitsrc.Text, ref text);
+			string str2 = FirmwareUtilities.smethod_4(str, txbhitsrc.Text, ref text);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Error Ocurred: " + text, MsgBoxStyle.Exclamation, "Error:");
@@ -12504,16 +12504,16 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("The file " + txbhitsrc.Text + " is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			Class12.smethod_9(str, str2, txbhitsrc.Text, ref text);
+			FirmwareUtilities.smethod_9(str, str2, txbhitsrc.Text, ref text);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Error Ocurred: " + text, MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			bool flag = Class12.cpoahSiso(str, str2, txbhitsrc.Text, ref text);
-			bool flag2 = Class12.smethod_5(str, str2, txbhitsrc.Text, flag, ref text);
+			bool flag = FirmwareUtilities.cpoahSiso(str, str2, txbhitsrc.Text, ref text);
+			bool flag2 = FirmwareUtilities.smethod_5(str, str2, txbhitsrc.Text, flag, ref text);
 			text = "";
-			string str3 = Class12.smethod_3(txbhitdst.Text, ref text);
+			string str3 = FirmwareUtilities.smethod_3(txbhitdst.Text, ref text);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Error Ocurred: " + text, MsgBoxStyle.Exclamation, "Error:");
@@ -12524,7 +12524,7 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("The file " + txbhitdst.Text + " is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			string str4 = Class12.smethod_4(str3, txbhitdst.Text, ref text);
+			string str4 = FirmwareUtilities.smethod_4(str3, txbhitdst.Text, ref text);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Error Ocurred: " + text, MsgBoxStyle.Exclamation, "Error:");
@@ -12535,14 +12535,14 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("The file " + txbhitsrc.Text + " is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			Class12.smethod_9(str3, str4, txbhitdst.Text, ref text);
+			FirmwareUtilities.smethod_9(str3, str4, txbhitdst.Text, ref text);
 			if (Operators.CompareString(text, "", false) != 0)
 			{
 				Interaction.MsgBox("Error Ocurred: " + text, MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			Class12.cpoahSiso(str3, str4, txbhitdst.Text, ref text);
-			bool flag3 = Class12.smethod_5(str, str2, txbhitdst.Text, flag, ref text);
+			FirmwareUtilities.cpoahSiso(str3, str4, txbhitdst.Text, ref text);
+			bool flag3 = FirmwareUtilities.smethod_5(str, str2, txbhitdst.Text, flag, ref text);
 			if (flag2 && flag3)
 			{
 				Interaction.MsgBox("Both Files seems to be original, nothing to do", MsgBoxStyle.Exclamation, "Notice:");
@@ -12557,11 +12557,11 @@ namespace Lzard_TBX_NET40
 			int int_2 = default(int);
 			if (flag2 && !flag3)
 			{
-				Class12.smethod_39(txbhitsrc.Text, txbhitdst.Text, ref int_, ref int_2);
+				FirmwareUtilities.smethod_39(txbhitsrc.Text, txbhitdst.Text, ref int_, ref int_2);
 			}
 			if (!flag2 && flag3)
 			{
-				Class12.smethod_39(txbhitsrc.Text, txbhitdst.Text, ref int_, ref int_2, true);
+				FirmwareUtilities.smethod_39(txbhitsrc.Text, txbhitdst.Text, ref int_, ref int_2, true);
 			}
 			lstSectors.Items.Clear();
 			int num = int_2 - 1;
@@ -12586,7 +12586,7 @@ namespace Lzard_TBX_NET40
 			for (i = 0; i <= num2; i++)
 			{
 				int num3 = Convert.ToInt32(Conversions.ToString(lstSectors.Items[i]), 16) & 0x3FFFF;
-				byte[] array = Class13.cpoahSiso("CFF8FAFCFFFDFCCC00000000013409FCFF41000000342E09A000C923FCCC00000000013409FCCCA0080080013809FCCC00000000012C09FCFF8904000000421CCBCBFAFD0002CEF8DF0008CBCBCBCBCBCF08CF20F8FEFCFCFF29040000F8FE0434A8D98501F21402A8D9F8FEFCFCFF76000000F8FE04FCA8203000802DFF00A1C8398005FC8100300080F8FEFCFCFF80020000F8FE04F8FEFCFCFFA2030000F8FE0481C81EFCA400300080FCC401000000FC8100300080C9D32CFF00022E09CA078000022E0934A8D92DFE00F20402A8D9F8FEFCFCFFCC030000F8FE04CE20CE08F0FCFCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512C9000F050CBCBFCA800000090FC8220300080FCA800100090FC8224300080FCA800200090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFF16030000F8FE04851FFCA820300080A4C920FCA824300080A4C917FCA828300080A4C90E2C0020FC812C300080CC9201FCDC00000090FAD055052CAA00F050FCDD00000090FAD1AA028055F0512C9000F050CBCBFCA800000090FC8220300080FCA800100090FC8224300080FCA800200090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFF7D020000F8FE042DC200FCA820300080A4C920FCA824300080A4C917FCA828300080A4C90E2C0020FC812C300080CCF8002D9D00FCA820300080A4C920FCA824300080A4C917FCA828300080A4C90E2C0010FC812C300080CCCE008537FCA820300080A4C920FCA824300080A4C917FCA828300080A4C90E2C0020FC812C300080CCA500FCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512C9000F050CBCBFCA800000090FC8220300080FCA800000090FC8224300080FCA800000090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFF90010000F8FE042DBF00FCA820300080A4C91FFCA824300080A4C916FCA828300080A4C90D2C0010FC812C300080CA0B2CFF00FC8220300080F0FCFCA820300080851FA4C8192DC200A4C8552D9D00A4C905CC8F008537A4C847CC9D00FCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512C8000F0502CAA00F0508055F051FAA034098030F050F8FEFCFCFFFB000000F8FE04CCCB00FCDC00000090FAD055052CAA00F050FCDD00000090FAD1AA028055F0512C8000F0502CAA00F0508055F051FAA034098030F050F8FEFCFCFFB9000000F8FE04CC8900FCDC00000090FAD05505FCDD00000090FAD1AA02CA16FCDC00000090FAD05555FCDD00000090FAD1AA2A2CAA00F0508055F0512C8000F0502CAA00F0508055F051FAA234098030F052F8FEFCFCFF61000000F8FE04CBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCA02F0FCFCA52C300080FAA03409F040FAC8FF00C91041FCC501000000C9F18000DF00002CFF00F0FCFCA800000090CBCBFCA900000090CBCBA1C9EFFCA900000090CBCBA1C9E4F0FC3404D9F8E080C9FACBCB80010200DFCBCB80000201DFCBCB2C9A000228DFF0FC3404D9F8E080C9FACBCB80000200DFCBCB80000201DFCBCB2C9A000228DFF0FCCF08F8FEFCFCFF9A030000F8FE0434A8D98501F21402A8D9F8FEFCFCFFA3000000F8FE04FCA8203000802DFF00A1C842382C09FC812C300080800AFC8100300080F8FEFCFCFF8C020000F8FE04F8FEFCFCFF16030000F8FE0481C81EFCA400300080FCC401000000FC8100300080C9D32CFF00022E09CA2DFAA0340941FA803409FAA0380941FA803809FCA42C300080FCC401000000FC812C300080C99D8000022E0934A8D92DFE00F20402A8D9F8FEFCFCFF0E030000F8FE04CE08F0FCFCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512C9000F050CBCBFCA800000090FC8220300080FCA800100090FC8224300080FCA800200090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFF5A020000F8FE04851FFCA820300080A4C919FCA824300080A4C910FCA828300080A4C907C905CC6E01FCDC00000090FAD055052CAA00F050FCDD00000090FAD1AA028055F0512C9000F050CBCBFCA800000090FC8220300080FCA800100090FC8224300080FCA800200090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFFC8010000F8FE042DC200FCA820300080A4C917FCA824300080A4C90EFCA828300080A4C905CCDD002D9D00FCA820300080A4C917FCA824300080A4C90EFCA828300080A4C905CCBC008537FCA820300080A4C917FCA824300080A4C90EFCA828300080A4C905CC9C00FCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512C9000F050CBCBFCA800000090FC8220300080FCA800000090FC8224300080FCA800000090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFFF6000000F8FE042DBF00FCA820300080A4C916FCA824300080A4C90DFCA828300080A4C904C80B2CFF00FC8220300080F0FCCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBFCA820300080851FA4C8152DC200A4C84B2D9D00A4C8458537A4C840CA02FCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512CA000F050FAA13409FAA03809F040F051F8FEFCFCFF60000000F8FE04CA3CFCDC00000090FAD055052CAA00F050FCDD00000090FAD1AA028055F0512CA000F050FAA13409FAA03809F040F051F8FEFCFCFF24000000F8FE04F0FCFAA13409FAA03809F040F045A4C9078000DF00002CFF00F0FCFCA800000090CBCBFCA900000090CBCBA1C9EFFCA900000090CBCBA1C9E4F0FC3404D9F8E080C9FACBCB80010200DFCBCB80000201DFCBCB2C9A000228DFF0FC3404D9F8E080C9FACBCB80000200DFCBCB80000201DFCBCB2C9A000228DFF0FCCBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF44554D4D5920415245412044554D4D59000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+				byte[] array = ToolboxUtilities.cpoahSiso("CFF8FAFCFFFDFCCC00000000013409FCFF41000000342E09A000C923FCCC00000000013409FCCCA0080080013809FCCC00000000012C09FCFF8904000000421CCBCBFAFD0002CEF8DF0008CBCBCBCBCBCF08CF20F8FEFCFCFF29040000F8FE0434A8D98501F21402A8D9F8FEFCFCFF76000000F8FE04FCA8203000802DFF00A1C8398005FC8100300080F8FEFCFCFF80020000F8FE04F8FEFCFCFFA2030000F8FE0481C81EFCA400300080FCC401000000FC8100300080C9D32CFF00022E09CA078000022E0934A8D92DFE00F20402A8D9F8FEFCFCFFCC030000F8FE04CE20CE08F0FCFCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512C9000F050CBCBFCA800000090FC8220300080FCA800100090FC8224300080FCA800200090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFF16030000F8FE04851FFCA820300080A4C920FCA824300080A4C917FCA828300080A4C90E2C0020FC812C300080CC9201FCDC00000090FAD055052CAA00F050FCDD00000090FAD1AA028055F0512C9000F050CBCBFCA800000090FC8220300080FCA800100090FC8224300080FCA800200090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFF7D020000F8FE042DC200FCA820300080A4C920FCA824300080A4C917FCA828300080A4C90E2C0020FC812C300080CCF8002D9D00FCA820300080A4C920FCA824300080A4C917FCA828300080A4C90E2C0010FC812C300080CCCE008537FCA820300080A4C920FCA824300080A4C917FCA828300080A4C90E2C0020FC812C300080CCA500FCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512C9000F050CBCBFCA800000090FC8220300080FCA800000090FC8224300080FCA800000090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFF90010000F8FE042DBF00FCA820300080A4C91FFCA824300080A4C916FCA828300080A4C90D2C0010FC812C300080CA0B2CFF00FC8220300080F0FCFCA820300080851FA4C8192DC200A4C8552D9D00A4C905CC8F008537A4C847CC9D00FCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512C8000F0502CAA00F0508055F051FAA034098030F050F8FEFCFCFFFB000000F8FE04CCCB00FCDC00000090FAD055052CAA00F050FCDD00000090FAD1AA028055F0512C8000F0502CAA00F0508055F051FAA034098030F050F8FEFCFCFFB9000000F8FE04CC8900FCDC00000090FAD05505FCDD00000090FAD1AA02CA16FCDC00000090FAD05555FCDD00000090FAD1AA2A2CAA00F0508055F0512C8000F0502CAA00F0508055F051FAA234098030F052F8FEFCFCFF61000000F8FE04CBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCA02F0FCFCA52C300080FAA03409F040FAC8FF00C91041FCC501000000C9F18000DF00002CFF00F0FCFCA800000090CBCBFCA900000090CBCBA1C9EFFCA900000090CBCBA1C9E4F0FC3404D9F8E080C9FACBCB80010200DFCBCB80000201DFCBCB2C9A000228DFF0FC3404D9F8E080C9FACBCB80000200DFCBCB80000201DFCBCB2C9A000228DFF0FCCF08F8FEFCFCFF9A030000F8FE0434A8D98501F21402A8D9F8FEFCFCFFA3000000F8FE04FCA8203000802DFF00A1C842382C09FC812C300080800AFC8100300080F8FEFCFCFF8C020000F8FE04F8FEFCFCFF16030000F8FE0481C81EFCA400300080FCC401000000FC8100300080C9D32CFF00022E09CA2DFAA0340941FA803409FAA0380941FA803809FCA42C300080FCC401000000FC812C300080C99D8000022E0934A8D92DFE00F20402A8D9F8FEFCFCFF0E030000F8FE04CE08F0FCFCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512C9000F050CBCBFCA800000090FC8220300080FCA800100090FC8224300080FCA800200090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFF5A020000F8FE04851FFCA820300080A4C919FCA824300080A4C910FCA828300080A4C907C905CC6E01FCDC00000090FAD055052CAA00F050FCDD00000090FAD1AA028055F0512C9000F050CBCBFCA800000090FC8220300080FCA800100090FC8224300080FCA800200090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFFC8010000F8FE042DC200FCA820300080A4C917FCA824300080A4C90EFCA828300080A4C905CCDD002D9D00FCA820300080A4C917FCA824300080A4C90EFCA828300080A4C905CCBC008537FCA820300080A4C917FCA824300080A4C90EFCA828300080A4C905CC9C00FCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512C9000F050CBCBFCA800000090FC8220300080FCA800000090FC8224300080FCA800000090FC8228300080FCA801000090FC82043000802CAA00F0508055F0512CF000F050CBCBF8FEFCFCFFF6000000F8FE042DBF00FCA820300080A4C916FCA824300080A4C90DFCA828300080A4C904C80B2CFF00FC8220300080F0FCCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBCBFCA820300080851FA4C8152DC200A4C84B2D9D00A4C8458537A4C840CA02FCDC00000090FAD055552CAA00F050FCDD00000090FAD1AA2A8055F0512CA000F050FAA13409FAA03809F040F051F8FEFCFCFF60000000F8FE04CA3CFCDC00000090FAD055052CAA00F050FCDD00000090FAD1AA028055F0512CA000F050FAA13409FAA03809F040F051F8FEFCFCFF24000000F8FE04F0FCFAA13409FAA03809F040F045A4C9078000DF00002CFF00F0FCFCA800000090CBCBFCA900000090CBCBA1C9EFFCA900000090CBCBA1C9E4F0FC3404D9F8E080C9FACBCB80010200DFCBCB80000201DFCBCB2C9A000228DFF0FC3404D9F8E080C9FACBCB80000200DFCBCB80000201DFCBCB2C9A000228DFF0FCCBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF44554D4D5920415245412044554D4D59000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
 				array[11] = 144;
 				array[10] = (byte)((num3 >> 16) & 0xFF);
 				array[9] = (byte)((num3 >> 8) & 0xFF);
@@ -12599,9 +12599,9 @@ namespace Lzard_TBX_NET40
 				array[50] = 0;
 				array[49] = 16;
 				array[48] = 0;
-				byte[] array2 = Class12.smethod_35(sFileBase, num3, 4096);
-				Class10.smethod_9(ref array2, 4096);
-				Class13.smethod_13(ref array2, 0, 4096, ref array, 2208);
+				byte[] array2 = FirmwareUtilities.smethod_35(sFileBase, num3, 4096);
+				HitachiKeyScrambler.smethod_9(ref array2, 4096);
+				ToolboxUtilities.smethod_13(ref array2, 0, 4096, ref array, 2208);
 				fileStream.Write(array, 0, 8192);
 				num++;
 			}
@@ -12630,7 +12630,7 @@ namespace Lzard_TBX_NET40
 				bool bContinuedRead;
 				if (i > num5)
 				{
-					Class13.smethod_22(1);
+					ToolboxUtilities.smethod_22(1);
 					int num6 = (int)Math.Round((double)num * 4.0 * 2.0);
 					FileStream fileStream2 = new FileStream(path, FileMode.Open);
 					byte[] buf = new byte[1025];
@@ -12692,7 +12692,7 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Cannot Open COM Port, select a valid port", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			Class13.smethod_22(1);
+			ToolboxUtilities.smethod_22(1);
 			string path = Application.StartupPath + "\\bufsect.bin";
 			FileStream fileStream = new FileStream(path, FileMode.Create);
 			int num2 = num - 1;
@@ -12768,7 +12768,7 @@ namespace Lzard_TBX_NET40
 				hitminilog("Parsing Destination File", true);
 				text = txbFile2Flash.Text;
 				string text2 = "";
-				str = Class12.smethod_3(text, ref text2);
+				str = FirmwareUtilities.smethod_3(text, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
@@ -12779,7 +12779,7 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The file " + text + " is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				str2 = Class12.smethod_4(str, text, ref text2);
+				str2 = FirmwareUtilities.smethod_4(str, text, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
@@ -12790,23 +12790,23 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The file " + text + " is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				str3 = Class12.smethod_9(str, str2, text, ref text2);
+				str3 = FirmwareUtilities.smethod_9(str, str2, text, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				right = Class12.smethod_15(str, str2, str3, text, ref text2, ref num);
-				if (Class12.cpoahSiso(str, str2, text, ref text2))
+				right = FirmwareUtilities.smethod_15(str, str2, str3, text, ref text2, ref num);
+				if (FirmwareUtilities.cpoahSiso(str, str2, text, ref text2))
 				{
 					Interaction.MsgBox("The file you want to flash is crypted, cannot continue", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
 				bool flag = default(bool);
-				flag2 = Class12.smethod_5(str, str2, text, flag, ref text2);
-				if (!Class12.smethod_6(text, ref flag3, ref uint_))
+				flag2 = FirmwareUtilities.smethod_5(str, str2, text, flag, ref text2);
+				if (!FirmwareUtilities.smethod_6(text, ref flag3, ref uint_))
 				{
-					Class12.smethod_7(text, 0u);
+					FirmwareUtilities.smethod_7(text, 0u);
 				}
 				hitminilog("Retrieving File from Drive");
 				if (!method_11())
@@ -12818,7 +12818,7 @@ namespace Lzard_TBX_NET40
 				{
 					return;
 				}
-				Class13.smethod_22(1);
+				ToolboxUtilities.smethod_22(1);
 				array[0] = 64;
 				array[1] = 85;
 				array[2] = 113;
@@ -12884,7 +12884,7 @@ namespace Lzard_TBX_NET40
 				hitminilog("Parsing Drive File");
 				text3 = Conversions.ToString(obj);
 				text2 = "";
-				str4 = Class12.smethod_3(text3, ref text2);
+				str4 = FirmwareUtilities.smethod_3(text3, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
@@ -12895,7 +12895,7 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The file read from the drive is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				str5 = Class12.smethod_4(str4, text3, ref text2);
+				str5 = FirmwareUtilities.smethod_4(str4, text3, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
@@ -12906,19 +12906,19 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The file read from the drive is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				text4 = Class12.smethod_9(str4, str5, text3, ref text2);
+				text4 = FirmwareUtilities.smethod_9(str4, str5, text3, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				left = Class12.smethod_15(str4, str5, text4, text3, ref text2, ref num3);
-				if (flag = Class12.cpoahSiso(str4, str5, text3, ref text2))
+				left = FirmwareUtilities.smethod_15(str4, str5, text4, text3, ref text2, ref num3);
+				if (flag = FirmwareUtilities.cpoahSiso(str4, str5, text3, ref text2))
 				{
 					Interaction.MsgBox("The file read from the drive is crypted, cannot continue", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				flag4 = Class12.smethod_5(str4, str5, text3, flag, ref text2);
+				flag4 = FirmwareUtilities.smethod_5(str4, str5, text3, flag, ref text2);
 			}
 			else
 			{
@@ -12935,7 +12935,7 @@ namespace Lzard_TBX_NET40
 					{
 						return;
 					}
-					Class13.smethod_22(1);
+					ToolboxUtilities.smethod_22(1);
 					array[0] = 64;
 					array[1] = 85;
 					array[2] = 113;
@@ -13006,7 +13006,7 @@ namespace Lzard_TBX_NET40
 				}
 				hitminilog("Parsing Drive File");
 				string text2 = "";
-				str4 = Class12.smethod_3(text3, ref text2);
+				str4 = FirmwareUtilities.smethod_3(text3, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
@@ -13017,7 +13017,7 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The file read from the drive is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				str5 = Class12.smethod_4(str4, text3, ref text2);
+				str5 = FirmwareUtilities.smethod_4(str4, text3, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
@@ -13028,20 +13028,20 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The file read from the drive is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				text4 = Class12.smethod_9(str4, str5, text3, ref text2);
+				text4 = FirmwareUtilities.smethod_9(str4, str5, text3, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				left = Class12.smethod_15(str4, str5, text4, text3, ref text2, ref num3);
+				left = FirmwareUtilities.smethod_15(str4, str5, text4, text3, ref text2, ref num3);
 				bool flag;
-				if (flag = Class12.cpoahSiso(str4, str5, text3, ref text2))
+				if (flag = FirmwareUtilities.cpoahSiso(str4, str5, text3, ref text2))
 				{
 					Interaction.MsgBox("The file read from the drive is crypted, cannot continue", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				flag4 = Class12.smethod_5(str4, str5, text3, flag, ref text2);
+				flag4 = FirmwareUtilities.smethod_5(str4, str5, text3, flag, ref text2);
 				hitminilog("Extracting Original from Fileset");
 				string text6 = Application.StartupPath + "\\CFW_Templates\\Original_Fileset.set";
 				if (Operators.CompareString(FileSystem.Dir(text6), "", false) == 0)
@@ -13049,9 +13049,9 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("Cannot Find the File " + text6 + " Please download the Filesets", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				Class11.Struct4[] array2 = default(Class11.Struct4[]);
+				CfwTemplateParser.Struct4[] array2 = default(CfwTemplateParser.Struct4[]);
 				int num5 = default(int);
-				Class11.smethod_1(text6, ref array2, ref num5);
+				CfwTemplateParser.smethod_1(text6, ref array2, ref num5);
 				if (num5 == 0)
 				{
 					Interaction.MsgBox("No TOC Entries found on the Fileset " + text6, MsgBoxStyle.Exclamation, "Error:");
@@ -13075,7 +13075,7 @@ namespace Lzard_TBX_NET40
 					return;
 				}
 				string text8 = Application.StartupPath + "\\ori.bin";
-				if (!Class13.smethod_8(text6, text8, 33792L + array2[i].long_1, array2[i].long_0))
+				if (!ToolboxUtilities.smethod_8(text6, text8, 33792L + array2[i].long_1, array2[i].long_0))
 				{
 					Interaction.MsgBox("The temporary file cannot be created, check the application is on folder with write privileges\r\nIf problem persist make sure you use latest Fileset Templates", MsgBoxStyle.Exclamation, "Error:");
 					return;
@@ -13083,7 +13083,7 @@ namespace Lzard_TBX_NET40
 				hitminilog("Parsing Original File");
 				text = text8;
 				text2 = "";
-				str = Class12.smethod_3(text, ref text2);
+				str = FirmwareUtilities.smethod_3(text, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
@@ -13094,7 +13094,7 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The file " + text + " is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				str2 = Class12.smethod_4(str, text, ref text2);
+				str2 = FirmwareUtilities.smethod_4(str, text, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
@@ -13105,22 +13105,22 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("The file " + text + " is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				str3 = Class12.smethod_9(str, str2, text, ref text2);
+				str3 = FirmwareUtilities.smethod_9(str, str2, text, ref text2);
 				if (Operators.CompareString(text2, "", false) != 0)
 				{
 					Interaction.MsgBox("Error Ocurred: " + text2, MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				right = Class12.smethod_15(str, str2, str3, text, ref text2, ref num);
-				if (Class12.cpoahSiso(str, str2, text, ref text2))
+				right = FirmwareUtilities.smethod_15(str, str2, str3, text, ref text2, ref num);
+				if (FirmwareUtilities.cpoahSiso(str, str2, text, ref text2))
 				{
 					Interaction.MsgBox("The file you want to flash is crypted, cannot continue", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				flag2 = Class12.smethod_5(str, str2, text, flag, ref text2);
-				if (!Class12.smethod_6(text, ref flag3, ref uint_))
+				flag2 = FirmwareUtilities.smethod_5(str, str2, text, flag, ref text2);
+				if (!FirmwareUtilities.smethod_6(text, ref flag3, ref uint_))
 				{
-					Class12.smethod_7(text, 0u);
+					FirmwareUtilities.smethod_7(text, 0u);
 				}
 			}
 			string left2 = Strings.Trim(str4) + "-" + Strings.Trim(str5) + "-" + Strings.Trim(text4);
@@ -13134,7 +13134,7 @@ namespace Lzard_TBX_NET40
 			int int_2 = default(int);
 			if (flag4 && flag2)
 			{
-				Class12.smethod_39(text3, text, ref int_, ref int_2);
+				FirmwareUtilities.smethod_39(text3, text, ref int_, ref int_2);
 				if (RadioButton1.Checked && int_2 == 1 && int_[0] == 16384)
 				{
 					int_2--;
@@ -13148,18 +13148,18 @@ namespace Lzard_TBX_NET40
 			hitminilog("Analizying Differences");
 			if (flag4 && !flag2)
 			{
-				Class12.smethod_39(text3, text, ref int_, ref int_2);
+				FirmwareUtilities.smethod_39(text3, text, ref int_, ref int_2);
 				if (int_[int_2 - 1] == 253952)
 				{
-					Class13.smethod_23(ref int_, int_2 - 1, 0);
+					ToolboxUtilities.smethod_23(ref int_, int_2 - 1, 0);
 				}
 			}
 			if (!flag4 && flag2)
 			{
-				Class12.smethod_39(text3, text, ref int_, ref int_2, true);
+				FirmwareUtilities.smethod_39(text3, text, ref int_, ref int_2, true);
 				if (int_[0] == 253952)
 				{
-					Class13.smethod_23(ref int_, 0, int_2 - 1);
+					ToolboxUtilities.smethod_23(ref int_, 0, int_2 - 1);
 				}
 			}
 			if (int_2 > 0)
@@ -13167,7 +13167,7 @@ namespace Lzard_TBX_NET40
 				int_ = (int[])Utils.CopyArray(int_, new int[int_2 + 1]);
 				int_[int_2] = 258048;
 				int_2++;
-				Class13.smethod_23(ref int_, int_2 - 1, 0);
+				ToolboxUtilities.smethod_23(ref int_, int_2 - 1, 0);
 			}
 			int num7 = int_2 - 1;
 			for (int i = 0; i <= num7; i++)
@@ -13414,7 +13414,7 @@ namespace Lzard_TBX_NET40
 				{
 					return;
 				}
-				Class13.smethod_22(1);
+				ToolboxUtilities.smethod_22(1);
 				array[0] = 64;
 				array[1] = 85;
 				array[2] = 113;
@@ -13479,7 +13479,7 @@ namespace Lzard_TBX_NET40
 							hitminilog("Parsing Drive File");
 							fileName = Conversions.ToString(obj);
 							string text = "";
-							string str = Class12.smethod_3(fileName, ref text);
+							string str = FirmwareUtilities.smethod_3(fileName, ref text);
 							if (Operators.CompareString(text, "", false) != 0)
 							{
 								Interaction.MsgBox("Error Ocurred: " + text, MsgBoxStyle.Exclamation, "Error:");
@@ -13490,7 +13490,7 @@ namespace Lzard_TBX_NET40
 								Interaction.MsgBox("The file read from the drive is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 								return;
 							}
-							string str2 = Class12.smethod_4(str, fileName, ref text);
+							string str2 = FirmwareUtilities.smethod_4(str, fileName, ref text);
 							if (Operators.CompareString(text, "", false) != 0)
 							{
 								Interaction.MsgBox("Error Ocurred: " + text, MsgBoxStyle.Exclamation, "Error:");
@@ -13501,19 +13501,19 @@ namespace Lzard_TBX_NET40
 								Interaction.MsgBox("The file read from the drive is not a Hitachi Fw File", MsgBoxStyle.Exclamation, "Error:");
 								return;
 							}
-							string text2 = Class12.smethod_9(str, str2, fileName, ref text);
+							string text2 = FirmwareUtilities.smethod_9(str, str2, fileName, ref text);
 							if (Operators.CompareString(text, "", false) != 0)
 							{
 								Interaction.MsgBox("Error Ocurred: " + text, MsgBoxStyle.Exclamation, "Error:");
 								return;
 							}
-							Class12.smethod_15(str, str2, text2, fileName, ref text, ref num3);
+							FirmwareUtilities.smethod_15(str, str2, text2, fileName, ref text, ref num3);
 							bool flag;
-							if (flag = Class12.cpoahSiso(str, str2, fileName, ref text))
+							if (flag = FirmwareUtilities.cpoahSiso(str, str2, fileName, ref text))
 							{
 								Interaction.MsgBox("The file read from the drive is crypted, cannot continue", MsgBoxStyle.Exclamation, "Error:");
 							}
-							else if (!Class12.smethod_5(str, str2, fileName, flag, ref text) && Interaction.MsgBox("The Drive's Firmware is not STOCK, before you flash a custom firmware IS MANDATORY you restore the firmware to Stock\r\nDo you want to Restore it Now?", MsgBoxStyle.YesNo | MsgBoxStyle.Question) != MsgBoxResult.No)
+							else if (!FirmwareUtilities.smethod_5(str, str2, fileName, flag, ref text) && Interaction.MsgBox("The Drive's Firmware is not STOCK, before you flash a custom firmware IS MANDATORY you restore the firmware to Stock\r\nDo you want to Restore it Now?", MsgBoxStyle.YesNo | MsgBoxStyle.Question) != MsgBoxResult.No)
 							{
 								Hit_Analyze_Changes(true, fileName);
 							}
@@ -13548,7 +13548,7 @@ namespace Lzard_TBX_NET40
 			string fileName = OpenFileDialog1.FileName;
 			OpenFileDialog1.InitialDirectory = "";
 			string text = Strings.Replace(fileName, ".snp", "_dummy.bin");
-			array = Class12.smethod_35(fileName, 0L, 1024);
+			array = FirmwareUtilities.smethod_35(fileName, 0L, 1024);
 			int num = array[0];
 			string text2 = Strings.Mid(fileName, 1, Strings.InStrRev(fileName, "\\", -1, CompareMethod.Text));
 			long num2 = 1024L;
@@ -13630,9 +13630,9 @@ namespace Lzard_TBX_NET40
 						struct5_0[num2].int_1 = buf[2];
 						struct5_0[num2].bool_0 = Conversions.ToBoolean(Interaction.IIf(buf[0] == byte.MaxValue, false, true));
 						struct5_0[num2].byte_0 = buf[0];
-						Class13.smethod_19(ref array, 0, 13, 0);
-						Class13.smethod_13(ref buf, 3, 12, ref array, 0);
-						struct5_0[num2].string_0 = Class13.smethod_18(ref array);
+						ToolboxUtilities.smethod_19(ref array, 0, 13, 0);
+						ToolboxUtilities.smethod_13(ref buf, 3, 12, ref array, 0);
+						struct5_0[num2].string_0 = ToolboxUtilities.smethod_18(ref array);
 						struct5_0[num2].cpoahSiso = new byte[16];
 						struct5_0[num2].byte_1 = new byte[96];
 						struct5_0[num2].byte_2 = new byte[96];
@@ -13640,15 +13640,15 @@ namespace Lzard_TBX_NET40
 						struct5_0[num2].byte_4 = new byte[320];
 						struct5_0[num2].byte_5 = new byte[16];
 						struct5_0[num2].byte_6 = new byte[32];
-						Class13.smethod_13(ref buf, 35, 16, ref struct5_0[num2].cpoahSiso, 0);
-						Class13.smethod_13(ref buf, 64, 96, ref struct5_0[num2].byte_1, 0);
-						Class13.smethod_13(ref buf, 256, 96, ref struct5_0[num2].byte_2, 0);
-						Class13.smethod_13(ref buf, 512, 512, ref struct5_0[num2].byte_3, 0);
+						ToolboxUtilities.smethod_13(ref buf, 35, 16, ref struct5_0[num2].cpoahSiso, 0);
+						ToolboxUtilities.smethod_13(ref buf, 64, 96, ref struct5_0[num2].byte_1, 0);
+						ToolboxUtilities.smethod_13(ref buf, 256, 96, ref struct5_0[num2].byte_2, 0);
+						ToolboxUtilities.smethod_13(ref buf, 512, 512, ref struct5_0[num2].byte_3, 0);
 						if (SPIF_READPAGE(786432 + num2 * 8192 + 1024, 1024, ref buf, true, true) == 0)
 						{
-							Class13.smethod_13(ref buf, 0, 320, ref struct5_0[num2].byte_4, 0);
-							Class13.smethod_13(ref buf, 512, 16, ref struct5_0[num2].byte_5, 0);
-							Class13.smethod_13(ref buf, 768, 32, ref struct5_0[num2].byte_6, 0);
+							ToolboxUtilities.smethod_13(ref buf, 0, 320, ref struct5_0[num2].byte_4, 0);
+							ToolboxUtilities.smethod_13(ref buf, 512, 16, ref struct5_0[num2].byte_5, 0);
+							ToolboxUtilities.smethod_13(ref buf, 768, 32, ref struct5_0[num2].byte_6, 0);
 							Application.DoEvents();
 							num2++;
 							continue;
@@ -13681,26 +13681,26 @@ namespace Lzard_TBX_NET40
 			{
 				mslbl_status.Text = "FULL";
 				mslbl_jobname.Text = struct5_0[iNode].string_0;
-				mstxb_key.Text = Class13.smethod_5(ref struct5_0[iNode].cpoahSiso);
-				string text = Class13.smethod_1(ref struct5_0[iNode].byte_1) + Class13.smethod_1(ref struct5_0[iNode].byte_2);
+				mstxb_key.Text = ToolboxUtilities.smethod_5(ref struct5_0[iNode].cpoahSiso);
+				string text = ToolboxUtilities.smethod_1(ref struct5_0[iNode].byte_1) + ToolboxUtilities.smethod_1(ref struct5_0[iNode].byte_2);
 				string text2 = "";
-				string str = Class12.smethod_21(text, ref text2);
+				string str = FirmwareUtilities.smethod_21(text, ref text2);
 				text2 = "";
-				string str2 = Class12.smethod_22(text, str, ref text2);
+				string str2 = FirmwareUtilities.smethod_22(text, str, ref text2);
 				text2 = "";
-				string str3 = Class12.smethod_24(text, str, str2, ref text2);
-				Class13.smethod_19(ref array, 0, array.Length, 0);
+				string str3 = FirmwareUtilities.smethod_24(text, str, str2, ref text2);
+				ToolboxUtilities.smethod_19(ref array, 0, array.Length, 0);
 				if (Operators.CompareString(Strings.Trim(str2), "DG16D2S", false) == 0)
 				{
-					Class13.smethod_13(ref struct5_0[iNode].byte_4, 0, array.Length, ref array, 0);
+					ToolboxUtilities.smethod_13(ref struct5_0[iNode].byte_4, 0, array.Length, ref array, 0);
 				}
 				if (Operators.CompareString(Strings.Trim(str2), "DG16D4S", false) == 0)
 				{
 					array = dg16d4s_fix_serial(struct5_0[iNode].byte_3, struct5_0[iNode].byte_1, struct5_0[iNode].byte_4, struct5_0[iNode].byte_5);
 				}
-				txbsync_ide.Text = Class13.smethod_24(ref struct5_0[iNode].byte_3, 0, struct5_0[iNode].byte_3.Length);
-				txbsync_inq.Text = Class13.smethod_24(ref struct5_0[iNode].byte_1, 0, struct5_0[iNode].byte_1.Length);
-				txbsync_ser.Text = Class13.smethod_24(ref array, 0, Conversions.ToInteger(Interaction.IIf(Operators.CompareString(Strings.Trim(str2), "DG16D4S", false) == 0, array.Length, 95)));
+				txbsync_ide.Text = ToolboxUtilities.smethod_24(ref struct5_0[iNode].byte_3, 0, struct5_0[iNode].byte_3.Length);
+				txbsync_inq.Text = ToolboxUtilities.smethod_24(ref struct5_0[iNode].byte_1, 0, struct5_0[iNode].byte_1.Length);
+				txbsync_ser.Text = ToolboxUtilities.smethod_24(ref array, 0, Conversions.ToInteger(Interaction.IIf(Operators.CompareString(Strings.Trim(str2), "DG16D4S", false) == 0, array.Length, 95)));
 				mslbl_logdrive.Text = Strings.Trim(str) + "-" + Strings.Trim(str2) + "-" + Strings.Trim(str3);
 				btn_mserase.Enabled = true;
 				btn_mssave.Enabled = true;
@@ -13726,19 +13726,19 @@ namespace Lzard_TBX_NET40
 			byte[] array = new byte[224];
 			byte[] array2 = new byte[20];
 			byte[] array3 = new byte[16];
-			byte[] array4 = Class13.cpoahSiso("FFFFFFFFFFFFFFFFFF");
-			array3 = ((!Class13.smethod_16(ref bFWHash, 0, 16, ref array4, 0)) ? bFWHash : Class13.cpoahSiso("01000000BB01"));
-			Class13.smethod_19(ref array, 0, array.Length, byte.MaxValue);
-			Class13.smethod_13(ref bIDE, 20, 20, ref array2, 0);
-			array4 = Class13.smethod_12(array2, 0, array2.Length);
-			Class13.smethod_13(ref array4, 0, 20, ref array, 0);
-			Class13.smethod_13(ref array3, 1, 3, ref array, 17);
-			Class13.smethod_13(ref bSubSer, 96, 16, ref array, 24);
-			Class13.smethod_13(ref bSubSer, 112, 4, ref array, 40);
-			Class13.smethod_13(ref bSubSer, 116, 32, ref array, 44);
-			Class13.smethod_13(ref bSubSer, 148, 4, ref array, 76);
-			Class13.smethod_13(ref bSubSer, 152, 32, ref array, 80);
-			Class13.smethod_13(ref bSubSer, 184, 96, ref array, 128);
+			byte[] array4 = ToolboxUtilities.cpoahSiso("FFFFFFFFFFFFFFFFFF");
+			array3 = ((!ToolboxUtilities.smethod_16(ref bFWHash, 0, 16, ref array4, 0)) ? bFWHash : ToolboxUtilities.cpoahSiso("01000000BB01"));
+			ToolboxUtilities.smethod_19(ref array, 0, array.Length, byte.MaxValue);
+			ToolboxUtilities.smethod_13(ref bIDE, 20, 20, ref array2, 0);
+			array4 = ToolboxUtilities.smethod_12(array2, 0, array2.Length);
+			ToolboxUtilities.smethod_13(ref array4, 0, 20, ref array, 0);
+			ToolboxUtilities.smethod_13(ref array3, 1, 3, ref array, 17);
+			ToolboxUtilities.smethod_13(ref bSubSer, 96, 16, ref array, 24);
+			ToolboxUtilities.smethod_13(ref bSubSer, 112, 4, ref array, 40);
+			ToolboxUtilities.smethod_13(ref bSubSer, 116, 32, ref array, 44);
+			ToolboxUtilities.smethod_13(ref bSubSer, 148, 4, ref array, 76);
+			ToolboxUtilities.smethod_13(ref bSubSer, 152, 32, ref array, 80);
+			ToolboxUtilities.smethod_13(ref bSubSer, 184, 96, ref array, 128);
 			return array;
 		}
 
@@ -13838,13 +13838,13 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Cannot Open COM Port, select a valid port", MsgBoxStyle.Exclamation, "Error:");
 				return false;
 			}
-			string text = Class13.smethod_1(ref struct5_0[iNode].byte_1) + Class13.smethod_1(ref struct5_0[iNode].byte_2);
+			string text = ToolboxUtilities.smethod_1(ref struct5_0[iNode].byte_1) + ToolboxUtilities.smethod_1(ref struct5_0[iNode].byte_2);
 			string text2 = "";
-			string text3 = Class12.smethod_21(text, ref text2);
+			string text3 = FirmwareUtilities.smethod_21(text, ref text2);
 			text2 = "";
-			string str = Class12.smethod_22(text, text3, ref text2);
+			string str = FirmwareUtilities.smethod_22(text, text3, ref text2);
 			text2 = "";
-			Class12.smethod_24(text, text3, str, ref text2);
+			FirmwareUtilities.smethod_24(text, text3, str, ref text2);
 			if (Operators.CompareString(Strings.Trim(str), "DG16D2S", false) == 0)
 			{
 				if (SPIF_READPAGE(786432 + iNode * 8192 + 1024, 1024, ref buf) != 0)
@@ -13853,22 +13853,22 @@ namespace Lzard_TBX_NET40
 					goto IL_0745;
 				}
 				send_ETX();
-				Class13.smethod_13(ref buf, 0, 320, ref array, 0);
+				ToolboxUtilities.smethod_13(ref buf, 0, 320, ref array, 0);
 			}
 			if (Operators.CompareString(Strings.Trim(str), "DG16D4S", false) != 0)
 			{
 				goto IL_03b7;
 			}
 			ref byte[] reference = ref struct5_0[iNode].byte_5;
-			byte[] array3 = Class13.cpoahSiso("FFFFFFFFFFFFFFFFFF");
-			if (Class13.smethod_16(ref reference, 0, 16, ref array3, 0))
+			byte[] array3 = ToolboxUtilities.cpoahSiso("FFFFFFFFFFFFFFFFFF");
+			if (ToolboxUtilities.smethod_16(ref reference, 0, 16, ref array3, 0))
 			{
 				if (struct5_0[iNode].int_0 != 65)
 				{
 					Interaction.MsgBox("The Slot labeled " + struct5_0[iNode].string_0 + " needs to be re-dumped, cannot save it", MsgBoxStyle.Information, "Error");
 					goto IL_0745;
 				}
-				struct5_0[iNode].byte_5 = Class13.cpoahSiso("01000000BB01");
+				struct5_0[iNode].byte_5 = ToolboxUtilities.cpoahSiso("01000000BB01");
 			}
 			if (SPIF_READPAGE(786432 + iNode * 8192 + 1024, 1024, ref buf) != 0)
 			{
@@ -13876,32 +13876,32 @@ namespace Lzard_TBX_NET40
 			}
 			else
 			{
-				Class13.smethod_13(ref buf, 0, 320, ref array, 0);
+				ToolboxUtilities.smethod_13(ref buf, 0, 320, ref array, 0);
 				if (SPIF_READPAGE(786432 + iNode * 8192 + 4096, 1024, ref buf, true, true) != 0)
 				{
 					Interaction.MsgBox("Cannot retrieve Lizard Data, Make sure Lizard is on Menu screen and proper com port is selected", MsgBoxStyle.Information, "Error");
 				}
 				else
 				{
-					Class13.smethod_13(ref buf, 0, 1024, ref array2, 0);
+					ToolboxUtilities.smethod_13(ref buf, 0, 1024, ref array2, 0);
 					if (SPIF_READPAGE(786432 + iNode * 8192 + 4096 + 1024, 1024, ref buf, true, true) != 0)
 					{
 						Interaction.MsgBox("Cannot retrieve Lizard Data, Make sure Lizard is on Menu screen and proper com port is selected", MsgBoxStyle.Information, "Error");
 					}
 					else
 					{
-						Class13.smethod_13(ref buf, 0, 1024, ref array2, 1024);
+						ToolboxUtilities.smethod_13(ref buf, 0, 1024, ref array2, 1024);
 						if (SPIF_READPAGE(786432 + iNode * 8192 + 4096 + 2048, 1024, ref buf, true, true) != 0)
 						{
 							Interaction.MsgBox("Cannot retrieve Lizard Data, Make sure Lizard is on Menu screen and proper com port is selected", MsgBoxStyle.Information, "Error");
 						}
 						else
 						{
-							Class13.smethod_13(ref buf, 0, 1024, ref array2, 2048);
+							ToolboxUtilities.smethod_13(ref buf, 0, 1024, ref array2, 2048);
 							if (SPIF_READPAGE(786432 + iNode * 8192 + 4096 + 3072, 1024, ref buf, true, true) == 0)
 							{
 								send_ETX();
-								Class13.smethod_13(ref buf, 0, 1024, ref array2, 3072);
+								ToolboxUtilities.smethod_13(ref buf, 0, 1024, ref array2, 3072);
 								goto IL_03b7;
 							}
 							Interaction.MsgBox("Cannot retrieve Lizard Data, Make sure Lizard is on Menu screen and proper com port is selected", MsgBoxStyle.Information, "Error");
@@ -14030,7 +14030,7 @@ namespace Lzard_TBX_NET40
 			{
 				string string_ = OpenFileDialog1.FileName;
 				OpenFileDialog1.InitialDirectory = "";
-				string defaultResponse = Class13.smethod_21(Class13.smethod_20(string_, false));
+				string defaultResponse = ToolboxUtilities.smethod_21(ToolboxUtilities.smethod_20(string_, false));
 				defaultResponse = Interaction.InputBox("Name:", "Enter a name for Slot (12 chars maximum):", defaultResponse);
 				byte[] byte_ = new byte[97];
 				byte[] byte_2 = new byte[97];
@@ -14060,7 +14060,7 @@ namespace Lzard_TBX_NET40
 				byte[] byte_7 = default(byte[]);
 				long long_8 = default(long);
 				bool flag;
-				if (Class12.smethod_8(string_))
+				if (FirmwareUtilities.smethod_8(string_))
 				{
 					string string_8 = Conversions.ToString(obj);
 					bool num = method_30(ref string_, ref string_2, ref string_3, ref string_4, ref string_8, ref long_, ref string_5, ref string_6, ref string_7, ref long_2, ref byte_, ref int_2, ref long_3, ref byte_2, ref int_3, ref long_4, ref byte_3, ref int_4, ref long_5, ref byte_4, ref int_5, ref byte_5, ref long_6, ref byte_6, ref long_7, ref byte_7, ref long_8, ref int_);
@@ -14079,7 +14079,7 @@ namespace Lzard_TBX_NET40
 				}
 				if (flag)
 				{
-					if (!Class12.smethod_46(string_2, string_3))
+					if (!FirmwareUtilities.smethod_46(string_2, string_3))
 					{
 						Interaction.MsgBox("Firmware for " + Strings.Trim(string_2) + "-" + Strings.Trim(string_3) + " are not allowed", MsgBoxStyle.Information, "Not allowed:");
 					}
@@ -14089,48 +14089,48 @@ namespace Lzard_TBX_NET40
 						string left = Strings.Trim(string_2) + "-" + Strings.Trim(string_3) + "-" + Strings.Trim(string_4);
 						if (Operators.CompareString(left, text, false) == 0 || Interaction.MsgBox("Spoofed firmwares not allowed, we will use the logical model to load the slot (" + text + ")\r\nIt is ok?", MsgBoxStyle.YesNo | MsgBoxStyle.Question, "Spoofed firmware not allowed") == MsgBoxResult.Yes)
 						{
-							Class13.smethod_19(ref array, 0, 2048, byte.MaxValue);
+							ToolboxUtilities.smethod_19(ref array, 0, 2048, byte.MaxValue);
 							struct5_0[iNode].byte_0 = 5;
-							struct5_0[iNode].int_0 = Class12.smethod_47(string_6, string_7);
+							struct5_0[iNode].int_0 = FirmwareUtilities.smethod_47(string_6, string_7);
 							struct5_0[iNode].int_1 = struct5_0[iNode].int_0;
 							if (struct5_0[iNode].int_0 != 255)
 							{
 								struct5_0[iNode].string_0 = defaultResponse;
 								struct5_0[iNode].string_0 = Strings.Trim(Strings.Mid(struct5_0[iNode].string_0, 1, 12));
 								struct5_0[iNode].cpoahSiso = new byte[16];
-								struct5_0[iNode].cpoahSiso = Class13.cpoahSiso(Conversions.ToString(obj));
+								struct5_0[iNode].cpoahSiso = ToolboxUtilities.cpoahSiso(Conversions.ToString(obj));
 								struct5_0[iNode].byte_1 = new byte[96];
-								Class13.smethod_13(ref byte_, 0, int_2, ref struct5_0[iNode].byte_1, 0);
+								ToolboxUtilities.smethod_13(ref byte_, 0, int_2, ref struct5_0[iNode].byte_1, 0);
 								struct5_0[iNode].byte_2 = new byte[96];
-								Class13.smethod_13(ref byte_2, 0, int_3, ref struct5_0[iNode].byte_2, 0);
+								ToolboxUtilities.smethod_13(ref byte_2, 0, int_3, ref struct5_0[iNode].byte_2, 0);
 								struct5_0[iNode].byte_3 = new byte[512];
-								byte[] array2 = Class12.smethod_32(byte_3);
-								Class13.smethod_13(ref array2, 0, int_4, ref struct5_0[iNode].byte_3, 0);
+								byte[] array2 = FirmwareUtilities.smethod_32(byte_3);
+								ToolboxUtilities.smethod_13(ref array2, 0, int_4, ref struct5_0[iNode].byte_3, 0);
 								byte[] array3 = new byte[20];
-								Class13.smethod_13(ref byte_4, 0, 20, ref array3, 0);
+								ToolboxUtilities.smethod_13(ref byte_4, 0, 20, ref array3, 0);
 								if (Operators.CompareString(Strings.Trim(string_6), "DG16D2S", false) == 0)
 								{
-									Class13.smethod_13(ref byte_4, 0, int_5, ref struct5_0[iNode].byte_4, 0);
-									Class13.smethod_13(ref array3, 0, 20, ref struct5_0[iNode].byte_3, 20);
-									Class13.smethod_13(ref byte_4, 40, 2, ref struct5_0[iNode].byte_1, 38);
-									Class13.smethod_13(ref byte_4, 76, 2, ref struct5_0[iNode].byte_1, 40);
-									Class13.smethod_13(ref byte_4, 0, 20, ref struct5_0[iNode].byte_1, 42);
+									ToolboxUtilities.smethod_13(ref byte_4, 0, int_5, ref struct5_0[iNode].byte_4, 0);
+									ToolboxUtilities.smethod_13(ref array3, 0, 20, ref struct5_0[iNode].byte_3, 20);
+									ToolboxUtilities.smethod_13(ref byte_4, 40, 2, ref struct5_0[iNode].byte_1, 38);
+									ToolboxUtilities.smethod_13(ref byte_4, 76, 2, ref struct5_0[iNode].byte_1, 40);
+									ToolboxUtilities.smethod_13(ref byte_4, 0, 20, ref struct5_0[iNode].byte_1, 42);
 								}
 								if (Operators.CompareString(Strings.Trim(string_6), "DG16D4S", false) == 0)
 								{
 									byte[] array4 = new byte[320];
-									Class13.smethod_19(ref array4, 0, 320, byte.MaxValue);
-									Class13.smethod_13(ref byte_4, 24, 16, ref array4, 96);
-									Class13.smethod_13(ref byte_4, 40, 4, ref array4, 112);
-									Class13.smethod_13(ref byte_4, 44, 32, ref array4, 116);
-									Class13.smethod_13(ref byte_4, 76, 4, ref array4, 148);
-									Class13.smethod_13(ref byte_4, 80, 32, ref array4, 152);
-									Class13.smethod_13(ref byte_4, 128, 96, ref array4, 184);
+									ToolboxUtilities.smethod_19(ref array4, 0, 320, byte.MaxValue);
+									ToolboxUtilities.smethod_13(ref byte_4, 24, 16, ref array4, 96);
+									ToolboxUtilities.smethod_13(ref byte_4, 40, 4, ref array4, 112);
+									ToolboxUtilities.smethod_13(ref byte_4, 44, 32, ref array4, 116);
+									ToolboxUtilities.smethod_13(ref byte_4, 76, 4, ref array4, 148);
+									ToolboxUtilities.smethod_13(ref byte_4, 80, 32, ref array4, 152);
+									ToolboxUtilities.smethod_13(ref byte_4, 128, 96, ref array4, 184);
 									struct5_0[iNode].byte_4 = new byte[320];
-									Class13.smethod_13(ref array4, 0, 320, ref struct5_0[iNode].byte_4, 0);
+									ToolboxUtilities.smethod_13(ref array4, 0, 320, ref struct5_0[iNode].byte_4, 0);
 									byte[] array5 = default(byte[]);
 									byte[] array6 = default(byte[]);
-									if (!Class12.smethod_45(string_2, string_3, string_4, string_, ref byte_7, ref array5, ref array6))
+									if (!FirmwareUtilities.smethod_45(string_2, string_3, string_4, string_, ref byte_7, ref array5, ref array6))
 									{
 										goto IL_0c22;
 									}
@@ -14141,30 +14141,30 @@ namespace Lzard_TBX_NET40
 										array5[3] = 32;
 									}
 									struct5_0[iNode].byte_5 = new byte[16];
-									Class13.smethod_13(ref array5, 0, 4, ref struct5_0[iNode].byte_5, 0);
-									Class13.smethod_13(ref byte_7, 0, (int)long_8, ref struct5_0[iNode].byte_5, 4);
+									ToolboxUtilities.smethod_13(ref array5, 0, 4, ref struct5_0[iNode].byte_5, 0);
+									ToolboxUtilities.smethod_13(ref byte_7, 0, (int)long_8, ref struct5_0[iNode].byte_5, 4);
 									struct5_0[iNode].byte_6 = new byte[32];
-									Class13.smethod_13(ref array6, 0, array6.Length, ref struct5_0[iNode].byte_6, 0);
-									array2 = Class13.smethod_12(array3, 0, array3.Length);
-									Class13.smethod_13(ref array2, 0, 20, ref struct5_0[iNode].byte_3, 20);
-									Class13.smethod_13(ref byte_4, 40, 2, ref struct5_0[iNode].byte_1, 52);
-									Class13.smethod_13(ref byte_4, 76, 2, ref struct5_0[iNode].byte_1, 54);
-									Class13.smethod_13(ref struct5_0[iNode].byte_5, 0, 16, ref array, 1536);
-									Class13.smethod_13(ref struct5_0[iNode].byte_6, 0, 32, ref array, 1792);
+									ToolboxUtilities.smethod_13(ref array6, 0, array6.Length, ref struct5_0[iNode].byte_6, 0);
+									array2 = ToolboxUtilities.smethod_12(array3, 0, array3.Length);
+									ToolboxUtilities.smethod_13(ref array2, 0, 20, ref struct5_0[iNode].byte_3, 20);
+									ToolboxUtilities.smethod_13(ref byte_4, 40, 2, ref struct5_0[iNode].byte_1, 52);
+									ToolboxUtilities.smethod_13(ref byte_4, 76, 2, ref struct5_0[iNode].byte_1, 54);
+									ToolboxUtilities.smethod_13(ref struct5_0[iNode].byte_5, 0, 16, ref array, 1536);
+									ToolboxUtilities.smethod_13(ref struct5_0[iNode].byte_6, 0, 32, ref array, 1792);
 								}
 								array[0] = struct5_0[iNode].byte_0;
 								array[1] = (byte)struct5_0[iNode].int_0;
 								array[2] = (byte)struct5_0[iNode].int_1;
-								Class13.smethod_19(ref array, 3, 12, 0);
+								ToolboxUtilities.smethod_19(ref array, 3, 12, 0);
 								byte[] array7 = new byte[12];
-								array7 = (byte[])Class13.smethod_7(struct5_0[iNode].string_0);
-								Class13.smethod_13(ref array7, 0, array7.Length, ref array, 3);
+								array7 = (byte[])ToolboxUtilities.smethod_7(struct5_0[iNode].string_0);
+								ToolboxUtilities.smethod_13(ref array7, 0, array7.Length, ref array, 3);
 								array[15] = 0;
-								Class13.smethod_13(ref struct5_0[iNode].cpoahSiso, 0, 16, ref array, 35);
-								Class13.smethod_13(ref struct5_0[iNode].byte_1, 0, 96, ref array, 64);
-								Class13.smethod_13(ref struct5_0[iNode].byte_2, 0, 96, ref array, 256);
-								Class13.smethod_13(ref struct5_0[iNode].byte_4, 0, 320, ref array, 1024);
-								Class13.smethod_13(ref struct5_0[iNode].byte_3, 0, 512, ref array, 512);
+								ToolboxUtilities.smethod_13(ref struct5_0[iNode].cpoahSiso, 0, 16, ref array, 35);
+								ToolboxUtilities.smethod_13(ref struct5_0[iNode].byte_1, 0, 96, ref array, 64);
+								ToolboxUtilities.smethod_13(ref struct5_0[iNode].byte_2, 0, 96, ref array, 256);
+								ToolboxUtilities.smethod_13(ref struct5_0[iNode].byte_4, 0, 320, ref array, 1024);
+								ToolboxUtilities.smethod_13(ref struct5_0[iNode].byte_3, 0, 512, ref array, 512);
 								int_1 = 115200;
 								PortClose();
 								SerialPort1.PortName = ToolStripStatusLabel_0.Text;
@@ -14177,14 +14177,14 @@ namespace Lzard_TBX_NET40
 									Interaction.MsgBox("Cannot Open COM Port, select a valid port", MsgBoxStyle.Exclamation, "Error:");
 									return false;
 								}
-								Class13.smethod_13(ref array, 0, 1024, ref buf, 0);
+								ToolboxUtilities.smethod_13(ref array, 0, 1024, ref buf, 0);
 								if (SPIF_WRITEPAGE(786432 + iNode * 8192, 1024, ref buf) != 0)
 								{
 									Interaction.MsgBox("Error occurred at address " + Conversion.Hex(786432 + iNode * 8192), MsgBoxStyle.Exclamation, "Error:");
 								}
 								else
 								{
-									Class13.smethod_13(ref array, 1024, 1024, ref buf, 0);
+									ToolboxUtilities.smethod_13(ref array, 1024, 1024, ref buf, 0);
 									if (SPIF_WRITEPAGE(786432 + iNode * 8192 + 1024, 1024, ref buf, true) != 0)
 									{
 										Interaction.MsgBox("Error occurred at address " + Conversion.Hex(786432 + iNode * 8192), MsgBoxStyle.Exclamation, "Error:");
@@ -14192,7 +14192,7 @@ namespace Lzard_TBX_NET40
 									else
 									{
 										send_ETX();
-										Class9.Sleep(100);
+										FtdiNativeMethods.Sleep(100);
 										if (Operators.CompareString(Strings.Trim(string_6), "DG16D4S", false) != 0)
 										{
 											goto IL_0bfb;
@@ -14204,29 +14204,29 @@ namespace Lzard_TBX_NET40
 										else
 										{
 											send_ETX();
-											Class9.Sleep(100);
-											Class13.smethod_13(ref byte_6, 0, 1024, ref buf, 0);
+											FtdiNativeMethods.Sleep(100);
+											ToolboxUtilities.smethod_13(ref byte_6, 0, 1024, ref buf, 0);
 											if (SPIF_WRITEPAGE(786432 + iNode * 8192 + 4096, 1024, ref buf) != 0)
 											{
 												Interaction.MsgBox("Error occurred at address " + Conversion.Hex(786432 + iNode * 8192), MsgBoxStyle.Exclamation, "Error:");
 											}
 											else
 											{
-												Class13.smethod_13(ref byte_6, 1024, 1024, ref buf, 0);
+												ToolboxUtilities.smethod_13(ref byte_6, 1024, 1024, ref buf, 0);
 												if (SPIF_WRITEPAGE(786432 + iNode * 8192 + 4096 + 1024, 1024, ref buf, true) != 0)
 												{
 													Interaction.MsgBox("Error occurred at address " + Conversion.Hex(786432 + iNode * 8192), MsgBoxStyle.Exclamation, "Error:");
 												}
 												else
 												{
-													Class13.smethod_13(ref byte_6, 2048, 1024, ref buf, 0);
+													ToolboxUtilities.smethod_13(ref byte_6, 2048, 1024, ref buf, 0);
 													if (SPIF_WRITEPAGE(786432 + iNode * 8192 + 4096 + 2048, 1024, ref buf, true) != 0)
 													{
 														Interaction.MsgBox("Error occurred at address " + Conversion.Hex(786432 + iNode * 8192), MsgBoxStyle.Exclamation, "Error:");
 													}
 													else
 													{
-														Class13.smethod_13(ref byte_6, 3072, 1024, ref buf, 0);
+														ToolboxUtilities.smethod_13(ref byte_6, 3072, 1024, ref buf, 0);
 														if (SPIF_WRITEPAGE(786432 + iNode * 8192 + 4096 + 3072, 1024, ref buf, true) == 0)
 														{
 															send_ETX();
@@ -14299,35 +14299,35 @@ namespace Lzard_TBX_NET40
 
 		public bool clear_folder(string spath)
 		{
-			if (!Class13.smethod_28(spath + "\\INQUIRY.bin"))
+			if (!ToolboxUtilities.smethod_28(spath + "\\INQUIRY.bin"))
 			{
 				return false;
 			}
-			if (!Class13.smethod_28(spath + "\\SECINQ.bin"))
+			if (!ToolboxUtilities.smethod_28(spath + "\\SECINQ.bin"))
 			{
 				return false;
 			}
-			if (!Class13.smethod_28(spath + "\\IDENTIFY.bin"))
+			if (!ToolboxUtilities.smethod_28(spath + "\\IDENTIFY.bin"))
 			{
 				return false;
 			}
-			if (!Class13.smethod_28(spath + "\\KEY.bin"))
+			if (!ToolboxUtilities.smethod_28(spath + "\\KEY.bin"))
 			{
 				return false;
 			}
-			if (!Class13.smethod_28(spath + "\\SUBSER.bin"))
+			if (!ToolboxUtilities.smethod_28(spath + "\\SUBSER.bin"))
 			{
 				return false;
 			}
-			if (!Class13.smethod_28(spath + "\\KEYAREA.bin"))
+			if (!ToolboxUtilities.smethod_28(spath + "\\KEYAREA.bin"))
 			{
 				return false;
 			}
-			if (!Class13.smethod_28(spath + "\\FWH.bin"))
+			if (!ToolboxUtilities.smethod_28(spath + "\\FWH.bin"))
 			{
 				return false;
 			}
-			if (!Class13.smethod_28(spath + "\\RTC.bin"))
+			if (!ToolboxUtilities.smethod_28(spath + "\\RTC.bin"))
 			{
 				return false;
 			}
@@ -14359,13 +14359,13 @@ namespace Lzard_TBX_NET40
 			{
 				if (SPIF_READPAGE(131072 + num * 1024, 1024, ref buf, Conversions.ToBoolean(Interaction.IIf(num == 0, false, true))) == 0)
 				{
-					Class13.smethod_13(ref buf, 0, 1024, ref array, num * 1024);
+					ToolboxUtilities.smethod_13(ref buf, 0, 1024, ref array, num * 1024);
 					num++;
 					if (num <= 3)
 					{
 						continue;
 					}
-					string text = Strings.Trim(Strings.Mid(Class13.smethod_1(ref array, 12, 2), 1, 9));
+					string text = Strings.Trim(Strings.Mid(ToolboxUtilities.smethod_1(ref array, 12, 2), 1, 9));
 					while (true)
 					{
 						string text2 = Interaction.InputBox("Type a name for your Lizard (9 characters maximum)", "Current Name:" + text, text);
@@ -14378,20 +14378,20 @@ namespace Lzard_TBX_NET40
 							Interaction.MsgBox("Please just a Maximum of 9 characters for the name", MsgBoxStyle.Information, "Error");
 							continue;
 						}
-						byte[] array2 = (byte[])Class13.smethod_7(text2 + "          ");
-						Class13.smethod_13(ref array2, 0, 9, ref array, 2);
+						byte[] array2 = (byte[])ToolboxUtilities.smethod_7(text2 + "          ");
+						ToolboxUtilities.smethod_13(ref array2, 0, 9, ref array, 2);
 						array[11] = 0;
-						Class13.smethod_22(1);
+						ToolboxUtilities.smethod_22(1);
 						if (SPIF_BSERASE(131072, 4) != 0)
 						{
 							Interaction.MsgBox("Cannot write back Lizard Details, Make sure Lizard is on Menu screen and proper com port is selected", MsgBoxStyle.Information, "Error");
 							break;
 						}
-						Class13.smethod_22(1);
+						ToolboxUtilities.smethod_22(1);
 						int num2 = 0;
 						while (true)
 						{
-							Class13.smethod_13(ref array, num2 * 1024, 1024, ref buf, 0);
+							ToolboxUtilities.smethod_13(ref array, num2 * 1024, 1024, ref buf, 0);
 							if (SPIF_WRITEPAGE(131072 + num2 * 1024, 1024, ref buf, Conversions.ToBoolean(Interaction.IIf(num2 == 0, false, true))) == 0)
 							{
 								num2++;
@@ -14563,15 +14563,15 @@ namespace Lzard_TBX_NET40
 			int num = 0;
 			while (true)
 			{
-				Class9.smethod_0();
-				if (Class9.int_72 == 0)
+				FtdiNativeMethods.smethod_0();
+				if (FtdiNativeMethods.int_72 == 0)
 				{
-					if (Class9.int_73 == 0)
+					if (FtdiNativeMethods.int_73 == 0)
 					{
 						if (num <= 5)
 						{
 							log_item("WAITING USB...");
-							Class9.Sleep(3000);
+							FtdiNativeMethods.Sleep(3000);
 							num++;
 							continue;
 						}
@@ -14579,17 +14579,17 @@ namespace Lzard_TBX_NET40
 						Enabled = true;
 						return;
 					}
-					if (Class9.int_73 <= 1)
+					if (FtdiNativeMethods.int_73 <= 1)
 					{
-						Class9.int_72 = Class9.FT_Open(0, ref Class9.int_74);
-						if (Class9.int_72 == 0)
+						FtdiNativeMethods.int_72 = FtdiNativeMethods.FT_Open(0, ref FtdiNativeMethods.int_74);
+						if (FtdiNativeMethods.int_72 == 0)
 						{
 							break;
 						}
 						if (num <= 5)
 						{
 							log_item("WAITING USB...");
-							Class9.Sleep(3000);
+							FtdiNativeMethods.Sleep(3000);
 							num++;
 							continue;
 						}
@@ -14605,18 +14605,18 @@ namespace Lzard_TBX_NET40
 				Enabled = true;
 				return;
 			}
-			Class9.smethod_35();
-			if (Class9.int_72 != 0)
+			FtdiNativeMethods.smethod_35();
+			if (FtdiNativeMethods.int_72 != 0)
 			{
 				log_item("ERROR:UNABLE TO READ EEPROM");
 				Enabled = true;
 				return;
 			}
-			log_item("Manuf/Region/Desc/Serial   :" + Class9.string_4 + "/" + Class9.string_5 + "/" + Class9.string_6 + "/" + Class9.string_7);
-			log_item("VID/PID/Version            :" + Conversion.Hex(Class9.struct2_0.short_0) + "/" + Conversion.Hex(Class9.struct2_0.short_1) + "/" + Conversion.Hex(Class9.struct2_0.int_2));
+			log_item("Manuf/Region/Desc/Serial   :" + FtdiNativeMethods.string_4 + "/" + FtdiNativeMethods.string_5 + "/" + FtdiNativeMethods.string_6 + "/" + FtdiNativeMethods.string_7);
+			log_item("VID/PID/Version            :" + Conversion.Hex(FtdiNativeMethods.struct2_0.short_0) + "/" + Conversion.Hex(FtdiNativeMethods.struct2_0.short_1) + "/" + Conversion.Hex(FtdiNativeMethods.struct2_0.int_2));
 			string text = "US";
-			Class9.smethod_37(Class9.struct2_0, "Maximus", text, "360 Lizard", "", int_15);
-			if (Class9.int_72 != 0)
+			FtdiNativeMethods.smethod_37(FtdiNativeMethods.struct2_0, "Maximus", text, "360 Lizard", "", int_15);
+			if (FtdiNativeMethods.int_72 != 0)
 			{
 				log_item("ERROR:UNABLE TO WRITE EEPROM");
 				Enabled = true;
@@ -14624,7 +14624,7 @@ namespace Lzard_TBX_NET40
 			}
 			log_item("***STAGE 1 COMPLETE: DEVICE INITIALIZED", "HEADER");
 			Application.DoEvents();
-			if (Class9.FT_Close(Class9.int_74) != 0)
+			if (FtdiNativeMethods.FT_Close(FtdiNativeMethods.int_74) != 0)
 			{
 				log_item("Close Failed");
 				Enabled = true;
@@ -14659,15 +14659,15 @@ namespace Lzard_TBX_NET40
 			int num = 0;
 			while (true)
 			{
-				Class9.smethod_0();
-				if (Class9.int_72 == 0)
+				FtdiNativeMethods.smethod_0();
+				if (FtdiNativeMethods.int_72 == 0)
 				{
-					if (Class9.int_73 == 0)
+					if (FtdiNativeMethods.int_73 == 0)
 					{
 						if (num <= 5)
 						{
 							log_item("WAITING USB...");
-							Class9.Sleep(3000);
+							FtdiNativeMethods.Sleep(3000);
 							num++;
 							continue;
 						}
@@ -14675,17 +14675,17 @@ namespace Lzard_TBX_NET40
 						Enabled = true;
 						return;
 					}
-					if (Class9.int_73 <= 1)
+					if (FtdiNativeMethods.int_73 <= 1)
 					{
-						Class9.int_72 = Class9.FT_Open(0, ref Class9.int_74);
-						if (Class9.int_72 == 0)
+						FtdiNativeMethods.int_72 = FtdiNativeMethods.FT_Open(0, ref FtdiNativeMethods.int_74);
+						if (FtdiNativeMethods.int_72 == 0)
 						{
 							break;
 						}
 						if (num <= 5)
 						{
 							log_item("WAITING USB...");
-							Class9.Sleep(3000);
+							FtdiNativeMethods.Sleep(3000);
 							num++;
 							continue;
 						}
@@ -14701,15 +14701,15 @@ namespace Lzard_TBX_NET40
 				Enabled = true;
 				return;
 			}
-			Class9.smethod_35();
-			if (Class9.int_72 != 0)
+			FtdiNativeMethods.smethod_35();
+			if (FtdiNativeMethods.int_72 != 0)
 			{
 				log_item("ERROR:UNABLE TO READ EEPROM");
 				Enabled = true;
 				return;
 			}
 			string text;
-			if (Class9.struct2_0.byte_27 == 1)
+			if (FtdiNativeMethods.struct2_0.byte_27 == 1)
 			{
 				text = "Powered after enumeration (Default)";
 				sett_rb_usbpowdef.Checked = true;
@@ -14719,10 +14719,10 @@ namespace Lzard_TBX_NET40
 				text = "Powered since Insertion";
 				sett_rb_usbpowins.Checked = true;
 			}
-			log_item("Manuf/Region/Desc/Serial   :" + Class9.string_4 + "/" + Class9.string_5 + "/" + Class9.string_6 + "/" + Class9.string_7);
-			log_item("VID/PID/Version            :" + Conversion.Hex(Class9.struct2_0.short_0) + "/" + Conversion.Hex(Class9.struct2_0.short_1) + "/" + Conversion.Hex(Class9.struct2_0.int_2));
+			log_item("Manuf/Region/Desc/Serial   :" + FtdiNativeMethods.string_4 + "/" + FtdiNativeMethods.string_5 + "/" + FtdiNativeMethods.string_6 + "/" + FtdiNativeMethods.string_7);
+			log_item("VID/PID/Version            :" + Conversion.Hex(FtdiNativeMethods.struct2_0.short_0) + "/" + Conversion.Hex(FtdiNativeMethods.struct2_0.short_1) + "/" + Conversion.Hex(FtdiNativeMethods.struct2_0.int_2));
 			log_item("Power Setting              :" + text);
-			if (Class9.FT_Close(Class9.int_74) != 0)
+			if (FtdiNativeMethods.FT_Close(FtdiNativeMethods.int_74) != 0)
 			{
 				log_item("Close Failed");
 				Enabled = true;
@@ -14798,7 +14798,7 @@ namespace Lzard_TBX_NET40
 			}
 			byte[] array = new byte[16];
 			byte b = 0;
-			array = Class13.cpoahSiso(txbEV_SrcKey.Text);
+			array = ToolboxUtilities.cpoahSiso(txbEV_SrcKey.Text);
 			bool bisvalid = false;
 			byte num = LIZ_WRKEY(ref array, ref bisvalid);
 			b = (byte)(0u - (bisvalid ? 1u : 0u));
@@ -14807,11 +14807,11 @@ namespace Lzard_TBX_NET40
 			{
 				if (b != 0)
 				{
-					Interaction.MsgBox("Key Match [" + Class13.smethod_5(ref array) + "]", MsgBoxStyle.Information, "Match");
+					Interaction.MsgBox("Key Match [" + ToolboxUtilities.smethod_5(ref array) + "]", MsgBoxStyle.Information, "Match");
 				}
 				else
 				{
-					Interaction.MsgBox("Key Not Match [" + Class13.smethod_5(ref array) + "]", MsgBoxStyle.Exclamation, "Not Match");
+					Interaction.MsgBox("Key Not Match [" + ToolboxUtilities.smethod_5(ref array) + "]", MsgBoxStyle.Exclamation, "Not Match");
 				}
 			}
 			else
@@ -14854,8 +14854,8 @@ namespace Lzard_TBX_NET40
 			{
 				if (buf2[0] == 6)
 				{
-					Class13.smethod_13(ref buf, 0, 16, ref buf2, 0);
-					buf2[16] = Class13.smethod_4(buf2, 16);
+					ToolboxUtilities.smethod_13(ref buf, 0, 16, ref buf2, 0);
+					buf2[16] = ToolboxUtilities.smethod_4(buf2, 16);
 					try
 					{
 						SerialPort1.Write(buf2, 0, 17);
@@ -14926,9 +14926,9 @@ namespace Lzard_TBX_NET40
 			{
 				if (buf2[0] == 6)
 				{
-					Class13.smethod_13(ref buf, 0, 16, ref buf2, 0);
+					ToolboxUtilities.smethod_13(ref buf, 0, 16, ref buf2, 0);
 					buf2[16] = pc;
-					buf2[17] = Class13.smethod_4(buf2, 17);
+					buf2[17] = ToolboxUtilities.smethod_4(buf2, 17);
 					try
 					{
 						SerialPort1.Write(buf2, 0, 18);
@@ -15006,7 +15006,7 @@ namespace Lzard_TBX_NET40
 					buf2[1] = direction;
 					buf2[2] = (byte)(tsize & 0xFF);
 					buf2[3] = (byte)((tsize / 256) & 0xFF);
-					buf2[4] = Class13.smethod_4(buf2, 4);
+					buf2[4] = ToolboxUtilities.smethod_4(buf2, 4);
 					try
 					{
 						SerPort.Write(buf2, 0, 5);
@@ -15024,8 +15024,8 @@ namespace Lzard_TBX_NET40
 						{
 							if (direction == 1)
 							{
-								Class13.smethod_13(ref buf, 0, tsize, ref buf2, 0);
-								buf2[tsize] = Class13.smethod_4(buf2, tsize);
+								ToolboxUtilities.smethod_13(ref buf, 0, tsize, ref buf2, 0);
+								buf2[tsize] = ToolboxUtilities.smethod_4(buf2, tsize);
 								try
 								{
 									SerPort.Write(buf2, 0, tsize + 1);
@@ -15146,14 +15146,14 @@ namespace Lzard_TBX_NET40
 			{
 				if (buf2[0] == 6)
 				{
-					Class13.smethod_13(ref command, 0, 12, ref buf2, 0);
+					ToolboxUtilities.smethod_13(ref command, 0, 12, ref buf2, 0);
 					buf2[12] = direction;
 					buf2[13] = 0;
 					buf2[14] = (byte)(wsize & 0xFF);
 					buf2[15] = (byte)((wsize / 256) & 0xFF);
 					buf2[16] = (byte)(rsize & 0xFF);
 					buf2[17] = (byte)((rsize / 256) & 0xFF);
-					buf2[18] = Class13.smethod_4(buf2, 18);
+					buf2[18] = ToolboxUtilities.smethod_4(buf2, 18);
 					try
 					{
 						SerPort.Write(buf2, 0, 19);
@@ -15171,8 +15171,8 @@ namespace Lzard_TBX_NET40
 						{
 							if (wsize > 0)
 							{
-								Class13.smethod_13(ref buf, 0, wsize, ref buf2, 0);
-								buf2[wsize] = Class13.smethod_4(buf2, wsize);
+								ToolboxUtilities.smethod_13(ref buf, 0, wsize, ref buf2, 0);
+								buf2[wsize] = ToolboxUtilities.smethod_4(buf2, wsize);
 								try
 								{
 									SerPort.Write(buf2, 0, wsize + 1);
@@ -15285,8 +15285,8 @@ namespace Lzard_TBX_NET40
 			{
 				if (buf2[0] == 6)
 				{
-					Class13.smethod_13(ref buf, 0, 2, ref buf2, 0);
-					buf2[2] = Class13.smethod_4(buf2, 2);
+					ToolboxUtilities.smethod_13(ref buf, 0, 2, ref buf2, 0);
+					buf2[2] = ToolboxUtilities.smethod_4(buf2, 2);
 					try
 					{
 						SerialPort1.Write(buf2, 0, 3);
@@ -15331,8 +15331,8 @@ namespace Lzard_TBX_NET40
 			{
 				if (buf2[0] == 6)
 				{
-					Class13.smethod_13(ref buf, 0, 16, ref buf2, 0);
-					buf2[16] = Class13.smethod_4(buf2, 16);
+					ToolboxUtilities.smethod_13(ref buf, 0, 16, ref buf2, 0);
+					buf2[16] = ToolboxUtilities.smethod_4(buf2, 16);
 					try
 					{
 						SerialPort1.Write(buf2, 0, 17);
@@ -15372,7 +15372,7 @@ namespace Lzard_TBX_NET40
 		private void Timer1_Tick(object sender, EventArgs e)
 		{
 			string string_ = SerialPort1.ReadExisting();
-			string_ = Class13.smethod_26(string_);
+			string_ = ToolboxUtilities.smethod_26(string_);
 			TextBox_0.Text += string_;
 			TextBox_0.SelectionStart = TextBox_0.TextLength;
 			TextBox_0.ScrollToCaret();
@@ -15388,7 +15388,7 @@ namespace Lzard_TBX_NET40
 			{
 				try
 				{
-					Class2.Class1_0.Audio.Play(Application.StartupPath + "\\unlocksound.wav", AudioPlayMode.BackgroundLoop);
+					MyProject.Computer.Audio.Play(Application.StartupPath + "\\unlocksound.wav", AudioPlayMode.BackgroundLoop);
 				}
 				catch (Exception projectError)
 				{
@@ -15556,7 +15556,7 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Please choose a valid file", MsgBoxStyle.Information, "Error:");
 				return;
 			}
-			array = Class12.smethod_35(OpenFileDialog1.FileName, 0L, 1008);
+			array = FirmwareUtilities.smethod_35(OpenFileDialog1.FileName, 0L, 1008);
 			if (this.get_pc23log((byte)35, ref bPCLog))
 			{
 				compare_logs(ref array, ref bPCLog, "File Contents", "Drive Contents");
@@ -15573,10 +15573,10 @@ namespace Lzard_TBX_NET40
 			int num = 0;
 			do
 			{
-				Class13.smethod_13(ref buf1, 16 + num * 16, 16, ref array, 0);
-				Class13.smethod_13(ref buf2, 16 + num * 16, 16, ref array2, 0);
-				bool expression = Class13.smethod_16(ref array, 0, 16, ref array2, 0);
-				text = Conversions.ToString(Operators.AddObject(Operators.AddObject(string.Concat(string.Concat(Class13.smethod_5(ref array, 16) + " - ", Class13.smethod_5(ref array2, 16)), " -->"), Interaction.IIf(expression, "Ok", "Fail")), "\r\n"));
+				ToolboxUtilities.smethod_13(ref buf1, 16 + num * 16, 16, ref array, 0);
+				ToolboxUtilities.smethod_13(ref buf2, 16 + num * 16, 16, ref array2, 0);
+				bool expression = ToolboxUtilities.smethod_16(ref array, 0, 16, ref array2, 0);
+				text = Conversions.ToString(Operators.AddObject(Operators.AddObject(string.Concat(string.Concat(ToolboxUtilities.smethod_5(ref array, 16) + " - ", ToolboxUtilities.smethod_5(ref array2, 16)), " -->"), Interaction.IIf(expression, "Ok", "Fail")), "\r\n"));
 				txbCompareLog.Text += text;
 				num++;
 			}
@@ -15600,7 +15600,7 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Please choose a valid file", MsgBoxStyle.Information, "Error:");
 				return;
 			}
-			array = Class12.smethod_35(OpenFileDialog1.FileName, 0L, 1008);
+			array = FirmwareUtilities.smethod_35(OpenFileDialog1.FileName, 0L, 1008);
 			if (this.get_pc23log((byte)36, ref bPCLog))
 			{
 				compare_logs(ref array, ref bPCLog, "File Contents", "Drive Contents");
@@ -15624,7 +15624,7 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Please choose a valid file", MsgBoxStyle.Information, "Error:");
 				return;
 			}
-			array2 = Class12.smethod_35(OpenFileDialog1.FileName, 0L, 1008);
+			array2 = FirmwareUtilities.smethod_35(OpenFileDialog1.FileName, 0L, 1008);
 			OpenFileDialog1.Filter = "BIN files (*.bin)|*.bin|All files (*.*)|*.*";
 			OpenFileDialog1.FileName = "";
 			DialogResult dialogResult2 = OpenFileDialog1.ShowDialog();
@@ -15635,7 +15635,7 @@ namespace Lzard_TBX_NET40
 					Interaction.MsgBox("Please choose a valid file", MsgBoxStyle.Information, "Error:");
 					return;
 				}
-				array = Class12.smethod_35(OpenFileDialog1.FileName, 0L, 1008);
+				array = FirmwareUtilities.smethod_35(OpenFileDialog1.FileName, 0L, 1008);
 				compare_logs(ref array2, ref array, "File 1", "File 2");
 			}
 		}
@@ -15670,7 +15670,7 @@ namespace Lzard_TBX_NET40
 		{
 			try
 			{
-				Class2.Class1_0.Audio.Play(Application.StartupPath + "\\unlocksound.wav", AudioPlayMode.BackgroundLoop);
+				MyProject.Computer.Audio.Play(Application.StartupPath + "\\unlocksound.wav", AudioPlayMode.BackgroundLoop);
 			}
 			catch (Exception projectError)
 			{
@@ -15685,7 +15685,7 @@ namespace Lzard_TBX_NET40
 			Timer1.Enabled = false;
 			PortClose();
 			bool_2 = false;
-			Class2.Class1_0.Audio.Stop();
+			MyProject.Computer.Audio.Stop();
 		}
 
 		private void Button43_Click(object sender, EventArgs e)
@@ -15711,8 +15711,8 @@ namespace Lzard_TBX_NET40
 				{
 					array = (string[])Utils.CopyArray(array, new string[num + 1]);
 					array[num] = text + text2 + "\\source.bin";
-					byte[] array2 = Class12.smethod_35(array[num], 258048L, 16);
-					string text3 = Class13.smethod_5(ref array2);
+					byte[] array2 = FirmwareUtilities.smethod_35(array[num], 258048L, 16);
+					string text3 = ToolboxUtilities.smethod_5(ref array2);
 					string text4 = Conversions.ToString(Operators.AddObject(Operators.AddObject(string.Concat(Strings.Mid(num + Strings.Space(4), 1, 4) + Strings.Mid(array[num] + Strings.Space(80), 1, 80), text3), Interaction.IIf(Operators.CompareString(Strings.Mid(text3, 1, 6), "BB01FF", false) == 0, " ", "*")), "\r\n"));
 					TextBox_0.Text += text4;
 					streamWriter.Write(text4);
@@ -15813,7 +15813,7 @@ namespace Lzard_TBX_NET40
 								if (Strings.InStr(text4, "CurVersion:", CompareMethod.Text) > 0)
 								{
 									string string_ = Strings.Trim(Strings.Mid(text4, Strings.InStr(text4, ":", CompareMethod.Text) + 1));
-									num2 = Class13.smethod_27(string_);
+									num2 = ToolboxUtilities.smethod_27(string_);
 									log_item(Conversions.ToString(Operators.AddObject("TBX Version: " + num2, Interaction.IIf(double_3 < num2, "...REQUIRE UPDATE", "...OK"))));
 								}
 								if (Strings.InStr(Strings.UCase(text4), "MAINEXE:", CompareMethod.Text) > 0)
@@ -15841,7 +15841,7 @@ namespace Lzard_TBX_NET40
 								if (Strings.InStr(text4, "CurVersion:", CompareMethod.Text) > 0)
 								{
 									string string_ = Strings.Trim(Strings.Mid(text4, Strings.InStr(text4, ":", CompareMethod.Text) + 1));
-									num3 = Class13.smethod_27(string_);
+									num3 = ToolboxUtilities.smethod_27(string_);
 									log_item(Conversions.ToString(Operators.AddObject("OFW Template Version: " + num3, Interaction.IIf(double_1 < num3, "...REQUIRE UPDATE", "...OK"))));
 								}
 								if (Strings.InStr(text4, "Filename:", CompareMethod.Text) > 0)
@@ -15863,7 +15863,7 @@ namespace Lzard_TBX_NET40
 								if (Strings.InStr(text4, "CurVersion:", CompareMethod.Text) > 0)
 								{
 									string string_ = Strings.Trim(Strings.Mid(text4, Strings.InStr(text4, ":", CompareMethod.Text) + 1));
-									num4 = Class13.smethod_27(string_);
+									num4 = ToolboxUtilities.smethod_27(string_);
 									log_item(Conversions.ToString(Operators.AddObject("CFW Template Version: " + num4, Interaction.IIf(double_0 < num4, "...REQUIRE UPDATE!", "...OK"))));
 								}
 								if (Strings.InStr(text4, "Filename:", CompareMethod.Text) > 0)
@@ -15885,7 +15885,7 @@ namespace Lzard_TBX_NET40
 								if (Strings.InStr(text4, "CurVersion:", CompareMethod.Text) > 0)
 								{
 									string string_ = Strings.Trim(Strings.Mid(text4, Strings.InStr(text4, ":", CompareMethod.Text) + 1));
-									num5 = Class13.smethod_27(string_);
+									num5 = ToolboxUtilities.smethod_27(string_);
 									log_item(Conversions.ToString(Operators.AddObject("LTU Template Version: " + num5, Interaction.IIf(double_2 < num5, "...REQUIRE UPDATE!", "...OK"))));
 								}
 								if (Strings.InStr(text4, "Filename:", CompareMethod.Text) > 0)
@@ -15911,7 +15911,7 @@ namespace Lzard_TBX_NET40
 						if (Strings.InStr(text4, "CurVersion:", CompareMethod.Text) > 0)
 						{
 							string string_ = Strings.Trim(Strings.Mid(text4, Strings.InStr(text4, ":", CompareMethod.Text) + 1));
-							num6 = Class13.smethod_27(string_);
+							num6 = ToolboxUtilities.smethod_27(string_);
 							log_item(Conversions.ToString(Operators.AddObject("Gecko Version: " + num6, Interaction.IIf(double_4 < num6, "...REQUIRE UPDATE", "...OK"))));
 						}
 						if (Strings.InStr(text4, "ForcedUpdate:", CompareMethod.Text) > 0)
@@ -16044,7 +16044,7 @@ namespace Lzard_TBX_NET40
 						}
 						if (Operators.CompareString(string_2, "", false) != 0)
 						{
-							string text6 = Application.StartupPath + "\\CFW_Templates\\_old\\" + Class13.smethod_21(string_2);
+							string text6 = Application.StartupPath + "\\CFW_Templates\\_old\\" + ToolboxUtilities.smethod_21(string_2);
 							if (Operators.CompareString(FileSystem.Dir(text6), "", false) != 0)
 							{
 								FileSystem.Kill(text6);
@@ -16082,7 +16082,7 @@ namespace Lzard_TBX_NET40
 						}
 						if (Operators.CompareString(string_3, "", false) != 0)
 						{
-							string text6 = Application.StartupPath + "\\CFW_Templates\\_old\\" + Class13.smethod_21(string_3);
+							string text6 = Application.StartupPath + "\\CFW_Templates\\_old\\" + ToolboxUtilities.smethod_21(string_3);
 							if (Operators.CompareString(FileSystem.Dir(text6), "", false) != 0)
 							{
 								FileSystem.Kill(text6);
@@ -16120,7 +16120,7 @@ namespace Lzard_TBX_NET40
 						}
 						if (Operators.CompareString(string_4, "", false) != 0)
 						{
-							string text6 = Application.StartupPath + "\\CFW_Templates\\_old\\" + Class13.smethod_21(string_4);
+							string text6 = Application.StartupPath + "\\CFW_Templates\\_old\\" + ToolboxUtilities.smethod_21(string_4);
 							if (Operators.CompareString(FileSystem.Dir(text6), "", false) != 0)
 							{
 								FileSystem.Kill(text6);
@@ -16192,7 +16192,7 @@ namespace Lzard_TBX_NET40
 				SaveFileDialog1.InitialDirectory = FolderBrowserDialog1.SelectedPath + "\\";
 				SaveFileDialog1.FileName = FolderBrowserDialog1.SelectedPath + "\\xkey.cfg";
 				string fileName = SaveFileDialog1.FileName;
-				if (Class13.smethod_28(fileName))
+				if (ToolboxUtilities.smethod_28(fileName))
 				{
 					StreamWriter streamWriter = new StreamWriter(fileName);
 					streamWriter.WriteLine("######################################################");
@@ -16253,7 +16253,7 @@ namespace Lzard_TBX_NET40
 			string string_5 = "";
 			string string_6 = "";
 			string string_7 = "";
-			if (Class12.smethod_8(string_))
+			if (FirmwareUtilities.smethod_8(string_))
 			{
 				Interaction.MsgBox("Please select a NON-DUMMY file", MsgBoxStyle.Information, "Error:");
 				return;
@@ -16282,7 +16282,7 @@ namespace Lzard_TBX_NET40
 			}
 			if ((Operators.CompareString(Strings.Trim(string_2), "LITEON", false) == 0) & ((Operators.CompareString(Strings.Trim(string_3), "DG16D2S", false) == 0) | (Operators.CompareString(Strings.Trim(string_3), "DG16D4S", false) == 0)))
 			{
-				Class13.smethod_13(ref byte_4, 0, 20, ref byte_3, 20);
+				ToolboxUtilities.smethod_13(ref byte_4, 0, 20, ref byte_3, 20);
 				if (Operators.CompareString(Strings.Trim(string_3), "DG16D4S", false) == 0)
 				{
 					byte_3[158] = 0;
@@ -16292,18 +16292,18 @@ namespace Lzard_TBX_NET40
 					int_ = 56;
 					byte_ = (byte[])Utils.CopyArray(byte_, new byte[56]);
 				}
-				Class13.smethod_13(ref byte_4, 40, 2, ref byte_, 52);
-				Class13.smethod_13(ref byte_4, 76, 2, ref byte_, 54);
+				ToolboxUtilities.smethod_13(ref byte_4, 40, 2, ref byte_, 52);
+				ToolboxUtilities.smethod_13(ref byte_4, 76, 2, ref byte_, 54);
 			}
 			byte[] array = default(byte[]);
 			byte[] array2 = default(byte[]);
-			if (Class12.smethod_45(string_2, string_3, string_4, string_, ref byte_8, ref array, ref array2))
+			if (FirmwareUtilities.smethod_45(string_2, string_3, string_4, string_, ref byte_8, ref array, ref array2))
 			{
 				if (byte_3.Length < 512)
 				{
 					byte_3 = (byte[])Utils.CopyArray(byte_3, new byte[512]);
 				}
-				string text = Class13.smethod_20(string_);
+				string text = ToolboxUtilities.smethod_20(string_);
 				text = Strings.Mid(text, 1, Strings.Len(text) - 1);
 				SaveFileDialog1.InitialDirectory = text;
 				SaveFileDialog1.CreatePrompt = false;
@@ -16311,7 +16311,7 @@ namespace Lzard_TBX_NET40
 				SaveFileDialog1.DefaultExt = "bin";
 				SaveFileDialog1.Filter = "BIN files (*.bin)|*.bin";
 				DialogResult dialogResult2 = SaveFileDialog1.ShowDialog();
-				if (dialogResult2 == DialogResult.OK && Class12.smethod_30(SaveFileDialog1.FileName, byte_3, byte_, int_, byte_, int_, Class13.cpoahSiso(Conversions.ToString(obj)), byte_4, byte_6, byte_8, array, array2))
+				if (dialogResult2 == DialogResult.OK && FirmwareUtilities.smethod_30(SaveFileDialog1.FileName, byte_3, byte_, int_, byte_, int_, ToolboxUtilities.cpoahSiso(Conversions.ToString(obj)), byte_4, byte_6, byte_8, array, array2))
 				{
 					Interaction.MsgBox("Dummy created successfully", MsgBoxStyle.Information, "Success:");
 				}
@@ -16512,8 +16512,8 @@ namespace Lzard_TBX_NET40
 			int num2 = (int)Math.Round(7.0);
 			for (int i = 0; i <= num2; i++)
 			{
-				byte[] array = Class10.smethod_7("c:\\bank0.bin", i * num, num, true);
-				Class13.smethod_9(ref array, num, "c:\\bank0-d.bin", flag);
+				byte[] array = HitachiKeyScrambler.smethod_7("c:\\bank0.bin", i * num, num, true);
+				ToolboxUtilities.smethod_9(ref array, num, "c:\\bank0-d.bin", flag);
 				flag = true;
 			}
 		}
@@ -16644,8 +16644,8 @@ namespace Lzard_TBX_NET40
 			{
 				send_ETX();
 				Clipboard.Clear();
-				Clipboard.SetText(Class13.smethod_5(ref buf, 512));
-				Interaction.MsgBox(Class13.smethod_5(ref buf, 512), MsgBoxStyle.Information, "Success (err stat)" + Conversion.Hex(errstat) + ":");
+				Clipboard.SetText(ToolboxUtilities.smethod_5(ref buf, 512));
+				Interaction.MsgBox(ToolboxUtilities.smethod_5(ref buf, 512), MsgBoxStyle.Information, "Success (err stat)" + Conversion.Hex(errstat) + ":");
 			}
 			else
 			{
@@ -16670,7 +16670,7 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Cannot Open COM Port, select a valid port", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			array = Class13.cpoahSiso("1200000074C0000000000000");
+			array = ToolboxUtilities.cpoahSiso("1200000074C0000000000000");
 			SerialPort SerPort = SerialPort1;
 			byte errstat = default(byte);
 			byte sense = default(byte);
@@ -16680,9 +16680,9 @@ namespace Lzard_TBX_NET40
 			if (b == 0)
 			{
 				send_ETX();
-				Interaction.MsgBox(Class13.smethod_5(ref buf, 116), MsgBoxStyle.Information, "Success (ErrStat:" + Conversion.Hex(errstat) + ", Sense:" + Conversion.Hex(sense) + "):");
+				Interaction.MsgBox(ToolboxUtilities.smethod_5(ref buf, 116), MsgBoxStyle.Information, "Success (ErrStat:" + Conversion.Hex(errstat) + ", Sense:" + Conversion.Hex(sense) + "):");
 				Clipboard.Clear();
-				Clipboard.SetText(Class13.smethod_5(ref buf, 116));
+				Clipboard.SetText(ToolboxUtilities.smethod_5(ref buf, 116));
 			}
 			else
 			{
@@ -16707,7 +16707,7 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Cannot Open COM Port, select a valid port", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			array = Class13.cpoahSiso("030000001200000000000000");
+			array = ToolboxUtilities.cpoahSiso("030000001200000000000000");
 			SerialPort SerPort = SerialPort1;
 			byte errstat = default(byte);
 			byte sense = default(byte);
@@ -16716,9 +16716,9 @@ namespace Lzard_TBX_NET40
 			byte b = num;
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 			}
-			array = Class13.cpoahSiso("5A002500000000001A000000");
+			array = ToolboxUtilities.cpoahSiso("5A002500000000001A000000");
 			SerPort = SerialPort1;
 			byte num2 = LIZ_ATAPI_CMD(ref SerPort, array, 0, 26, 0, ref buf, ref errstat, ref sense, true);
 			SerialPort1 = SerPort;
@@ -16726,13 +16726,13 @@ namespace Lzard_TBX_NET40
 			if (b == 0)
 			{
 				send_ETX();
-				Interaction.MsgBox(Class13.smethod_5(ref buf, 26), MsgBoxStyle.Information, "Success (ErrStat:" + Conversion.Hex(errstat) + ", Sense:" + Conversion.Hex(sense) + "):");
+				Interaction.MsgBox(ToolboxUtilities.smethod_5(ref buf, 26), MsgBoxStyle.Information, "Success (ErrStat:" + Conversion.Hex(errstat) + ", Sense:" + Conversion.Hex(sense) + "):");
 				Clipboard.Clear();
-				Clipboard.SetText(Class13.smethod_5(ref buf, 26));
+				Clipboard.SetText(ToolboxUtilities.smethod_5(ref buf, 26));
 			}
 			else
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 			}
 			PortClose();
 		}
@@ -16753,7 +16753,7 @@ namespace Lzard_TBX_NET40
 			}
 			byte[] array = new byte[16];
 			byte b = 0;
-			array = Class13.cpoahSiso("5E7AEB70769F7347F8B3419903FFF8E5");
+			array = ToolboxUtilities.cpoahSiso("5E7AEB70769F7347F8B3419903FFF8E5");
 			bool bisvalid = false;
 			byte num = LIZ_CHKKEY(ref array, ref bisvalid);
 			b = (byte)(0u - (bisvalid ? 1u : 0u));
@@ -16762,11 +16762,11 @@ namespace Lzard_TBX_NET40
 			{
 				if (b != 0)
 				{
-					Interaction.MsgBox("Key Match [" + Class13.smethod_5(ref array) + "]", MsgBoxStyle.Information, "Match");
+					Interaction.MsgBox("Key Match [" + ToolboxUtilities.smethod_5(ref array) + "]", MsgBoxStyle.Information, "Match");
 				}
 				else
 				{
-					Interaction.MsgBox("Key Not Match [" + Class13.smethod_5(ref array) + "]", MsgBoxStyle.Exclamation, "Not Match");
+					Interaction.MsgBox("Key Not Match [" + ToolboxUtilities.smethod_5(ref array) + "]", MsgBoxStyle.Exclamation, "Not Match");
 				}
 				send_ETX();
 			}
@@ -16788,20 +16788,20 @@ namespace Lzard_TBX_NET40
 			{
 				array[i] = (byte)Math.Round(VBMath.Rnd() * 256f);
 			}
-			array = Class13.cpoahSiso("a0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedf");
-			Class13.cpoahSiso("8ce82eefbea0da3c44699ed7db51b7d9");
-			array2 = Class13.cpoahSiso("56e47a38c5598974bc46903dba290349");
-			array = Class13.cpoahSiso("6bc1bee22e409f96e93d7e117393172aae2d8a571e03ac9c9eb76fac45af8e5130c81c46a35ce411e5fbc1191a0a52eff69f2445df4f9b17ad2b417be66c3710");
-			Class13.cpoahSiso("00000000000000000000000000000000");
-			array2 = Class13.cpoahSiso("2b7e151628aed2a6abf7158809cf4f3c");
-			array3 = Class6.smethod_2(array, array2);
-			array4 = Class6.utmuBufTB(array3, array2);
-			string text = Class13.smethod_24(ref array, 0, array.GetLength(0), 16, true, "Orig Buffer") + "\r\n";
-			text = text + Class13.smethod_24(ref array3, 0, array.GetLength(0), 16, true, "Encrypted Buffer") + "\r\n";
-			text += Class13.smethod_24(ref array4, 0, array.GetLength(0), 16, true, "Round Trip Buffer");
+			array = ToolboxUtilities.cpoahSiso("a0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedf");
+			ToolboxUtilities.cpoahSiso("8ce82eefbea0da3c44699ed7db51b7d9");
+			array2 = ToolboxUtilities.cpoahSiso("56e47a38c5598974bc46903dba290349");
+			array = ToolboxUtilities.cpoahSiso("6bc1bee22e409f96e93d7e117393172aae2d8a571e03ac9c9eb76fac45af8e5130c81c46a35ce411e5fbc1191a0a52eff69f2445df4f9b17ad2b417be66c3710");
+			ToolboxUtilities.cpoahSiso("00000000000000000000000000000000");
+			array2 = ToolboxUtilities.cpoahSiso("2b7e151628aed2a6abf7158809cf4f3c");
+			array3 = AesCrypto.smethod_2(array, array2);
+			array4 = AesCrypto.utmuBufTB(array3, array2);
+			string text = ToolboxUtilities.smethod_24(ref array, 0, array.GetLength(0), 16, true, "Orig Buffer") + "\r\n";
+			text = text + ToolboxUtilities.smethod_24(ref array3, 0, array.GetLength(0), 16, true, "Encrypted Buffer") + "\r\n";
+			text += ToolboxUtilities.smethod_24(ref array4, 0, array.GetLength(0), 16, true, "Round Trip Buffer");
 			Clipboard.Clear();
 			Clipboard.SetText(text);
-			if (Class13.smethod_16(ref array, 0, array.GetLength(0), ref array4, 0))
+			if (ToolboxUtilities.smethod_16(ref array, 0, array.GetLength(0), ref array4, 0))
 			{
 				Interaction.MsgBox("Both Buffer Match!", MsgBoxStyle.Information, "Success");
 			}
@@ -16816,9 +16816,9 @@ namespace Lzard_TBX_NET40
 			byte[] array = new byte[16];
 			byte[] array2 = new byte[16];
 			byte[] array3 = new byte[16];
-			Class13.smethod_13(ref ShiftData, 0, 16, ref array, 0);
-			array2 = Class13.cpoahSiso("00000000000000000000000000000001");
-			Class13.smethod_13(ref DVDKey, 0, 16, ref Mac, 0);
+			ToolboxUtilities.smethod_13(ref ShiftData, 0, 16, ref array, 0);
+			array2 = ToolboxUtilities.cpoahSiso("00000000000000000000000000000001");
+			ToolboxUtilities.smethod_13(ref DVDKey, 0, 16, ref Mac, 0);
 			int num = 0;
 			do
 			{
@@ -16886,7 +16886,7 @@ namespace Lzard_TBX_NET40
 				array[14] = (byte)(array[14] | ((array[15] & 0x80) >> 7));
 				array[15] = (byte)(array[15] << 1);
 				array3 = Mac;
-				Mac = Class6.smethod_2(array2, array3);
+				Mac = AesCrypto.smethod_2(array2, array3);
 				num++;
 			}
 			while (num <= 127);
@@ -16897,15 +16897,15 @@ namespace Lzard_TBX_NET40
 			byte[] array = new byte[16];
 			byte[] array2 = new byte[16];
 			byte[] array3 = new byte[16];
-			array3 = Class13.cpoahSiso("47454E55494E452058424F58204F4444");
-			Class13.smethod_13(ref bKeysbuff, 0, 16, ref array, 0);
-			Class13.smethod_13(ref array3, 0, 16, ref array2, 0);
-			array2 = Class6.smethod_2(array2, array);
-			array2 = Class13.smethod_15(ref array2, array3);
-			Class13.smethod_13(ref bKeysbuff, 16, 16, ref array, 0);
-			Class13.smethod_13(ref array2, 0, 16, ref boutseed, 0);
-			array2 = Class6.smethod_2(array2, array);
-			boutseed = Class13.smethod_15(ref boutseed, array2);
+			array3 = ToolboxUtilities.cpoahSiso("47454E55494E452058424F58204F4444");
+			ToolboxUtilities.smethod_13(ref bKeysbuff, 0, 16, ref array, 0);
+			ToolboxUtilities.smethod_13(ref array3, 0, 16, ref array2, 0);
+			array2 = AesCrypto.smethod_2(array2, array);
+			array2 = ToolboxUtilities.smethod_15(ref array2, array3);
+			ToolboxUtilities.smethod_13(ref bKeysbuff, 16, 16, ref array, 0);
+			ToolboxUtilities.smethod_13(ref array2, 0, 16, ref boutseed, 0);
+			array2 = AesCrypto.smethod_2(array2, array);
+			boutseed = ToolboxUtilities.smethod_15(ref boutseed, array2);
 		}
 
 		private void Button63_Click(object sender, EventArgs e)
@@ -16922,12 +16922,12 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Cannot Open COM Port, select a valid port", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			byte[] array = Class13.cpoahSiso("69C573502DE35E24B92271D78C56B64F");
-			array = Class13.cpoahSiso("5E7AEB70769F7347F8B3419903FFF8E5");
-			Class13.byte_0 = Class13.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
-			Class13.byte_1 = Class13.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
+			byte[] array = ToolboxUtilities.cpoahSiso("69C573502DE35E24B92271D78C56B64F");
+			array = ToolboxUtilities.cpoahSiso("5E7AEB70769F7347F8B3419903FFF8E5");
+			ToolboxUtilities.byte_0 = ToolboxUtilities.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
+			ToolboxUtilities.byte_1 = ToolboxUtilities.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
 			SerialPort SerPort = SerialPort1;
-			bool num = DRIVE_AUTH28(ref SerPort, array, Class13.byte_0, Class13.byte_1);
+			bool num = DRIVE_AUTH28(ref SerPort, array, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1);
 			SerialPort1 = SerPort;
 			if (num)
 			{
@@ -16954,11 +16954,11 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Cannot Open COM Port, select a valid port", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			byte[] bDVDKey = Class13.cpoahSiso("5E7AEB70769F7347F8B3419903FFF8E5");
-			Class13.byte_0 = Class13.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
-			Class13.byte_1 = Class13.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
+			byte[] bDVDKey = ToolboxUtilities.cpoahSiso("5E7AEB70769F7347F8B3419903FFF8E5");
+			ToolboxUtilities.byte_0 = ToolboxUtilities.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
+			ToolboxUtilities.byte_1 = ToolboxUtilities.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
 			SerialPort SerPort = SerialPort1;
-			bool num = DRIVE_AUTH3B(ref SerPort, bDVDKey, Class13.byte_0, Class13.byte_1);
+			bool num = DRIVE_AUTH3B(ref SerPort, bDVDKey, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1);
 			SerialPort1 = SerPort;
 			if (num)
 			{
@@ -16981,55 +16981,55 @@ namespace Lzard_TBX_NET40
 			byte[] array3 = new byte[74];
 			byte[] buf = new byte[74];
 			byte[] array4 = new byte[32];
-			Class13.smethod_19(ref array2, 0, 16, 0);
-			array = Class13.smethod_14(16);
+			ToolboxUtilities.smethod_19(ref array2, 0, 16, 0);
+			array = ToolboxUtilities.smethod_14(16);
 			AESECBMAC(bDVDKey, bXORKey, ref Mac);
-			byte[] array5 = Class13.cpoahSiso("00480000000000002840");
-			Class13.smethod_13(ref array5, 0, 10, ref array3, 0);
-			Class13.smethod_13(ref bSessKey, 0, 16, ref array3, 10);
-			Class13.smethod_13(ref array, 0, 16, ref array3, 26);
-			Class13.smethod_13(ref bXORKey, 0, 16, ref array3, 42);
-			Class13.smethod_13(ref array3, 0, 58, ref buf, 0);
-			Class13.smethod_13(ref array3, 10, 32, ref array4, 0);
-			array4 = Class6.smethod_0(array4, Mac, bXORKey);
-			Class13.smethod_13(ref array4, 0, 32, ref buf, 10);
+			byte[] array5 = ToolboxUtilities.cpoahSiso("00480000000000002840");
+			ToolboxUtilities.smethod_13(ref array5, 0, 10, ref array3, 0);
+			ToolboxUtilities.smethod_13(ref bSessKey, 0, 16, ref array3, 10);
+			ToolboxUtilities.smethod_13(ref array, 0, 16, ref array3, 26);
+			ToolboxUtilities.smethod_13(ref bXORKey, 0, 16, ref array3, 42);
+			ToolboxUtilities.smethod_13(ref array3, 0, 58, ref buf, 0);
+			ToolboxUtilities.smethod_13(ref array3, 10, 32, ref array4, 0);
+			array4 = AesCrypto.smethod_0(array4, Mac, bXORKey);
+			ToolboxUtilities.smethod_13(ref array4, 0, 32, ref buf, 10);
 			AESEBCGENUINE(array4, ref boutseed);
 			AESECBMAC(Mac, boutseed, ref Mac2);
-			Class13.smethod_13(ref Mac2, 0, 16, ref buf, 58);
+			ToolboxUtilities.smethod_13(ref Mac2, 0, 16, ref buf, 58);
 			byte[] buf2 = new byte[513];
 			byte[] array6 = new byte[12];
-			array6 = Class13.cpoahSiso("030000001200000000000000");
+			array6 = ToolboxUtilities.cpoahSiso("030000001200000000000000");
 			byte errstat = default(byte);
 			byte sense = default(byte);
 			byte b = LIZ_ATAPI_CMD(ref SerPort, array6, 0, 18, 0, ref buf2, ref errstat, ref sense);
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 				return false;
 			}
-			string text = "CMD: " + Class13.smethod_5(ref array6) + " Returned : 0x" + Conversion.Hex(errstat) + " Sense: 0x" + Conversion.Hex(sense) + "\r\n";
-			array6 = Class13.cpoahSiso("55000000000000004C000000");
+			string text = "CMD: " + ToolboxUtilities.smethod_5(ref array6) + " Returned : 0x" + Conversion.Hex(errstat) + " Sense: 0x" + Conversion.Hex(sense) + "\r\n";
+			array6 = ToolboxUtilities.cpoahSiso("55000000000000004C000000");
 			b = LIZ_ATAPI_CMD(ref SerPort, array6, 1, 0, 74, ref buf, ref errstat, ref sense, true);
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 				return false;
 			}
-			array6 = Class13.cpoahSiso("5A002800000000003A000000");
+			array6 = ToolboxUtilities.cpoahSiso("5A002800000000003A000000");
 			b = LIZ_ATAPI_CMD(ref SerPort, array6, 0, 58, 0, ref buf2, ref errstat, ref sense, true);
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 				return false;
 			}
 			send_ETX();
-			Class13.smethod_13(ref buf2, 0, 58, ref array3, 0);
-			Class13.smethod_13(ref buf2, 10, 32, ref array4, 0);
-			array4 = Class6.smethod_1(array4, bSessKey, bXORKey);
-			Class13.smethod_13(ref array4, 0, 32, ref array3, 10);
-			text = text + Class13.smethod_24(ref array3, 0, 10, 16, true, "PAYLOAD HEADER:") + "\r\n";
-			text = text + Class13.smethod_24(ref array3, 10, 48, 16, true, "CLEAR REPLY PAGE:") + "\r\n";
-			if (!Class13.smethod_16(ref array3, 10, 16, ref array2, 0) | !Class13.smethod_16(ref array3, 26, 16, ref array, 0))
+			ToolboxUtilities.smethod_13(ref buf2, 0, 58, ref array3, 0);
+			ToolboxUtilities.smethod_13(ref buf2, 10, 32, ref array4, 0);
+			array4 = AesCrypto.smethod_1(array4, bSessKey, bXORKey);
+			ToolboxUtilities.smethod_13(ref array4, 0, 32, ref array3, 10);
+			text = text + ToolboxUtilities.smethod_24(ref array3, 0, 10, 16, true, "PAYLOAD HEADER:") + "\r\n";
+			text = text + ToolboxUtilities.smethod_24(ref array3, 10, 48, 16, true, "CLEAR REPLY PAGE:") + "\r\n";
+			if (!ToolboxUtilities.smethod_16(ref array3, 10, 16, ref array2, 0) | !ToolboxUtilities.smethod_16(ref array3, 26, 16, ref array, 0))
 			{
 				return false;
 			}
@@ -17040,33 +17040,33 @@ namespace Lzard_TBX_NET40
 		{
 			byte[] array = new byte[74];
 			byte[] buf = new byte[74];
-			byte[] array2 = Class13.cpoahSiso("0000000000000000BB30000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
-			Class13.smethod_13(ref array2, 0, 10, ref array, 0);
-			Class13.smethod_13(ref bDVDKey, 0, 16, ref array, 10);
-			string text = Class13.smethod_24(ref array, 0, 10, 16, true, "PAYLOAD HEADER:") + "\r\n";
-			text = text + Class13.smethod_24(ref array, 10, 48, 16, true, "CLEAR DATA:") + "\r\n";
-			Class13.smethod_13(ref array, 0, 26, ref buf, 0);
-			text = text + Class13.smethod_24(ref buf, 0, 10, 16, true, "PAYLOAD HEADER:") + "\r\n";
-			text += Class13.smethod_24(ref buf, 10, 48, 16, true, "ENCRYPTED DATA:");
+			byte[] array2 = ToolboxUtilities.cpoahSiso("0000000000000000BB30000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+			ToolboxUtilities.smethod_13(ref array2, 0, 10, ref array, 0);
+			ToolboxUtilities.smethod_13(ref bDVDKey, 0, 16, ref array, 10);
+			string text = ToolboxUtilities.smethod_24(ref array, 0, 10, 16, true, "PAYLOAD HEADER:") + "\r\n";
+			text = text + ToolboxUtilities.smethod_24(ref array, 10, 48, 16, true, "CLEAR DATA:") + "\r\n";
+			ToolboxUtilities.smethod_13(ref array, 0, 26, ref buf, 0);
+			text = text + ToolboxUtilities.smethod_24(ref buf, 0, 10, 16, true, "PAYLOAD HEADER:") + "\r\n";
+			text += ToolboxUtilities.smethod_24(ref buf, 10, 48, 16, true, "ENCRYPTED DATA:");
 			byte[] buf2 = new byte[513];
 			byte[] array3 = new byte[12];
-			array3 = Class13.cpoahSiso("030000001200000000000000");
+			array3 = ToolboxUtilities.cpoahSiso("030000001200000000000000");
 			byte errstat = default(byte);
 			byte sense = default(byte);
 			byte b = LIZ_ATAPI_CMD(ref SerPort, array3, 0, 18, 0, ref buf2, ref errstat, ref sense);
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array3) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array3) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 				return false;
 			}
-			array3 = Class13.cpoahSiso("55000000000000003C000000");
+			array3 = ToolboxUtilities.cpoahSiso("55000000000000003C000000");
 			b = LIZ_ATAPI_CMD(ref SerPort, array3, 1, 0, 58, ref buf, ref errstat, ref sense, true);
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array3) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array3) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 				return false;
 			}
-			text = text + "CMD: " + Class13.smethod_5(ref array3) + " Returned : 0x" + Conversion.Hex(errstat) + " Sense: 0x" + Conversion.Hex(sense) + "\r\n";
+			text = text + "CMD: " + ToolboxUtilities.smethod_5(ref array3) + " Returned : 0x" + Conversion.Hex(errstat) + " Sense: 0x" + Conversion.Hex(sense) + "\r\n";
 			send_ETX();
 			Clipboard.Clear();
 			Clipboard.SetText(text);
@@ -17080,52 +17080,52 @@ namespace Lzard_TBX_NET40
 			byte[] buf = new byte[74];
 			byte[] array3 = new byte[16];
 			byte[] array4 = new byte[16];
-			array = Class13.smethod_14(16);
-			byte[] array5 = Class13.cpoahSiso("00000000000000003B30");
-			Class13.smethod_13(ref array5, 0, 10, ref array2, 0);
-			Class13.smethod_13(ref bSessKey, 0, 16, ref array2, 10);
-			Class13.smethod_13(ref array, 0, 16, ref array2, 26);
-			Class13.smethod_13(ref bXORKey, 0, 16, ref array2, 42);
-			Class13.smethod_13(ref array2, 0, 58, ref buf, 0);
-			array3 = Class13.smethod_15(ref bSessKey, bXORKey);
-			array3 = Class6.smethod_2(array3, bDVDKey);
-			Class13.smethod_13(ref array3, 0, 16, ref buf, 10);
-			array3 = Class13.smethod_15(ref array, array3);
-			array3 = Class6.smethod_2(array3, bDVDKey);
-			Class13.smethod_13(ref array3, 0, 16, ref buf, 26);
+			array = ToolboxUtilities.smethod_14(16);
+			byte[] array5 = ToolboxUtilities.cpoahSiso("00000000000000003B30");
+			ToolboxUtilities.smethod_13(ref array5, 0, 10, ref array2, 0);
+			ToolboxUtilities.smethod_13(ref bSessKey, 0, 16, ref array2, 10);
+			ToolboxUtilities.smethod_13(ref array, 0, 16, ref array2, 26);
+			ToolboxUtilities.smethod_13(ref bXORKey, 0, 16, ref array2, 42);
+			ToolboxUtilities.smethod_13(ref array2, 0, 58, ref buf, 0);
+			array3 = ToolboxUtilities.smethod_15(ref bSessKey, bXORKey);
+			array3 = AesCrypto.smethod_2(array3, bDVDKey);
+			ToolboxUtilities.smethod_13(ref array3, 0, 16, ref buf, 10);
+			array3 = ToolboxUtilities.smethod_15(ref array, array3);
+			array3 = AesCrypto.smethod_2(array3, bDVDKey);
+			ToolboxUtilities.smethod_13(ref array3, 0, 16, ref buf, 26);
 			byte[] buf2 = new byte[513];
 			byte[] array6 = new byte[12];
-			array6 = Class13.cpoahSiso("030000001200000000000000");
+			array6 = ToolboxUtilities.cpoahSiso("030000001200000000000000");
 			byte errstat = default(byte);
 			byte sense = default(byte);
 			byte b = LIZ_ATAPI_CMD(ref SerPort, array6, 0, 18, 0, ref buf2, ref errstat, ref sense);
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 				return false;
 			}
-			array6 = Class13.cpoahSiso("55000000000000003C000000");
+			array6 = ToolboxUtilities.cpoahSiso("55000000000000003C000000");
 			b = LIZ_ATAPI_CMD(ref SerPort, array6, 1, 0, 74, ref buf, ref errstat, ref sense, true);
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 				return false;
 			}
-			array6 = Class13.cpoahSiso("5A003B00000000003A000000");
+			array6 = ToolboxUtilities.cpoahSiso("5A003B00000000003A000000");
 			b = LIZ_ATAPI_CMD(ref SerPort, array6, 0, 58, 0, ref buf2, ref errstat, ref sense, true);
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 				return false;
 			}
 			send_ETX();
-			Class13.smethod_13(ref buf2, 0, 58, ref array2, 0);
-			Class13.smethod_13(ref array2, 26, 16, ref array3, 0);
-			Class13.smethod_13(ref array2, 10, 16, ref array4, 0);
-			array3 = Class6.utmuBufTB(array3, bSessKey);
-			array3 = Class13.smethod_15(ref array3, array4);
-			Class13.smethod_13(ref array3, 0, 16, ref array2, 26);
-			if (!Class13.smethod_16(ref array2, 26, 16, ref array, 0))
+			ToolboxUtilities.smethod_13(ref buf2, 0, 58, ref array2, 0);
+			ToolboxUtilities.smethod_13(ref array2, 26, 16, ref array3, 0);
+			ToolboxUtilities.smethod_13(ref array2, 10, 16, ref array4, 0);
+			array3 = AesCrypto.utmuBufTB(array3, bSessKey);
+			array3 = ToolboxUtilities.smethod_15(ref array3, array4);
+			ToolboxUtilities.smethod_13(ref array3, 0, 16, ref array2, 26);
+			if (!ToolboxUtilities.smethod_16(ref array2, 26, 16, ref array, 0))
 			{
 				return false;
 			}
@@ -17138,51 +17138,51 @@ namespace Lzard_TBX_NET40
 			byte[] array2 = new byte[58];
 			byte[] array3 = new byte[48];
 			byte[] array4 = new byte[16];
-			byte[] array5 = Class13.cpoahSiso("00380000000000002130");
-			Class13.smethod_13(ref array5, 0, 10, ref array, 0);
-			Class13.smethod_13(ref bSessKey, 0, 16, ref array, 10);
-			Class13.smethod_19(ref array, 26, 32, 0);
+			byte[] array5 = ToolboxUtilities.cpoahSiso("00380000000000002130");
+			ToolboxUtilities.smethod_13(ref array5, 0, 10, ref array, 0);
+			ToolboxUtilities.smethod_13(ref bSessKey, 0, 16, ref array, 10);
+			ToolboxUtilities.smethod_19(ref array, 26, 32, 0);
 			array[42] = 4;
 			array[46] = (byte)((lAddress >> 24) & 0xFFL);
 			array[47] = (byte)((lAddress >> 16) & 0xFFL);
 			array[48] = (byte)((lAddress >> 8) & 0xFFL);
 			array[49] = (byte)(lAddress & 0xFFL);
 			array[53] = 16;
-			Class13.smethod_13(ref array, 10, 48, ref array3, 0);
-			array3 = Class6.smethod_0(array3, bSessKey, bXORKey);
+			ToolboxUtilities.smethod_13(ref array, 10, 48, ref array3, 0);
+			array3 = AesCrypto.smethod_0(array3, bSessKey, bXORKey);
 			array2 = array;
-			Class13.smethod_13(ref array3, 0, 48, ref array2, 10);
+			ToolboxUtilities.smethod_13(ref array3, 0, 48, ref array2, 10);
 			byte[] buf = new byte[513];
 			byte[] array6 = new byte[12];
-			array6 = Class13.cpoahSiso("030000001200000000000000");
+			array6 = ToolboxUtilities.cpoahSiso("030000001200000000000000");
 			byte errstat = default(byte);
 			byte sense = default(byte);
 			byte b = LIZ_ATAPI_CMD(ref SerPort, array6, 0, 18, 0, ref buf, ref errstat, ref sense);
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 				return false;
 			}
-			array6 = Class13.cpoahSiso("55000000000000003C000000");
+			array6 = ToolboxUtilities.cpoahSiso("55000000000000003C000000");
 			b = LIZ_ATAPI_CMD(ref SerPort, array6, 1, 0, 58, ref array2, ref errstat, ref sense, true);
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 				return false;
 			}
-			array6 = Class13.cpoahSiso("5A002100000000003A000000");
+			array6 = ToolboxUtilities.cpoahSiso("5A002100000000003A000000");
 			b = LIZ_ATAPI_CMD(ref SerPort, array6, 0, 58, 0, ref buf, ref errstat, ref sense, true);
 			if (b != 0)
 			{
-				Interaction.MsgBox("Error Executing ATAPI CMD (" + Class13.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
+				Interaction.MsgBox("Error Executing ATAPI CMD (" + ToolboxUtilities.smethod_5(ref array6) + "), return code:" + Conversions.ToString(b), MsgBoxStyle.Exclamation, "Error");
 				return false;
 			}
 			send_ETX();
-			Class13.smethod_13(ref buf, 10, 32, ref array3, 0);
-			array3 = Class6.smethod_1(array3, bSessKey, bXORKey);
-			Class13.smethod_13(ref array3, 16, 16, ref array4, 0);
-			array4 = Class6.smethod_1(array4, bSessKey, Class13.cpoahSiso("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"));
-			array4 = Class6.smethod_1(array4, bSessKey, Class13.cpoahSiso("00000000000000000000000000000000"));
+			ToolboxUtilities.smethod_13(ref buf, 10, 32, ref array3, 0);
+			array3 = AesCrypto.smethod_1(array3, bSessKey, bXORKey);
+			ToolboxUtilities.smethod_13(ref array3, 16, 16, ref array4, 0);
+			array4 = AesCrypto.smethod_1(array4, bSessKey, ToolboxUtilities.cpoahSiso("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"));
+			array4 = AesCrypto.smethod_1(array4, bSessKey, ToolboxUtilities.cpoahSiso("00000000000000000000000000000000"));
 			buff = array4;
 			return true;
 		}
@@ -17202,20 +17202,20 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Cannot Open COM Port, select a valid port", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			Class13.byte_0 = Class13.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
-			Class13.byte_1 = Class13.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
+			ToolboxUtilities.byte_0 = ToolboxUtilities.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
+			ToolboxUtilities.byte_1 = ToolboxUtilities.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
 			string text = "";
 			int num = 0;
 			while (true)
 			{
 				SerialPort SerPort = SerialPort1;
-				bool num2 = DRIVE_DRAMDUMP(ref SerPort, Class13.byte_0, Class13.byte_1, num + 198798, ref buff);
+				bool num2 = DRIVE_DRAMDUMP(ref SerPort, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1, num + 198798, ref buff);
 				SerialPort1 = SerPort;
 				if (!num2)
 				{
 					break;
 				}
-				text = text + Class13.smethod_5(ref buff) + "\r\n";
+				text = text + ToolboxUtilities.smethod_5(ref buff) + "\r\n";
 				num += 16;
 				if (num > 319)
 				{
@@ -17269,9 +17269,9 @@ namespace Lzard_TBX_NET40
 			byte[] buff = new byte[16];
 			byte[] array2 = new byte[320];
 			byte_6 = new byte[256];
-			Class13.smethod_19(ref byte_6, 0, byte_6.GetLength(0), 0);
-			Class13.smethod_19(ref byte_6, 0, 112, byte.MaxValue);
-			Class13.smethod_19(ref byte_6, 0, 20, 32);
+			ToolboxUtilities.smethod_19(ref byte_6, 0, byte_6.GetLength(0), 0);
+			ToolboxUtilities.smethod_19(ref byte_6, 0, 112, byte.MaxValue);
+			ToolboxUtilities.smethod_19(ref byte_6, 0, 20, 32);
 			if (Operators.CompareString(txbLTU_key.Text, "REQUIRED", false) == 0)
 			{
 				Interaction.MsgBox("Please enter your key.bin file before continue", MsgBoxStyle.Information, "Error:");
@@ -17305,7 +17305,7 @@ namespace Lzard_TBX_NET40
 					return;
 				}
 				send_ETX();
-				array = Class13.cpoahSiso("1200000074C0000000000000");
+				array = ToolboxUtilities.cpoahSiso("1200000074C0000000000000");
 				SerPort = SerialPort1;
 				byte sense = default(byte);
 				byte num2 = LIZ_ATAPI_CMD(ref SerPort, array, 0, 116, 0, ref buf, ref errstat, ref sense);
@@ -17317,21 +17317,21 @@ namespace Lzard_TBX_NET40
 					return;
 				}
 				send_ETX();
-				Class13.smethod_13(ref buf, 96, 20, ref byte_6, 0);
+				ToolboxUtilities.smethod_13(ref buf, 96, 20, ref byte_6, 0);
 				string left = "";
-				string_9 = Class12.smethod_21(Class13.smethod_1(ref buf), ref left);
+				string_9 = FirmwareUtilities.smethod_21(ToolboxUtilities.smethod_1(ref buf), ref left);
 				if (Operators.CompareString(left, "", false) != 0)
 				{
 					Interaction.MsgBox("Cant Get the Vendor of the Drive Inquiry", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				string_10 = Class12.smethod_22(Class13.smethod_1(ref buf), string_9, ref left);
+				string_10 = FirmwareUtilities.smethod_22(ToolboxUtilities.smethod_1(ref buf), string_9, ref left);
 				if (Operators.CompareString(left, "", false) != 0)
 				{
 					Interaction.MsgBox("Cant Get the Model of the Drive Inquiry", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				string_11 = Class12.smethod_24(Class13.smethod_1(ref buf), string_9, string_10, ref left);
+				string_11 = FirmwareUtilities.smethod_24(ToolboxUtilities.smethod_1(ref buf), string_9, string_10, ref left);
 				if (Operators.CompareString(left, "", false) != 0)
 				{
 					Interaction.MsgBox("Cant Get the ROM of the Drive Inquiry", MsgBoxStyle.Exclamation, "Error:");
@@ -17342,16 +17342,16 @@ namespace Lzard_TBX_NET40
 				{
 				case "LITEON-DG16D4S":
 				{
-					Class13.smethod_11(ref bDVDKey, txbLTU_key.Text, 0L, 16);
-					Class13.byte_0 = Class13.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
-					Class13.byte_1 = Class13.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
+					ToolboxUtilities.smethod_11(ref bDVDKey, txbLTU_key.Text, 0L, 16);
+					ToolboxUtilities.byte_0 = ToolboxUtilities.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
+					ToolboxUtilities.byte_1 = ToolboxUtilities.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
 					ProgressBar1.Maximum = 20;
 					ProgressBar1.Value = 0;
 					ProgressBar1.Visible = true;
 					lblAction.Text = "Reading";
 					Enabled = false;
 					SerPort = SerialPort1;
-					bool num6 = DRIVE_AUTH3B(ref SerPort, bDVDKey, Class13.byte_0, Class13.byte_1);
+					bool num6 = DRIVE_AUTH3B(ref SerPort, bDVDKey, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1);
 					SerialPort1 = SerPort;
 					if (num6)
 					{
@@ -17359,11 +17359,11 @@ namespace Lzard_TBX_NET40
 						do
 						{
 							SerPort = SerialPort1;
-							bool num8 = DRIVE_DRAMDUMP(ref SerPort, Class13.byte_0, Class13.byte_1, num7 + 198798, ref buff);
+							bool num8 = DRIVE_DRAMDUMP(ref SerPort, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1, num7 + 198798, ref buff);
 							SerialPort1 = SerPort;
 							if (num8)
 							{
-								Class13.smethod_13(ref buff, 0, 16, ref array2, num7);
+								ToolboxUtilities.smethod_13(ref buff, 0, 16, ref array2, num7);
 								Application.DoEvents();
 								ProgressBar1.Value = (int)Math.Round((double)num7 / 16.0);
 								num7 += 16;
@@ -17377,7 +17377,7 @@ namespace Lzard_TBX_NET40
 							return;
 						}
 						while (num7 <= 319);
-						Class13.smethod_13(ref array2, 96, 54, ref byte_6, 24);
+						ToolboxUtilities.smethod_13(ref array2, 96, 54, ref byte_6, 24);
 						txbLTU_Unique.Text = "CAPTURED";
 						ProgressBar1.Value = 0;
 						ProgressBar1.Visible = false;
@@ -17394,16 +17394,16 @@ namespace Lzard_TBX_NET40
 				}
 				case "LITEON-DG16D5S":
 				{
-					Class13.smethod_11(ref bDVDKey, txbLTU_key.Text, 0L, 16);
-					Class13.byte_0 = Class13.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
-					Class13.byte_1 = Class13.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
+					ToolboxUtilities.smethod_11(ref bDVDKey, txbLTU_key.Text, 0L, 16);
+					ToolboxUtilities.byte_0 = ToolboxUtilities.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
+					ToolboxUtilities.byte_1 = ToolboxUtilities.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
 					ProgressBar1.Maximum = 20;
 					ProgressBar1.Value = 0;
 					ProgressBar1.Visible = true;
 					lblAction.Text = "Reading";
 					Enabled = false;
 					SerPort = SerialPort1;
-					bool num3 = DRIVE_AUTH28(ref SerPort, bDVDKey, Class13.byte_0, Class13.byte_1);
+					bool num3 = DRIVE_AUTH28(ref SerPort, bDVDKey, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1);
 					SerialPort1 = SerPort;
 					if (num3)
 					{
@@ -17411,11 +17411,11 @@ namespace Lzard_TBX_NET40
 						do
 						{
 							SerPort = SerialPort1;
-							bool num5 = DRIVE_DRAMDUMP(ref SerPort, Class13.byte_0, Class13.byte_1, num4 + 198798, ref buff);
+							bool num5 = DRIVE_DRAMDUMP(ref SerPort, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1, num4 + 198798, ref buff);
 							SerialPort1 = SerPort;
 							if (num5)
 							{
-								Class13.smethod_13(ref buff, 0, 16, ref array2, num4);
+								ToolboxUtilities.smethod_13(ref buff, 0, 16, ref array2, num4);
 								Application.DoEvents();
 								ProgressBar1.Value = (int)Math.Round((double)num4 / 16.0);
 								num4 += 16;
@@ -17429,9 +17429,9 @@ namespace Lzard_TBX_NET40
 							return;
 						}
 						while (num4 <= 319);
-						Class13.smethod_13(ref array2, 74, 54, ref byte_6, 24);
-						Class13.smethod_13(ref array2, 162, 96, ref byte_6, 128);
-						Class13.smethod_13(ref array2, 258, 16, ref byte_6, 240);
+						ToolboxUtilities.smethod_13(ref array2, 74, 54, ref byte_6, 24);
+						ToolboxUtilities.smethod_13(ref array2, 162, 96, ref byte_6, 128);
+						ToolboxUtilities.smethod_13(ref array2, 258, 16, ref byte_6, 240);
 						txbLTU_Unique.Text = "CAPTURED";
 						ProgressBar1.Value = 0;
 						ProgressBar1.Visible = false;
@@ -17466,7 +17466,7 @@ namespace Lzard_TBX_NET40
 			try
 			{
 				int num = cmbLTUFileset.SelectedIndex - 1;
-				Class11.smethod_1(struct3_0[num].string_3, ref struct4_0, ref int_5);
+				CfwTemplateParser.smethod_1(struct3_0[num].string_3, ref struct4_0, ref int_5);
 				cmbLTUTemplate.Items.Clear();
 				int num2 = int_5 - 1;
 				for (int i = 0; i <= num2; i++)
@@ -17489,7 +17489,7 @@ namespace Lzard_TBX_NET40
 			try
 			{
 				int num = cmbLTU2Fileset.SelectedIndex - 1;
-				Class11.smethod_1(struct3_0[num].string_3, ref struct4_0, ref int_5);
+				CfwTemplateParser.smethod_1(struct3_0[num].string_3, ref struct4_0, ref int_5);
 				cmbLTU2Template.Items.Clear();
 				int num2 = int_5 - 1;
 				for (int i = 0; i <= num2; i++)
@@ -17542,7 +17542,7 @@ namespace Lzard_TBX_NET40
 				return;
 			}
 			int num2 = cmbLTUFileset.SelectedIndex - 1;
-			Class11.smethod_1(struct3_0[num2].string_3, ref struct4_0, ref int_5);
+			CfwTemplateParser.smethod_1(struct3_0[num2].string_3, ref struct4_0, ref int_5);
 			if (int_5 == 0)
 			{
 				Interaction.MsgBox("No TOC Entries found on the Fileset " + struct3_0[num2].string_3, MsgBoxStyle.Exclamation, "Error:");
@@ -17570,53 +17570,53 @@ namespace Lzard_TBX_NET40
 				return;
 			}
 			string text2 = Application.StartupPath + "\\temp.tmp";
-			if (!Class13.smethod_8(struct3_0[num2].string_3, text2, 33792L + struct4_0[i].long_1, struct4_0[i].long_0))
+			if (!ToolboxUtilities.smethod_8(struct3_0[num2].string_3, text2, 33792L + struct4_0[i].long_1, struct4_0[i].long_0))
 			{
 				Interaction.MsgBox("The temporary file cannot be created, check the application is on folder with write privileges\r\nIf problem persist make sure you use latest Fileset Templates", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
 			byte[] array = new byte[16];
 			string prompt = "";
-			if (Class13.smethod_11(ref array, txbLTU_key.Text, 0L, 16) < 0)
+			if (ToolboxUtilities.smethod_11(ref array, txbLTU_key.Text, 0L, 16) < 0)
 			{
 				Interaction.MsgBox("Cant Read Key File contents", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			if (!Class8.smethod_12(text2, 126960L, 16, true, ref prompt, array))
+			if (!GraphDllCrypto.smethod_12(text2, 126960L, 16, true, ref prompt, array))
 			{
 				Interaction.MsgBox(prompt, MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
 			byte[] array2 = new byte[num - 1 + 1];
-			if (Class13.smethod_11(ref array2, Application.StartupPath + "\\crxt.bin", 0L, num) < num)
+			if (ToolboxUtilities.smethod_11(ref array2, Application.StartupPath + "\\crxt.bin", 0L, num) < num)
 			{
 				Interaction.MsgBox("Cant Read crxt.bin File contents", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
 			byte[] array3 = new byte[num - 1 + 1];
-			if (Class13.smethod_11(ref array3, txbLTU_cr.Text, 0L, num) < num)
+			if (ToolboxUtilities.smethod_11(ref array3, txbLTU_cr.Text, 0L, num) < num)
 			{
 				Interaction.MsgBox("Cant Read the specified C-R file contents", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			array3 = Class13.smethod_15(ref array2, array3);
-			Class12.smethod_36(text2, 62464L, 3059, array3);
-			Class12.smethod_36(text2, 127488L, 3572, array3, 3059);
-			Class12.smethod_36(text2, 193024L, 2907, array3, 6631);
+			array3 = ToolboxUtilities.smethod_15(ref array2, array3);
+			FirmwareUtilities.smethod_36(text2, 62464L, 3059, array3);
+			FirmwareUtilities.smethod_36(text2, 127488L, 3572, array3, 3059);
+			FirmwareUtilities.smethod_36(text2, 193024L, 2907, array3, 6631);
 			if (Operators.CompareString(txbLTU_Unique.Text, "CAPTURED", false) == 0)
 			{
 				switch (Strings.Trim(string_9) + "-" + Strings.Trim(string_10))
 				{
 				case "LITEON-DG16D4S":
-					Class12.smethod_36(text2, 261888L, 112, byte_6);
+					FirmwareUtilities.smethod_36(text2, 261888L, 112, byte_6);
 					break;
 				case "LITEON-DG16D5S":
-					Class12.smethod_36(text2, 261888L, 112, byte_6);
-					Class12.smethod_36(text2, 262016L, 96, byte_6, 128);
-					Class12.smethod_36(text2, 262128L, 16, byte_6, 240);
+					FirmwareUtilities.smethod_36(text2, 261888L, 112, byte_6);
+					FirmwareUtilities.smethod_36(text2, 262016L, 96, byte_6, 128);
+					FirmwareUtilities.smethod_36(text2, 262128L, 16, byte_6, 240);
 					break;
 				case "HITACHI-DL10N":
-					Class12.smethod_36(text2, 261888L, 20, byte_6);
+					FirmwareUtilities.smethod_36(text2, 261888L, 20, byte_6);
 					break;
 				}
 			}
@@ -17662,7 +17662,7 @@ namespace Lzard_TBX_NET40
 				return;
 			}
 			int num2 = cmbLTU2Fileset.SelectedIndex - 1;
-			Class11.smethod_1(struct3_0[num2].string_3, ref struct4_0, ref int_5);
+			CfwTemplateParser.smethod_1(struct3_0[num2].string_3, ref struct4_0, ref int_5);
 			if (int_5 == 0)
 			{
 				Interaction.MsgBox("No TOC Entries found on the Fileset " + struct3_0[num2].string_3, MsgBoxStyle.Exclamation, "Error:");
@@ -17690,30 +17690,30 @@ namespace Lzard_TBX_NET40
 				return;
 			}
 			string text2 = Application.StartupPath + "\\temp.tmp";
-			if (!Class13.smethod_8(struct3_0[num2].string_3, text2, 33792L + struct4_0[i].long_1, struct4_0[i].long_0))
+			if (!ToolboxUtilities.smethod_8(struct3_0[num2].string_3, text2, 33792L + struct4_0[i].long_1, struct4_0[i].long_0))
 			{
 				Interaction.MsgBox("The temporary file cannot be created, check the application is on folder with write privileges\r\nIf problem persist make sure you use latest Fileset Templates", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
 			byte[] array = new byte[16];
 			string prompt = "";
-			if (Class13.smethod_11(ref array, TxbLTU2_key.Text, 0L, 16) < 0)
+			if (ToolboxUtilities.smethod_11(ref array, TxbLTU2_key.Text, 0L, 16) < 0)
 			{
 				Interaction.MsgBox("Cant Read Key File contents", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			if (!Class12.smethod_18(struct4_0[i].string_0, struct4_0[i].string_1, struct4_0[i].string_2, text2, ref prompt, 114688L, Class13.smethod_5(ref array)))
+			if (!FirmwareUtilities.smethod_18(struct4_0[i].string_0, struct4_0[i].string_1, struct4_0[i].string_2, text2, ref prompt, 114688L, ToolboxUtilities.smethod_5(ref array)))
 			{
 				Interaction.MsgBox(prompt, MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
 			byte[] array2 = new byte[num - 1 + 1];
-			if (Class13.smethod_11(ref array2, TxbLTU2_cr.Text, 0L, num) < num)
+			if (ToolboxUtilities.smethod_11(ref array2, TxbLTU2_cr.Text, 0L, num) < num)
 			{
 				Interaction.MsgBox("Cant Read the specified C-R file contents", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			Class12.smethod_36(text2, 186624L, 9538, array2);
+			FirmwareUtilities.smethod_36(text2, 186624L, 9538, array2);
 			SaveFileDialog1.CreatePrompt = false;
 			SaveFileDialog1.OverwritePrompt = true;
 			SaveFileDialog1.FileName = Strings.Trim(struct4_0[i].string_3) + "_LTU";
@@ -17764,7 +17764,7 @@ namespace Lzard_TBX_NET40
 					return;
 				}
 				send_ETX();
-				array = Class13.cpoahSiso("1200000074C0000000000000");
+				array = ToolboxUtilities.cpoahSiso("1200000074C0000000000000");
 				SerPort = SerialPort1;
 				byte sense = default(byte);
 				byte num2 = LIZ_ATAPI_CMD(ref SerPort, array, 0, 116, 0, ref buf, ref errstat, ref sense);
@@ -17777,34 +17777,34 @@ namespace Lzard_TBX_NET40
 				}
 				send_ETX();
 				string left = "";
-				string str = Class12.smethod_21(Class13.smethod_1(ref buf), ref left);
+				string str = FirmwareUtilities.smethod_21(ToolboxUtilities.smethod_1(ref buf), ref left);
 				if (Operators.CompareString(left, "", false) != 0)
 				{
 					Interaction.MsgBox("Cant Get the Vendor of the Drive Inquiry", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				string str2 = Class12.smethod_22(Class13.smethod_1(ref buf), string_9, ref left);
+				string str2 = FirmwareUtilities.smethod_22(ToolboxUtilities.smethod_1(ref buf), string_9, ref left);
 				if (Operators.CompareString(left, "", false) != 0)
 				{
 					Interaction.MsgBox("Cant Get the Model of the Drive Inquiry", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				Class12.smethod_24(Class13.smethod_1(ref buf), string_9, string_10, ref left);
+				FirmwareUtilities.smethod_24(ToolboxUtilities.smethod_1(ref buf), string_9, string_10, ref left);
 				if (Operators.CompareString(left, "", false) != 0)
 				{
 					Interaction.MsgBox("Cant Get the ROM of the Drive Inquiry", MsgBoxStyle.Exclamation, "Error:");
 					return;
 				}
-				array2 = Class13.cpoahSiso(txbEV_SrcKey.Text);
-				Class13.byte_0 = Class13.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
-				Class13.byte_1 = Class13.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
+				array2 = ToolboxUtilities.cpoahSiso(txbEV_SrcKey.Text);
+				ToolboxUtilities.byte_0 = ToolboxUtilities.cpoahSiso("BEBECAFEBEBECAFEBEBECAFEBEBECAFE");
+				ToolboxUtilities.byte_1 = ToolboxUtilities.cpoahSiso("DEADBEEFDEADBEEFDEADBEEFDEADBEEF");
 				string text = Strings.Trim(str) + "-" + Strings.Trim(str2);
 				switch (text)
 				{
 				case "BENQ-VAD6038":
 				{
 					SerPort = SerialPort1;
-					bool num4 = DRIVE_AUTH3B(ref SerPort, array2, Class13.byte_0, Class13.byte_1);
+					bool num4 = DRIVE_AUTH3B(ref SerPort, array2, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1);
 					SerialPort1 = SerPort;
 					if (num4)
 					{
@@ -17819,7 +17819,7 @@ namespace Lzard_TBX_NET40
 				case "LITEON-DG16D2S":
 				{
 					SerPort = SerialPort1;
-					bool num7 = DRIVE_AUTH3B(ref SerPort, array2, Class13.byte_0, Class13.byte_1);
+					bool num7 = DRIVE_AUTH3B(ref SerPort, array2, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1);
 					SerialPort1 = SerPort;
 					if (num7)
 					{
@@ -17834,7 +17834,7 @@ namespace Lzard_TBX_NET40
 				case "LITEON-DG16D4S":
 				{
 					SerPort = SerialPort1;
-					bool num5 = DRIVE_AUTH3B(ref SerPort, array2, Class13.byte_0, Class13.byte_1);
+					bool num5 = DRIVE_AUTH3B(ref SerPort, array2, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1);
 					SerialPort1 = SerPort;
 					if (num5)
 					{
@@ -17849,7 +17849,7 @@ namespace Lzard_TBX_NET40
 				case "LITEON-DG16D5S":
 				{
 					SerPort = SerialPort1;
-					bool num6 = DRIVE_AUTH28(ref SerPort, array2, Class13.byte_0, Class13.byte_1);
+					bool num6 = DRIVE_AUTH28(ref SerPort, array2, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1);
 					SerialPort1 = SerPort;
 					if (num6)
 					{
@@ -17864,7 +17864,7 @@ namespace Lzard_TBX_NET40
 				case "HITACHI-DL10N":
 				{
 					SerPort = SerialPort1;
-					bool num3 = DRIVE_AUTH28(ref SerPort, array2, Class13.byte_0, Class13.byte_1);
+					bool num3 = DRIVE_AUTH28(ref SerPort, array2, ToolboxUtilities.byte_0, ToolboxUtilities.byte_1);
 					SerialPort1 = SerPort;
 					if (num3)
 					{
@@ -17898,7 +17898,7 @@ namespace Lzard_TBX_NET40
 				Interaction.MsgBox("Cannot Open COM Port, select a valid port", MsgBoxStyle.Exclamation, "Error:");
 				return;
 			}
-			byte[] bDVDKey = Class13.cpoahSiso("5E7AEB70769F7347F8B3419903FFF8E5");
+			byte[] bDVDKey = ToolboxUtilities.cpoahSiso("5E7AEB70769F7347F8B3419903FFF8E5");
 			SerialPort SerPort = SerialPort1;
 			bool num = DRIVE_SETKEY_BB(ref SerPort, bDVDKey);
 			SerialPort1 = SerPort;
@@ -17918,7 +17918,7 @@ namespace Lzard_TBX_NET40
 		{
 			string text = "Z:\\LTUv2\\000031330543\\fcrt_dec.bin";
 			txbLTU_cr.Text = text;
-			Class13.Struct6[] array = new Class13.Struct6[502];
+			ToolboxUtilities.Struct6[] array = new ToolboxUtilities.Struct6[502];
 			if (Operators.CompareString(FileSystem.Dir(text), "", false) == 0)
 			{
 				Interaction.MsgBox("File " + text + " does not exists", MsgBoxStyle.Exclamation, "Error");
@@ -17935,8 +17935,8 @@ namespace Lzard_TBX_NET40
 			int num2 = 0;
 			do
 			{
-				array[num2].byte_0 = Class13.cpoahSiso("00000000000000000000000000000000");
-				array[num2].byte_1 = Class13.cpoahSiso("00000000000000000000000000000000");
+				array[num2].byte_0 = ToolboxUtilities.cpoahSiso("00000000000000000000000000000000");
+				array[num2].byte_1 = ToolboxUtilities.cpoahSiso("00000000000000000000000000000000");
 				fileStream.Read(array[num2].byte_0, 0, 16);
 				fileStream.Read(array[num2].byte_1, 0, 16);
 				num2++;
@@ -17947,7 +17947,7 @@ namespace Lzard_TBX_NET40
 			num2 = 0;
 			do
 			{
-				text2 = text2 + Class13.smethod_2(array[num2].byte_0[0]) + Class13.smethod_2(array[num2].byte_0[1]) + Class13.smethod_2(array[num2].byte_0[15]) + "-" + Class13.smethod_5(ref array[num2].byte_1, 16) + "\r\n";
+				text2 = text2 + ToolboxUtilities.smethod_2(array[num2].byte_0[0]) + ToolboxUtilities.smethod_2(array[num2].byte_0[1]) + ToolboxUtilities.smethod_2(array[num2].byte_0[15]) + "-" + ToolboxUtilities.smethod_5(ref array[num2].byte_1, 16) + "\r\n";
 				num2++;
 			}
 			while (num2 <= 501);
